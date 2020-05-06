@@ -1,0 +1,5 @@
+Unless your meshes were exported already in a globally zero pose, make sure that 'zeroedMesh = false' in the Matlab script.
+
+You're welcome :)
+
+Chris B

@@ -1,0 +1,204 @@
+point  
+  ID: f309d7b1-f3ea-4243-83a3-2b969e5604f8 (287)
+  Object name: head10
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.429,12.385,91.959).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: e754dab1-69ba-4148-b4fa-fd7e1a3aeb63 (286)
+  Object name: neck11
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.968,11.468,84.312).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 2d5ea137-581f-44b5-aadb-be699f9a8177 (285)
+  Object name: ankle2
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (21.334,22.308,29.638).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 4
+
+point  
+  ID: 39a9d26f-57e9-4eb3-8c68-a347ad65be3a (282)
+  Object name: tmt1
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (21.146,23.285,18.548).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 93b88a07-da73-49fc-9001-4e499e7fa89d (271)
+  Object name: knee3
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (29.375,20.003,42.985).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: ca7cddc5-7c84-4785-bac0-565d119eb33e (270)
+  Object name: hip4
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (20.046,21.134,54.440).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 8bde77de-fb2a-4aaf-98ad-890307c7a6b2 (269)
+  Object name: vent5
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.312,20.217,53.975).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 2fb89c5a-a80e-42eb-a252-d0e850de5446 (268)
+  Object name: liliac6
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (10.204,14.503,68.667).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: f43a4570-e65b-49db-8b24-d82c6e1403f8 (267)
+  Object name: riliac7
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (21.184,14.023,69.257).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: a3bd607d-b78e-4cff-9b5f-7c3207dacbfc (266)
+  Object name: sacrum12
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.736,13.444,70.282).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 81d82df5-1f04-47bb-9f3b-49f9777360e3 (265)
+  Object name: rshoulder9
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (21.602,12.190,85.140).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: bf0dac06-7cb9-4dcc-ac01-84a8b7e812e1 (263)
+  Object name: lshoulder8
+  Layer name: Markers
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (10.814,12.809,84.552).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+

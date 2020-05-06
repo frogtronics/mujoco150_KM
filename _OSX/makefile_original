@@ -1,0 +1,10 @@
+COMMON=-O2 -I../inc -L../_OSX -std=c++11 -lstdc++ -mavx
+
+all:
+	clang $(COMMON) ../src/analyzeModel.cpp   -lmujoco150 -lglfw.3 -o analyzeModel
+	clang $(COMMON) ../src/changeAnglesCTR.cpp   -lmujoco150 -lglfw.3 -o changeAnglesCTR
+	clang $(COMMON) ../src/jumper.cpp   -lmujoco150 -lglfw.3 -o jumper
+	clang $(COMMON) ../src/simulate.cpp   -lmujoco150 -lglfw.3 -o simulate
+	clang $(COMMON) ../src/simpipe.cpp ../src/ethraw.cpp -lmujoco150 -lglfw.3 -o simpipe -v
+	clang $(COMMON) ../src/limits.cpp   -lmujoco150 -lglfw.3 -o limits
+	

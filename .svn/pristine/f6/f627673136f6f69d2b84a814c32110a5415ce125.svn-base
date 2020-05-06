@@ -1,0 +1,94 @@
+<mujoco model="MuscleDefaults">
+        
+        <!-- defaults for muscles -->
+        <default class="m_LD"> <!-- bright blue -->
+            <site rgba="0.1 0.6 1 1"/>
+            <tendon rgba="0.1 0.6 1 1"/>
+        </default>
+        <default class="m_IL"> <!-- bright yellow -->
+            <site rgba="0.9 0.7 0 1"/>
+            <tendon rgba="0.9 0.7 0 1"/>
+        </default>
+        <default class="m_CI">
+            <site rgba="0 0.4 0 1"/> <!-- dark green -->
+            <tendon rgba="0 0.4 0 1"/>
+        </default>
+        <default class="m_CS">
+            <site rgba="0 1 0 1"/> <!-- bright green -->
+            <tendon rgba="0 1 0 1"/>
+        </default>
+        <default class="m_II"> <!-- orange -->
+            <site rgba="0.9 0.6 0.2 1"/>
+            <tendon rgba="0.9 0.6 0.2 1"/>
+        </default>
+        <default class="m_IE"> <!-- bright red -->
+            <site rgba="0.7 0.1 0.1 1"/>
+            <tendon rgba="0.7 0.1 0.1 1"/>
+        </default>
+        <default class="m_CR"> <!-- purple -->
+            <site rgba="0.4 0 0.4 1"/>
+            <tendon rgba="0.4 0 0.4 1"/>
+        </default>
+        <default class="m_SM"> <!-- yellow -->
+            <site rgba="1 0.9 0 1"/>
+            <tendon rgba="1 0.9 0 1"/>
+        </default>
+        <default class="m_GR"> <!-- dark grey -->
+            <site rgba="0.5 0.5 0.7 1"/>
+            <tendon rgba="0.5 0.5 0.7 1"/>
+        </default>
+        <default class="m_GL"> <!-- neon pink -->
+            <site rgba="0.8 0 0.5 1"/>
+            <tendon rgba="0.8 0 0.5 1"/>
+        </default>
+        <default class="m_ST"> <!-- green -->
+            <site rgba="0 0.8 0 1"/>
+            <tendon rgba="0 0.8 0 1"/>
+        </default>
+        <default class="m_AM"> <!-- pastel green -->
+            <site rgba="0.6 0.8 0.6 1"/>
+            <tendon rgba="0.6 0.8 0.6 1"/>
+        </default>
+        <default class="m_AL"> <!-- dark teal -->
+            <site rgba="0 0.5 0.5 1"/>
+            <tendon rgba="0 0.5 0.5 1"/> 
+        </default>
+        <default class="m_SA"> <!-- dark red (plum) -->
+            <site rgba="0.5 0 0.3 1"/>
+            <tendon rgba="0.5 0 0.3 1"/>
+        </default>
+        <default class="m_IFB"> <!-- light blue -->
+            <site rgba="0.2 0.6 0.8 1"/>
+            <tendon rgba="0.2 0.6 0.8 1"/>
+        </default>
+        <default class="m_IFM"> <!-- dark blue -->
+            <site rgba="0 0 0.4 1"/>
+            <tendon rgba="0 0 0.4 1"/>
+        </default>
+        <default class="m_PY"> <!-- bright red -->
+            <site rgba="0.9 0 0 1"/>
+            <tendon rgba="0.9 0 0 1"/>
+        </default>
+        <default class="m_GE"> <!-- light blue -->
+            <site rgba="0.3 0.6 1 1"/>
+            <tendon rgba="0.3 0.6 1 1"/>
+        </default>
+        <default class="m_OE"> <!-- dark blue -->
+            <site rgba="0 0 0.6 1"/>
+            <tendon rgba="0 0 0.6 1"/>
+        </default>
+        <default class="m_PE"> <!-- light turquoise -->
+            <site rgba="0.4 0.8 0.9 1"/>
+            <tendon rgba="0.4 0.8 0.9 1"/>
+        </default>
+        <default class="m_QF"> <!-- lilac (medium-light purple) -->
+            <site rgba="0.4 0.4 0.9 0"/>
+            <tendon rgba="0.4 0.4 0.9 0"/>
+        </default>
+        <default class="m_PL"> <!-- bright orange-->
+            <site rgba="1 0.5 0 0"/>
+            <tendon rgba="1 0.5 0 0"/>
+        </default>
+
+    
+</mujoco>

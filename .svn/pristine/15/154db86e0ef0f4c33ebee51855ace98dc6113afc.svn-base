@@ -1,0 +1,193 @@
+<mujoco model='FrogBot'>
+	<compiler inertiafromgeom="true" inertiagrouprange="0 4" angle="degree" strippath="true" meshdir="assets"/>
+
+	<option timestep='0.002' iterations="50" tolerance="1e-10"
+			solver="Newton" jacobian="dense" cone="elliptic"
+			gravity="0 0 -9.816"/>
+
+	<size nstack="1000000"/>
+	
+	
+	<default>
+		<geom type="mesh" density="2700" pos="1 -1 -1"/>
+		<joint type="hinge" axis="0 1 0" damping="0.001"/>
+		<site type="sphere" size="0.001" rgba="0 0 0 0"/>
+		<mesh scale="-0.001 0.001 0.001"/>
+		
+		
+		<equality solimp="0.98 0.999 0.00005"/>
+		
+		<default class="EC60"> <!-- armature = (0.0001210 + 0.0000193) * 30 = 0.004209 (rotor + gear inertia) -->
+			<joint armature="0.004209" frictionloss="0.05" damping="0.01"/>
+			<motor gear="30" forcelimited="true" forcerange="-2 2"/> <!-- stall torque is 4.19, ~2Nm @ 18A limit -->
+		</default>
+		
+		<default class="ECi40"> <!-- armature = 0.000001208 -->
+			<geom mass="0.180"/>
+			<joint armature="0.000001208" frictionloss="0.001" damping="0.001"/>
+			<motor gear="1" ctrllimited="true" ctrlrange="-0.1 0.1" forcelimited="true" forcerange="-1.09 1.09"/>
+		</default>
+		
+		<default class="Strut">
+			<geom mesh="Strut" quat="0 0 1 0" pos="-1 -1 1"/>
+		</default>
+		
+		<default class="Axes">
+			<geom type="capsule" size="0.001" density="1" pos="0 0 0" contype="0" conaffinity="0"/>
+		</default>
+	</default>
+	
+	
+	<asset>
+		<mesh file="assets/BaseLink.stl"/>
+		<mesh file="assets/TopLink.stl"/>
+		<mesh file="assets/ElbowLink.stl"/>
+		<mesh file="assets/BaseStatic.stl"/>
+		<mesh file="assets/BaseGear.stl"/>
+		<mesh file="assets/BaseMotor.stl"/>
+		<mesh file="assets/WristMotor.stl"/>
+		<mesh file="assets/Strut.stl"/>
+	</asset>
+	
+
+
+
+
+
+	<worldbody>
+		
+		<geom class="Axes" fromto="0 0 0 0.1 0 0" rgba="1 0 0 1"/>
+		<geom class="Axes" fromto="0 0 0 0 0.1 0" rgba="0 1 0 1"/>
+		<geom class="Axes" fromto="0 0 0 0 0 0.1" rgba="0 0 1 1"/>
+		
+		
+		
+		
+		<body name="Shoulder">
+			
+			<geom mesh="BaseStatic"/>
+			
+			<body name="ShoulderMotor">
+				
+				<geom mesh="BaseMotor"/>
+				
+			</body>
+			
+			<body name="BaseLink" pos="0 0.008 0">
+				
+				<joint name="Shoulder" class="EC60" limited="true" range="-30 105"/>
+				
+				<geom mesh="BaseGear" pos="1 -1.008 -1" group="5"/>
+					
+				<geom mesh="BaseLink" name="BaseLink"/>
+				
+				<body name="TopLink" pos="0 0.008 0.25">
+					
+					<joint name="TopLink" limited="true" range="-60 60"/>
+					
+					<geom mesh="TopLink" name="TopLink"/>
+					
+					<body name="WristMotor" pos="0.25 0 0">
+						<geom mesh="WristMotor" mass="0.180"/>
+					</body>
+					
+					<body name="Wrist" pos="0.25 0 0">
+						
+						<joint name="Wrist" class="ECi40"/>
+						
+						<geom type="cylinder" fromto="0 -0.003 0 0 0.028 0" size="0.003" pos="0 0 0"/>
+						
+						<body name="EE" pos="0 0.025 0">
+							<geom class="Axes" fromto="0 0 0 0.1 0 0" rgba="1 0 0 1"/>
+							<geom class="Axes" fromto="0 0 0 0 0.1 0" rgba="0 1 0 1"/>
+							<geom class="Axes" fromto="0 0 0 0 0 0.1" rgba="0 0 1 1"/>
+							
+							<site name="EE"/>
+						</body>
+						
+					</body>
+					
+					
+					<body name="StrutF" pos="0.05 0.008 0">
+						
+						<joint name="StrutF"/>
+						
+						<geom name="StrutF" class="Strut"/>
+						
+					</body>
+					
+					<body name="StrutB" pos="-0.05 0.008 0">
+						
+						<joint name="StrutB"/>
+						
+						<geom name="StrutB" class="Strut"/>
+						
+					</body>
+					
+				</body>
+			</body>
+		</body>
+
+
+		<body name="Elbow" pos="0 0.04 0">
+			
+			<geom mesh="BaseStatic" quat="0 0 0 1" pos="-1 1 -1"/>
+			
+			<body name="ElbowMotor">
+				
+				<geom mesh="BaseMotor" quat="0 0 0 1" pos="-1 1 -1"/>
+				
+			</body>
+			
+			<body name="ElbowLink" pos="0 -0.008 0">
+				
+				<joint name="Elbow" class="EC60"/>
+				
+				<body name="ElbowGear" pos="0 0.008 0">
+					<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1 -1"/>
+				</body>
+				
+				<geom mesh="ElbowLink" name="ElbowLink"/>
+				
+			</body>
+			
+		</body>
+		
+		
+		<body name="Target" pos="0.25 0.041 0.25">
+			
+			<joint name="Tx" type="slide" axis="1 0 0" damping="0.01" limited="true" range="-0.25 0.25"/>
+			<joint name="Tz" type="slide" axis="0 0 1" damping="0.01" limited="true" range="-0.75 0.25"/>
+			<!--
+			<freejoint name="Target"/>
+			-->
+			<geom pos="0 0 0" mass="0.001" type="sphere" size="0.02" rgba="1 0 0 0.5" contype="0" conaffinity="0"/>
+			
+		</body>
+
+
+		
+	</worldbody>
+	
+	<equality>
+		
+		<connect body1="StrutF" body2="ElbowLink" anchor="0 0 -0.25"/>
+		<connect body1="StrutB" body2="ElbowLink" anchor="0 0 -0.25"/>
+		
+	</equality>
+	
+	<contact>
+		<exclude body1="Shoulder" body2="ShoulderMotor"/>
+		<exclude body1="Shoulder" body2="BaseLink"/>
+		<exclude body1="Elbow" body2="ElbowMotor"/>
+		<exclude body1="Elbow" body2="ElbowGear"/>
+	</contact>
+	
+	
+	<actuator>
+		<motor name="Shoulder" joint="Shoulder" class="EC60"/>
+		<motor name="Elbow" joint="Elbow" class="EC60"/>
+		<motor name="Wrist" joint="Wrist" class="ECi40"/>
+	</actuator>
+
+</mujoco>

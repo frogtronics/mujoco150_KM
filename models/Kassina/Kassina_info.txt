@@ -1,0 +1,74 @@
+Total degrees of freedom: 34
+Total number of inputs for joints: 42
+Total number of controls for joints: 0
+
+Joint information
+(ID)	qAdr	DoF	TYPE		NAME
+(0)	0	0	mjJNT_FREE	j_body
+(1)	7	6	mjJNT_HINGE	j_urostyleX
+(2)	8	7	mjJNT_HINGE	j_urostyleY
+(3)	9	8	mjJNT_HINGE	j_ISX
+(4)	10	9	mjJNT_HINGE	j_ISY
+(5)	11	10	mjJNT_BALL	j_hipL
+(6)	15	13	mjJNT_BALL	j_kneeL
+(7)	19	16	mjJNT_BALL	j_ankleL
+(8)	23	19	mjJNT_BALL	j_hipL_mir
+(9)	27	22	mjJNT_BALL	j_kneeL_mir
+(10)	31	25	mjJNT_BALL	j_ankleL_mir
+(11)	35	28	mjJNT_FREE	EE
+
+
+Tendon information:
+Total number of tendons: 48
+Tendon (id) and names:
+(0) t_left_LD
+(1) t_right_LD
+(2) t_left_IL_0
+(3) t_left_IL_1
+(4) t_left_IL_2
+(5) t_left_IL_3
+(6) t_right_IL_0
+(7) t_right_IL_1
+(8) t_right_IL_2
+(9) t_right_IL_3
+(10) t_left_CS_lat
+(11) t_left_CS_med
+(12) t_right_CS_lat
+(13) t_right_CS_med
+(14) t_left_CI_prox
+(15) t_left_CI_mid
+(16) t_left_CI_dist
+(17) t_right_CI_prox
+(18) t_right_CI_mid
+(19) t_right_CI_dist
+(20) t_left_II_lat
+(21) t_left_II_med
+(22) t_left_IE_prox
+(23) t_left_IE_dist
+(24) t_left_CR_dors
+(25) t_left_CR_vent
+(26) t_left_SM
+(27) t_left_ST_vent
+(28) t_left_ST_dors
+(29) t_left_GR
+(30) t_left_GL
+(31) t_left_AM_crv
+(32) t_left_AM_str
+(33) t_left_AL
+(34) t_left_SA
+(35) t_left_IFB
+(36) t_left_IFM
+(37) t_left_PY
+(38) t_left_OE
+(39) t_left_PE
+(40) t_left_PL
+(41) t_left_PER
+(42) t_left_ECB
+(43) t_left_TiAB
+(44) t_left_TiAL
+(45) t_left_TiP
+(46) t_left_TaP
+(47) t_left_TaA
+
+
+

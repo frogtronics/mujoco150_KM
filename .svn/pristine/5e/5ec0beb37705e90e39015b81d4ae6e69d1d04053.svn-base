@@ -1,0 +1,25 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "e123127e-91d4-4c11-9c90-78b539c925c4",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "e123127e-91d4-4c11-9c90-78b539c925c4" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "e123127e-91d4-4c11-9c90-78b539c925c4" : 9223372036854775807
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "C6E5DEE9-62C2-4D57-A9B0-3E7EDEBE891D",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "e123127e-91d4-4c11-9c90-78b539c925c4" : "mjpro150SVN\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "mjpro150",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "mjpro150.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "svn:\/\/frogserver\/mjpro150",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "e123127e-91d4-4c11-9c90-78b539c925c4"
+    }
+  ]
+}

@@ -1,0 +1,3721 @@
+point  
+  ID: 50b20a81-2d8e-4c75-9616-a76ae7ae8584 (400)
+  Object name: left_CR_ins_dors
+  Layer name: Objects::Reference::CR_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.331,19.515,41.479).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: 2c24184c-a73c-4c93-a3a3-d4c800da21a1 (399)
+  Object name: left_CR_via_vent
+  Layer name: Objects::Reference::CR_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.185,20.920,43.601).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 7
+
+point  
+  ID: 5e8bcc96-be06-4ac6-97da-78ee921b1ff3 (396)
+  Object name: left_CR_via_fem
+  Layer name: Objects::Reference::CR_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (6.368,19.578,44.057).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 5
+
+point  
+  ID: 18ecf31f-1b96-49ea-b65d-5fa5ae8452f4 (392)
+  Object name: left_PER_ins
+  Layer name: Objects::Reference::PER_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.056,23.411,28.649).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: 953c063e-7938-4576-aee9-e6d18942992d (391)
+  Object name: w_left_knee_tib_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.236,20.441,41.226).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+extrusion  
+  ID: 068f6503-ce36-4d81-a866-0ca266d4e504 (388)
+  Object name: w_left_knee_tib
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 3.769)
+      "V":  (0.000 <= V <= 3.182)
+      Path: (5.620,19.352,41.315) to (4.400,22.889,41.216)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.706,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.706
+    Geometry UserData:
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 11
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 8
+
+point  
+  ID: b5a4d18f-94d2-4007-a267-ce233376007d (377)
+  Object name: left_ECB_org
+  Layer name: Objects::Reference::ECB_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.762,19.933,43.111).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: c79b4313-07c4-4600-8c57-4686ca2f2e09 (25)
+  Object name: left_PER_org
+  Layer name: Objects::Reference::PER_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.820,19.801,43.008).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 5a924ac6-275f-4009-babe-31052db35758 (369)
+  Object name: left_CR_ins
+  Layer name: Objects::Reference::CR_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.230,20.580,40.889).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 4
+
+point  
+  ID: f935b6eb-3176-435f-b663-9d9c0e38eb1d (366)
+  Object name: left_ECB_via
+  Layer name: Objects::Reference::ECB_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.409,21.041,39.553).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 6
+
+point  
+  ID: cfd17449-9076-4459-954a-e85c59965b9a (361)
+  Object name: left_PER_via
+  Layer name: Objects::Reference::PER_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.225,20.201,39.821).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 9
+
+point  
+  ID: cf6cf80f-5e90-478b-a9d8-9a4e8bb7506f (353)
+  Object name: w_left_knee_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (3.413,20.496,41.794).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: 3d60b53f-0139-44d1-805d-c4a5c4f40f05 (352)
+  Object name: w_left_ST_side
+  Layer name: Objects::Reference::ST_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.798,26.179,46.998).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+surface  
+  ID: 10da5f1c-fd23-484b-8f0f-833e635e6e04 (346)
+  Object name: w_left_ST
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 26.398)
+        "V":  (-6.600 <= V <= 6.600)
+        Axis of revolution: (10.452,20.459,49.453) to (10.317,20.565,50.656)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (11.018,20.014,44.398)
+            end = (9.886,20.904,54.508)
+            center = (10.452,20.459,49.453)
+            radius = 5.106
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  4753 vertices  4608 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 43
+
+surface  
+  ID: ca2da7f3-8d4d-40ac-a05e-bc294283dfe2 (313)
+  Object name: w_left_SM
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 26.398)
+        "V":  (-6.600 <= V <= 6.600)
+        Axis of revolution: (11.167,24.186,50.871) to (11.820,24.224,51.534)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (8.421,24.023,48.085)
+            end = (13.912,24.348,53.656)
+            center = (11.167,24.186,50.871)
+            radius = 3.915
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  4753 vertices  4608 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 12
+
+point  
+  ID: 6659d2d1-ff21-4477-8743-dc4c27b964ee (312)
+  Object name: left_TiP_ins
+  Layer name: Objects::Reference::TiP_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.995,25.973,27.020).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 3
+
+point  
+  ID: da013030-4284-4b82-a99e-87f4930260a7 (310)
+  Object name: left_TaA_org
+  Layer name: Objects::Reference::TaA_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.172,23.897,29.147).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 3
+
+point  
+  ID: e97efbcc-e703-4fad-aa3e-ab5757402184 (308)
+  Object name: left_PL_via
+  Layer name: Objects::Reference::PL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (18.210,24.951,30.442).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 4
+
+point  
+  ID: 628c8bd4-7fa3-49a6-b11c-f24b48e5491c (307)
+  Object name: left_TiP_via
+  Layer name: Objects::Reference::TiP_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (18.119,25.925,28.798).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 3
+
+point  
+  ID: 9954e7af-b5a1-4d09-ba5c-0e83e3eca2cd (305)
+  Object name: left_TaP_org
+  Layer name: Objects::Reference::TaP_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.832,26.214,28.836).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+extrusion  
+  ID: a299fe35-3c0c-4119-b1b2-c3f6a258c3ac (303)
+  Object name: w_left_PL
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 7.093)
+      "V":  (0.000 <= V <= 2.428)
+      Path: (16.962,26.393,28.681) to (18.014,23.681,28.578)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.708,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.708
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 23
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 25
+
+point  
+  ID: 184e0a70-8131-4dd6-b7d5-7e1d6685c787 (2)
+  Object name: EE_old
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (7.923,24.751,12.153).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 3
+
+surface  
+  ID: 4287390e-eaa8-4b73-9cda-53a212cae996 (3)
+  Object name: w_left_PL_prox
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 61.470)
+        "V":  (-15.367 <= V <= 15.367)
+        Axis of revolution: (7.573,21.684,32.666) to (7.573,21.684,33.484)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (7.573,21.684,24.659)
+            end = (7.573,21.684,40.673)
+            center = (7.573,21.684,32.666)
+            radius = 8.007
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9557 vertices  9944 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 4
+
+surface  
+  ID: 672985ef-dd83-4798-ba67-73122f5d6153 (4)
+  Object name: w_left_TiAL
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 26.525)
+        "V":  (-6.631 <= V <= 6.631)
+        Axis of revolution: (12.846,22.673,36.322) to (12.846,22.673,37.322)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (12.846,22.673,32.101)
+            end = (12.846,22.673,40.544)
+            center = (12.846,22.673,36.322)
+            radius = 4.222
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9897 vertices  10352 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 81bc3830-4435-43b6-ab52-7c7dda7a7802 (5)
+  Object name: w_left_TiAB_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (10.275,22.543,34.214).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+extrusion  
+  ID: 550c734e-91c9-423a-8e9f-2568e0d3cdaa (6)
+  Object name: w_left_TiAB
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 3.456)
+      "V":  (0.000 <= V <= 9.354)
+      Path: (6.989,21.594,38.750) to (14.306,23.919,31.411)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.625,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.625
+    Geometry UserData:
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 15
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: dced3ba3-7d2c-4bf2-b493-dc2096ed6c14 (7)
+  Object name: left_TaA_ins
+  Layer name: Objects::Reference::TaA_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.740,27.066,19.382).
+
+point  
+  ID: ba0868ae-64d9-4faf-829c-2d30530d868c (9)
+  Object name: left_TaP_ins
+  Layer name: Objects::Reference::TaP_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.415,27.162,19.058).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: d38ac284-187e-4155-a597-6cc167f30765 (13)
+  Object name: left_TiP_org
+  Layer name: Objects::Reference::TiP_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (7.182,22.053,39.253).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+surface  
+  ID: 1d8af446-76dc-4344-8965-f6f5e12ce36c (14)
+  Object name: w_left_IE
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 6.201)
+        "V":  (-1.550 <= V <= 1.550)
+        Axis of revolution: (13.784,22.635,57.750) to (13.905,21.503,57.764)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (13.664,23.751,57.737)
+            end = (13.904,21.518,57.764)
+            center = (13.784,22.635,57.750)
+            radius = 1.123
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9791 vertices  10224 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 21
+
+point  
+  ID: 1b605761-1a2f-4069-88ea-44291fdbb922 (15)
+  Object name: left_TiAL_ins_vent
+  Layer name: Objects::Reference::TiAL_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.310,26.125,27.569).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: 6962345a-d847-4643-bead-0e5fdaa13f5b (16)
+  Object name: left_TiAL_ins_dors
+  Layer name: Objects::Reference::TiAL_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.620,23.443,27.523).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 4b44ea50-3ed1-4736-acb9-049fca1bed96 (17)
+  Object name: left_TiAL_org
+  Layer name: Objects::Reference::TiAL_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.497,20.857,39.951).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: 73b5aa5e-92fb-417e-9455-042b142c8d86 (18)
+  Object name: left_TiAB_ins
+  Layer name: Objects::Reference::TiAB_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.119,26.267,27.456).
+
+point  
+  ID: 3f8ac400-90ff-4c31-ab50-0ab1ce69860f (19)
+  Object name: left_TiAB_org
+  Layer name: Objects::Reference::TiAB_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (7.727,21.250,37.687).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 20d5f434-ca8b-4748-8764-3ef6ac7d7c7c (20)
+  Object name: left_ECB_ins
+  Layer name: Objects::Reference::ECB_REF
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.168,25.772,29.374).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 5802ace5-95fb-446e-926f-1862980c5696 (52)
+  Object name: right_IL_ins_med
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (18.684,14.331,68.201).
+
+surface  
+  ID: 0f115af9-8c0c-43cf-803a-44198f8950c3 (53)
+  Object name: w_right_sa
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 5.969)
+        "V":  (-1.492 <= V <= 1.492)
+        Axis of revolution: (19.299,14.781,68.722) to (19.345,14.984,67.866)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (19.255,14.588,69.536)
+            end = (19.343,14.974,67.909)
+            center = (19.299,14.781,68.722)
+            radius = 0.837
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9897 vertices  10352 polygons
+    Analysis mesh: none present
+
+surface  
+  ID: 43df904a-a645-4225-89ec-982560987f58 (54)
+  Object name: w_left_sa
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 5.969)
+        "V":  (-1.492 <= V <= 1.492)
+        Axis of revolution: (12.118,15.195,68.474) to (12.165,15.403,67.597)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (12.073,14.997,69.307)
+            end = (12.163,15.393,67.641)
+            center = (12.118,15.195,68.474)
+            radius = 0.857
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9897 vertices  10352 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+extrusion  
+  ID: 0ec52c18-79ac-4b87-80a2-6ccc5bdb8154 (55)
+  Object name: w_left_ilium_dist
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 2.262)
+      "V":  (0.000 <= V <= 7.071)
+      Path: (13.674,20.282,58.785) to (17.397,25.437,55.692)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.360,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.360
+    Geometry UserData:
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 7
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: d8ce526e-ec07-4111-a133-e45e6f867997 (56)
+  Object name: right_CS_ins_med
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.076,14.721,70.138).
+
+point  
+  ID: 112b041f-363a-49b4-9b6c-4102902a7840 (57)
+  Object name: left_CS_ins_med
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.332,14.653,69.984).
+
+point  
+  ID: 1e6b4c21-4c9f-4037-852b-27d0a69ede2c (58)
+  Object name: w_cent_sa_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.591,13.616,69.611).
+
+point  
+  ID: e47eb404-a0b5-4031-b346-000f5152d620 (59)
+  Object name: left_II_ins_dist
+  Layer name: Objects::Reference::II_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (7.334,21.735,47.479).
+
+point  
+  ID: 0dfa5fbb-268b-47f7-bc12-f599046998d9 (60)
+  Object name: UrostyleX
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (35.715,15.071,70.350).
+
+point  
+  ID: bd2177a7-ff1b-49f7-860d-c5a3f99d25ad (61)
+  Object name: SpineTip
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.243,13.580,78.819).
+
+point  
+  ID: 9a399c3f-83ab-4665-9227-063d57084d6b (62)
+  Object name: right_CS_ins_lat
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (19.203,14.494,67.930).
+
+point  
+  ID: 8a4d938b-4d33-4cd2-a0db-b2e1159f2029 (63)
+  Object name: left_CS_ins_lat
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.563,15.009,67.639).
+
+point  
+  ID: fb89751a-e308-4281-83d8-e934561932a4 (64)
+  Object name: left_LD_org_lat
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (13.648,13.130,78.623).
+
+point  
+  ID: 77c29dc2-d5d8-4b86-9197-824001611fc6 (65)
+  Object name: left_IL_ins_med
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.971,14.908,68.109).
+
+point  
+  ID: ebe7c9c3-3f6e-4359-a046-64cb6114742d (66)
+  Object name: right_IL_org_3
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.613,13.268,78.783).
+
+point  
+  ID: 14954c0c-1c69-4abc-8c74-83012adf9fcc (67)
+  Object name: left_IL_org_0
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.838,14.756,71.991).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 6312bb5d-c225-425f-b99d-81b1b0689ff6 (68)
+  Object name: left_IL_org_2
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.674,13.967,76.312).
+
+point  
+  ID: dbb9426e-1d50-479e-a97f-ab6fefa3bc60 (69)
+  Object name: left_IL_org_3
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.721,13.597,78.370).
+
+point  
+  ID: 2df74cf4-d2af-4493-b73f-759db6bb7b37 (70)
+  Object name: right_IL_org_2
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.746,13.973,76.645).
+
+point  
+  ID: 77b74880-932f-4d27-9440-befc5375b880 (71)
+  Object name: right_IL_org_1
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.896,14.270,74.344).
+
+point  
+  ID: a554c957-22a7-4295-ae1b-162c86ef32e2 (72)
+  Object name: right_IL_org_0
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (18.135,14.494,72.253).
+
+point  
+  ID: 3af5750b-b4ef-46e9-ae0c-00949a962d53 (73)
+  Object name: left_IL_org_1
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.799,14.334,74.167).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: c9e5ef67-1a3d-4336-a065-f71b915341e9 (74)
+  Object name: right_IL_ins_lat
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (19.989,15.307,68.631).
+
+point  
+  ID: 6956504a-27fc-41ad-bf4a-23b7e33516db (75)
+  Object name: j_IS_R
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (19.227,14.725,68.705).
+
+point  
+  ID: 8dcfc307-2a96-4fda-8045-dda922d34f28 (76)
+  Object name: FemurROrigin
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (18.313,24.530,56.524).
+
+point  
+  ID: ce43fa7f-9ed4-486f-bc96-3e8c11f8d379 (77)
+  Object name: FemurLOrigin
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.880,24.565,56.228).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 9941ccdf-358d-4f78-b6db-1cb61946e0f0 (78)
+  Object name: left_IL_ins_lat
+  Layer name: Objects::Reference::IL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (11.483,15.804,68.330).
+
+point  
+  ID: b61cb7a7-7641-4b28-a588-7dc1e3cd58c8 (79)
+  Object name: j_IS_L
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.228,15.021,68.439).
+
+point  
+  ID: dda68ca3-a604-40ec-a2be-ec54e16bc15e (81)
+  Object name: SpineX
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (35.715,15.071,70.350).
+
+point  
+  ID: f36a52f4-1c3f-45f9-a299-37e61dc01977 (82)
+  Object name: SpineZ
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.799,20.412,50.011).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 06439594-9bb0-4ff1-99ed-38d09d815b3f (83)
+  Object name: left_II_ins_prox
+  Layer name: Objects::Reference::II_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (13.214,23.573,53.700).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: ce78905a-f475-4a8a-a6b8-5fada3ef5d09 (84)
+  Object name: left_II_ins_dist_vent
+  Layer name: Objects::Reference::II_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (9.723,22.783,48.609).
+
+point  
+  ID: e99c211f-b0aa-4a1c-aad5-a867b6a5c9e2 (86)
+  Object name: left_II_org_dist
+  Layer name: Objects::Reference::II_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.905,21.562,56.258).
+
+point  
+  ID: ca009dbc-4307-4e60-a833-bb9bef90c256 (87)
+  Object name: left_II_org_prox
+  Layer name: Objects::Reference::II_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.294,20.490,57.760).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 3110929a-1865-4904-b770-983548b81ccb (88)
+  Object name: left_II_via_prox
+  Layer name: Objects::Reference::II_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.029,21.307,58.942).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 5e27aa44-e97d-47f4-8d0e-aba9864190d1 (89)
+  Object name: left_II_via_dist
+  Layer name: Objects::Reference::II_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.922,23.262,56.995).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 41a84eed-b26e-48b7-8eca-527abb4b8d2d (93)
+  Object name: PelvisOrigin
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.779,23.701,53.367).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 33741eed-e84c-40f5-b7e1-ee917797c82d (94)
+  Object name: j_urostyle
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.749,15.803,69.444).
+
+point  
+  ID: 9647ee9c-33ff-43ed-842b-969fd30593a4 (95)
+  Object name: j_hipL
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.880,24.565,56.228).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+curve  
+  ID: aa2af2e7-579b-482c-b246-6f818c7849e3 (96)
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid curve.
+    Line
+      start = (12.228,15.021,68.439)
+      end = (19.227,14.725,68.705)
+      domain = 0.000 to 7.010
+      line length = 7.010
+
+point  
+  ID: 240ee071-f687-4661-a0eb-088b1ccbfae2 (97)
+  Object name: j_IS
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.727,14.873,68.572).
+
+point  
+  ID: 2105ad78-f6d0-4426-895a-2d5ac8a71898 (99)
+  Object name: w_right_sa_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (19.877,15.032,69.274).
+
+point  
+  ID: f34f10d3-2c1b-436e-9144-f2795215c850 (100)
+  Object name: w_left_sa_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (11.385,15.522,68.777).
+
+point  
+  ID: 45243666-b107-43a8-ad38-94955a1cb699 (102)
+  Object name: j_kneeL
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.520,20.743,41.832).
+
+point  
+  ID: 86dfa9a3-b50d-4d27-8623-4e45536b4c2b (103)
+  Object name: TibFibLOrigin
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.520,20.743,41.832).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: a2d19854-8058-45ee-bff2-861a2c7a1c0c (104)
+  Object name: FemurLZ
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.520,20.743,41.832).
+
+point  
+  ID: b6107636-9ab0-49b4-9ccd-4966ab7509ca (105)
+  Object name: TibFibLZ
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.790,25.163,28.445).
+
+point  
+  ID: f44153d0-bc1c-4048-ab0b-5e80e76dd3be (106)
+  Object name: FemurLXZ
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.679,21.006,42.126).
+
+point  
+  ID: b00960e3-a05c-4ec8-bbb7-27702392de27 (107)
+  Object name: TibFibLYZ
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.861,23.893,28.753).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: f60032f5-3e7e-455f-8139-efc20757a195 (108)
+  Object name: TarsalsLZ
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.955,26.222,18.302).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+curve  
+  ID: f2026095-3f7f-414f-8072-59250773202a (109)
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid curve.
+    Line
+      start = (4.520,20.743,41.832)
+      end = (24.425,27.374,21.751)
+      domain = 0.000 to 19.361
+      line length = 29.042
+
+point  
+  ID: 7cf3203a-64ea-4d28-b4a6-14fbe4f38eef (110)
+  Object name: TarsalsLYZ
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.238,24.564,17.905).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 0c610fa1-0f21-4024-a02c-f72888915d89 (111)
+  Object name: TarsalsLOrigin
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.830,25.039,28.003).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+curve  
+  ID: 17c43e54-d6b5-4f71-9e1b-4c68ff0fd1db (112)
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid curve.
+    Line
+      start = (15.955,26.222,18.302)
+      end = (17.268,24.448,32.854)
+      domain = 0.000 to 9.813
+      line length = 14.719
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 4cbef265-5dc6-4db3-b3d2-5bc38f0a58a8 (113)
+  Object name: j_ankleL
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.947,24.882,29.295).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 9b1e1563-1220-4c04-9171-f4be08125fa9 (115)
+  Object name: PelvisX_Z
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (20.740,15.619,69.674).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 32c0cb7e-c619-4b5f-8cc6-3ad29cb5b389 (116)
+  Object name: left_IE_org
+  Layer name: Objects::Reference::IE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (11.813,16.474,65.430).
+
+point  
+  ID: 04bd96f7-0810-4a5e-a6f0-0ae9f2492a30 (118)
+  Object name: left_IE_org_dist
+  Layer name: Objects::Reference::IE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.950,22.800,56.060).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+extrusion  
+  ID: ccf05dfa-c8e1-4108-b485-13d6b109c6fd (119)
+  Object name: w_left_femur_prox
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 4.084)
+      "V":  (0.000 <= V <= 12.364)
+      Path: (15.566,24.497,57.094) to (12.317,24.197,52.585)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.650,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.650
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 46
+
+point  
+  ID: 9e69ed5a-9d14-4ad3-9cf8-a5b8298835c0 (120)
+  Object name: w_left_femur_prox_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.131,23.780,54.513).
+
+point  
+  ID: d176bf76-231a-407b-bdb0-e95bfb3c5c83 (122)
+  Object name: left_LD_org_lat_3
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (13.588,12.956,77.463).
+
+point  
+  ID: 3799bebf-2604-4545-9896-29313baafcd5 (123)
+  Object name: left_LD_org_lat_2
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (13.792,13.407,75.036).
+
+point  
+  ID: 99efd84b-3c61-4975-8801-0fdc63deaef1 (124)
+  Object name: left_LD_org_lat_1
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (13.911,13.942,72.784).
+
+point  
+  ID: 882ad633-708f-4d73-ab13-18624d210864 (125)
+  Object name: left_LD_org_lat_0
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.163,14.406,70.776).
+
+point  
+  ID: 3757be2e-d3e8-41e5-bff9-059693c120f8 (126)
+  Object name: left_LD_org_med_1
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.157,13.545,73.519).
+
+point  
+  ID: 49bf6f03-5774-46da-b459-ce2d260547bc (127)
+  Object name: left_LD_org_med_2
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.992,12.980,75.274).
+
+point  
+  ID: 77278f5a-55fa-4722-ac92-4939df835a0c (128)
+  Object name: left_LD_org_med_3
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.891,12.613,77.393).
+
+point  
+  ID: af8b6b97-bbcf-4298-ac9d-b68c4de02bdb (129)
+  Object name: left_LD_org_med_0
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.308,14.102,71.570).
+
+point  
+  ID: acdd22a2-9aa1-46c3-85e5-899e633c7372 (130)
+  Object name: left_LD_org_med
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.801,12.650,78.705).
+
+extrusion  
+  ID: 6c17198d-2656-4591-8d59-e3bf74d077a8 (131)
+  Object name: w_cent_sa
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 3.142)
+      "V":  (0.000 <= V <= 5.000)
+      Path: (18.113,15.078,70.099) to (13.121,15.261,69.873)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.500,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.500
+    Geometry UserData:
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 9
+
+point  
+  ID: 20100d35-ea66-4582-94f5-54d5d9575035 (132)
+  Object name: right_LD_org_med
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.504,12.665,78.750).
+
+point  
+  ID: 30682dbb-b0db-4fd6-ba3e-9f94a43b29fd (133)
+  Object name: right_LD_org_med_3
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.575,12.618,77.457).
+
+point  
+  ID: cc658421-9608-47d1-b2fc-3d7047d2975f (134)
+  Object name: right_LD_org_lat_3
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.845,12.790,77.555).
+
+point  
+  ID: 69e2e462-9d03-4dbd-ac8f-414617f1a76b (135)
+  Object name: right_LD_org_med_2
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.629,13.088,75.344).
+
+point  
+  ID: 469f9f3e-8c5e-4076-b94d-b44a75ea1e2e (136)
+  Object name: right_LD_org_lat_2
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.864,13.278,75.110).
+
+point  
+  ID: ad4c5e99-3263-490b-aca8-7771134b70d4 (137)
+  Object name: right_LD_org_med_1
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.652,13.584,73.518).
+
+point  
+  ID: 5929b4d3-a883-4fb0-bc95-ced4b9fb8e5e (138)
+  Object name: right_LD_org_lat_1
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.033,13.803,72.879).
+
+point  
+  ID: 6fe54282-7547-4c69-aee7-853904218f29 (139)
+  Object name: right_LD_org_med_0
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.767,14.072,71.548).
+
+point  
+  ID: 3c517019-ff62-43bb-a738-dfc01f2a6edd (140)
+  Object name: right_LD_org_lat_0
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (17.136,14.242,70.842).
+
+point  
+  ID: 2eba0eb8-7ca4-4fbc-a38d-4ed2a473f002 (141)
+  Object name: right_LD_org_lat
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.736,12.981,78.867).
+
+point  
+  ID: 3d47d7cb-47ad-453e-82c7-cf3b68ae718f (145)
+  Object name: UrostyleOrigin
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.749,15.803,69.444).
+
+point  
+  ID: e17ad5c5-089d-47bc-8493-bac5bc3faadf (146)
+  Object name: SpineOrigin
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.749,15.803,69.444).
+
+point  
+  ID: 039ef0e5-93fb-4d12-a3d1-82b12a87c996 (147)
+  Object name: Pelvis_Z
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.749,15.803,69.444).
+
+point  
+  ID: 4c164866-8945-4388-9503-53270da8070a (148)
+  Object name: left_LD_ins
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.878,16.182,63.611).
+
+point  
+  ID: 9b2c0ad0-b9ce-4677-b204-13fbc4a068be (149)
+  Object name: right_LD_ins
+  Layer name: Objects::Reference::LD_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.041,16.195,63.617).
+
+point  
+  ID: 03667f3e-5b9e-4f10-9eac-2b4685d0a346 (150)
+  Object name: prox_CS_org_dors
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.757,15.370,68.911).
+
+point  
+  ID: c5c01fe3-ef9f-4fd5-aa0d-29b602302464 (151)
+  Object name: right_prox_CS_org_lat
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.375,15.847,68.807).
+
+point  
+  ID: 9a385c49-c689-456b-b3c4-46321dfaa3fc (152)
+  Object name: left_prox_CS_org_lat
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.267,15.829,68.969).
+
+point  
+  ID: 43c24f3b-6fc4-4599-a4b1-c9ea8e5f2f60 (153)
+  Object name: left_CS_org_dist_prox
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.933,16.964,61.896).
+
+point  
+  ID: d581d8d5-555a-415c-8903-2e1e6e20ca11 (154)
+  Object name: right_CS_org_dist_prox
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.191,17.000,61.898).
+
+point  
+  ID: 10a11ade-5706-49e1-bd0a-ddcd5bfb1301 (155)
+  Object name: right_CS_org_dist_dist
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.243,17.527,60.427).
+
+point  
+  ID: 4c8a616e-d392-4aff-8fc8-1a5ebba12954 (156)
+  Object name: left_CS_org_dist_dist
+  Layer name: Objects::Reference::CS_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.093,17.531,60.431).
+
+point  
+  ID: 3ac83b53-17c3-41f3-830b-e6ce3d565aad (157)
+  Object name: right_CI_org_mid
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.443,17.847,62.161).
+
+point  
+  ID: 66df844e-cc1a-4837-ace6-f7c0f193643c (158)
+  Object name: left_CI_org_mid
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.645,17.868,62.069).
+
+point  
+  ID: 2007e8ff-ca5d-45e4-8a91-b8cccd870327 (159)
+  Object name: UrostyleZ
+  Layer name: Objects::Frames
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.835,21.899,50.427).
+
+point  
+  ID: d88eae54-4413-452c-bad4-56cac5ca288a (160)
+  Object name: left_CI_ins_prox
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.228,15.375,69.157).
+
+point  
+  ID: ad850cb1-214e-41a2-8ea6-7e384aa03005 (161)
+  Object name: left_CI_org_prox
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.178,16.404,67.117).
+
+point  
+  ID: b8427a3e-aad3-4a6e-b4f6-8957427f9e3e (162)
+  Object name: right_CI_org_dist
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.843,20.312,55.379).
+
+point  
+  ID: a6459484-f92c-4441-bd2b-895b7c68d324 (163)
+  Object name: left_CI_org_dist
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.175,20.274,55.371).
+
+point  
+  ID: 512772e1-86c8-4952-9875-4985051ec28c (164)
+  Object name: right_CI_org_prox
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.387,16.344,67.092).
+
+point  
+  ID: 26888bce-0713-4f35-adee-a2cba6672dc9 (165)
+  Object name: left_CI_ins_dist
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (13.637,19.168,60.584).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: d72377a0-4582-4804-8477-daec4f20c47f (166)
+  Object name: left_CI_ins_mid
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.605,16.464,65.165).
+
+point  
+  ID: edb3d550-5bab-4a36-b0a2-d1081f62830e (167)
+  Object name: right_CI_ins_prox
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (19.144,14.853,69.397).
+
+point  
+  ID: c5c4f138-669d-4ce9-8e17-0f5611a67268 (168)
+  Object name: right_CI_ins_dist
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (19.023,19.049,60.951).
+
+point  
+  ID: d9bc4d03-ff24-413e-9bbe-8a8ab2753501 (169)
+  Object name: right_CI_ins_mid
+  Layer name: Objects::Reference::CI_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (19.299,16.192,65.541).
+
+point  
+  ID: f97d852e-9a54-47d1-a684-0c1462e36506 (170)
+  Object name: left_CR_org
+  Layer name: Objects::Reference::CR_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.043,22.610,57.668).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 578e073b-ab01-4e1a-8e6f-4ed06faca62f (171)
+  Object name: w_left_CR_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (7.133,20.799,50.132).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: f09a11fb-ec87-48a7-a589-d11c4fc89e33 (172)
+  Object name: left_SM_org
+  Layer name: Objects::Reference::SM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.303,24.107,53.273).
+
+point  
+  ID: 3cccd318-2638-4a88-8014-2cf0ef4f8b3c (173)
+  Object name: left_SM_ins
+  Layer name: Objects::Reference::SM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.618,22.142,40.669).
+
+point  
+  ID: db2613a2-059c-4879-9d93-510e8dda2462 (175)
+  Object name: w_left_SM_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.255,24.670,50.450).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: accdeed5-f04f-4284-a9f2-86f0ba4d038a (181)
+  Object name: left_GR_org
+  Layer name: Objects::Reference::GR_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.578,25.603,53.056).
+
+point  
+  ID: b90fc127-d0f1-4e46-9270-cefddc1d57b8 (182)
+  Object name: left_GR_ins
+  Layer name: Objects::Reference::GR_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.412,22.177,40.670).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: e28814a2-a690-466f-9ad6-141197eff1f9 (185)
+  Object name: left_GL_ins
+  Layer name: Objects::Reference::GL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.608,19.803,42.965).
+
+point  
+  ID: ce5d4d61-7578-4c37-8784-e3b8fd939928 (186)
+  Object name: left_GL_org
+  Layer name: Objects::Reference::GL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.515,21.239,56.689).
+
+point  
+  ID: cd1ceac0-d3fd-4bb4-a36a-ab41529f0378 (187)
+  Object name: left_ST_ins
+  Layer name: Objects::Reference::ST_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.904,22.313,39.858).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+curve  
+  ID: 2548a1da-4678-4e88-83df-c39855544bbb (188)
+  Layer name: Objects::Reference::ST_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid curve.
+    Line
+      start = (20.013,28.859,61.146)
+      end = (3.078,21.159,35.941)
+      domain = 0.000 to 13.923
+      line length = 31.327
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+curve  
+  ID: f418e6b5-2ce6-4022-b69f-ba1a379dfec3 (189)
+  Layer name: Objects::Reference::ST_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid curve.
+    Line
+      start = (21.093,26.045,60.611)
+      end = (3.510,22.023,36.321)
+      domain = 0.000 to 13.447
+      line length = 30.255
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: fb9c7e12-7642-448d-beee-d7f5c2317a77 (190)
+  Object name: left_ST_org_dors
+  Layer name: Objects::Reference::ST_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.307,24.977,53.966).
+
+curve  
+  ID: f817386c-9d58-45b2-9200-52dfe4c5bdbf (191)
+  Layer name: Objects::Reference::ST_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid curve.
+    Line
+      start = (13.451,26.398,50.980)
+      end = (17.402,26.258,57.859)
+      domain = 0.000 to 1.984
+      line length = 7.935
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: c72b786b-81c9-4096-ac9b-94c8bb083270 (192)
+  Object name: left_ST_org_vent
+  Layer name: Objects::Reference::ST_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.324,26.172,55.035).
+
+point  
+  ID: 4a0472c8-96f7-49db-ae46-b08fed7281ed (193)
+  Object name: left_AM_ins_str
+  Layer name: Objects::Reference::AM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.559,22.237,43.793).
+
+point  
+  ID: fc405d1c-ee4e-4afd-81e2-a6e8016b0f59 (194)
+  Object name: left_AM_ins_crv
+  Layer name: Objects::Reference::AM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.952,21.323,44.131).
+
+point  
+  ID: bfc81532-ae55-40fd-8d92-cb815199b495 (195)
+  Object name: left_AM_org_crv
+  Layer name: Objects::Reference::AM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.609,26.303,53.854).
+
+point  
+  ID: 9c8e76aa-dd12-4025-9c92-40745465dc6d (196)
+  Object name: left_AM_org_str
+  Layer name: Objects::Reference::AM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.576,26.010,57.585).
+
+point  
+  ID: 113f313f-553e-42e0-a5bf-58ae2e30cd84 (197)
+  Object name: left_AM_via_crv
+  Layer name: Objects::Reference::AM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (7.334,21.735,47.479).
+
+point  
+  ID: ea49a06d-756d-4b39-a6f6-cdcc5e32467d (198)
+  Object name: left_AL_org
+  Layer name: Objects::Reference::AL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.312,23.399,58.752).
+
+point  
+  ID: cd4d49a0-87e8-4841-8e03-0900379ce609 (199)
+  Object name: left_AL_ins
+  Layer name: Objects::Reference::AL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.418,22.136,44.020).
+
+surface  
+  ID: 1998a4e8-d9fd-43e3-b78e-4866b1e28e34 (200)
+  Object name: w_left_AL
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 10.685)
+        "V":  (-2.671 <= V <= 2.671)
+        Axis of revolution: (13.766,23.588,56.178) to (13.766,23.588,57.178)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (13.766,23.588,54.478)
+            end = (13.766,23.588,57.879)
+            center = (13.766,23.588,56.178)
+            radius = 1.700
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9897 vertices  10352 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 53524796-0b7f-4970-a0ac-c35720f84887 (203)
+  Object name: w_left_AL_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.577,25.252,58.320).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+surface  
+  ID: 3301a149-ad51-4f47-b836-54587e843e2d (204)
+  Object name: w_left_hip
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 9.975)
+        "V":  (-2.494 <= V <= 2.494)
+        Axis of revolution: (15.124,24.965,55.754) to (15.124,24.965,57.140)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (15.124,24.965,53.553)
+            end = (15.124,24.965,57.954)
+            center = (15.124,24.965,55.754)
+            radius = 2.200
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9897 vertices  10352 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 6
+
+point  
+  ID: 90042a50-5b4f-439d-b670-a705b9ee124a (205)
+  Object name: left_SA_org
+  Layer name: Objects::Reference::SA_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.239,23.826,58.745).
+
+point  
+  ID: dfd3a88e-39ed-4edb-8e2e-98524b537241 (206)
+  Object name: left_SA_ins
+  Layer name: Objects::Reference::SA_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.963,22.303,41.161).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+surface  
+  ID: ec58f70e-342c-489b-9ba6-6427665d2d8d (207)
+  Object name: w_left_CR
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 23.575)
+        "V":  (-5.894 <= V <= 5.894)
+        Axis of revolution: (9.728,23.083,48.675) to (9.875,23.300,49.640)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (9.179,22.271,45.053)
+            end = (10.278,23.896,52.297)
+            center = (9.728,23.083,48.675)
+            radius = 3.752
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9633 vertices  9984 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+extrusion  
+  ID: 06254e68-82ff-4e6c-8409-3d4db5c4feca (208)
+  Object name: w_left_knee
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 4.706)
+      "V":  (0.000 <= V <= 2.780)
+      Path: (4.703,19.379,42.026) to (4.337,22.108,41.639)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.749,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.749
+    Geometry UserData:
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 14
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 12
+
+point  
+  ID: 9b7c6173-78cd-4381-98da-0c50b25fc8f4 (209)
+  Object name: w_left_CR_dors_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (6.220,20.161,40.370).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+extrusion  
+  ID: e41d4b5f-b53a-418d-b479-e315edc54797 (210)
+  Object name: w_left_CR_dors
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 3.874)
+      "V":  (0.000 <= V <= 2.322)
+      Path: (4.998,20.126,41.644) to (6.560,20.916,39.611)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.712,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.712
+    Geometry UserData:
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 24
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 16
+
+point  
+  ID: c2b1f002-58be-4a3e-8a70-59f47d6b0425 (211)
+  Object name: j_hipLZ
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.880,24.565,56.228).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: 1778e8c6-0c53-4e9b-85e0-84362a0f1fba (212)
+  Object name: j_hipLY
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.880,24.565,56.228).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: e871ebcc-3073-49a4-85e0-8887eec4960b (213)
+  Object name: j_hipLX
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.880,24.565,56.228).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: dcd828cd-fb8e-44b1-be60-55a6b921caa0 (214)
+  Object name: j_kneeLZ
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.520,20.743,41.832).
+
+point  
+  ID: 7ff59010-cceb-40b5-8c3a-60e21f9b648f (215)
+  Object name: j_kneeLY
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.520,20.743,41.832).
+
+point  
+  ID: 428549d9-8cd5-446e-8ca4-437ddfbbc364 (216)
+  Object name: j_kneeLX
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (4.520,20.743,41.832).
+
+point  
+  ID: a2b7b3f3-2dbd-4f08-a600-6493730a7bd2 (217)
+  Object name: j_ankleLZ
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.947,24.882,29.295).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 682f9932-05c6-4df1-9881-a83efa69b159 (218)
+  Object name: j_ankleLY
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.947,24.882,29.295).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 663f26c9-a334-4785-aed4-7cb3050a1328 (219)
+  Object name: j_ankleLX
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.947,24.882,29.295).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+curve  
+  ID: 4f4b31a0-c6a6-49c1-9da9-de6856c8462b (233)
+  Layer name: Objects::Reference::IFB_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid curve.
+    Line
+      start = (4.119,18.884,36.669)
+      end = (16.890,23.399,60.277)
+      domain = 0.000 to 13.609
+      line length = 27.218
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 57184359-079d-4f4e-8af7-f01dfd0a2895 (234)
+  Object name: left_IFB_org
+  Layer name: Objects::Reference::IFB_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.588,21.677,56.125).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 2f5d9d36-893e-4d98-ab99-3eeb7209613b (235)
+  Object name: left_IFM_org
+  Layer name: Objects::Reference::IFM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.131,22.392,55.617).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 1740daf0-fb08-4596-8195-170a67d311e5 (236)
+  Object name: left_IFM_ins
+  Layer name: Objects::Reference::IFM_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (11.532,23.435,50.862).
+
+point  
+  ID: cee83ab1-afd0-4241-8c6a-bcace69c97fc (237)
+  Object name: left_PY_ins
+  Layer name: Objects::Reference::PY_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (12.196,24.167,51.544).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 22c5f149-b586-4ae1-b9d1-67f77f284401 (238)
+  Object name: left_PY_org
+  Layer name: Objects::Reference::PY_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.228,20.296,55.328).
+
+point  
+  ID: dec5f450-f8b5-497a-87dd-4a2c1b38c23d (242)
+  Object name: left_OE_ins
+  Layer name: Objects::Reference::OE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (7.733,22.887,47.675).
+
+point  
+  ID: cbc750b1-b003-4d44-9803-4015c64f349f (243)
+  Object name: left_OE_org
+  Layer name: Objects::Reference::OE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.317,25.161,58.179).
+
+point  
+  ID: 1c7424ed-110e-4641-87c8-3268582082b6 (245)
+  Object name: left_PE_ins
+  Layer name: Objects::Reference::PE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (9.538,23.388,50.205).
+
+point  
+  ID: 17c88b14-8bbf-4822-82a0-1b59d2424505 (246)
+  Object name: left_PE_org
+  Layer name: Objects::Reference::PE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.202,23.703,58.747).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 575531c3-6e97-4d58-98f3-e849e9745e95 (247)
+  Object name: left_QF_ins
+  Layer name: Objects::Reference::QF/GE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (13.723,24.504,53.427).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: d6c35f13-e8dc-49e5-9e89-679bd558d42b (248)
+  Object name: left_QF_org
+  Layer name: Objects::Reference::QF/GE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.281,24.557,53.801).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: a7c76462-8b6c-4816-bf3b-f4c98f893fe1 (249)
+  Object name: left_PL_org
+  Layer name: Objects::Reference::PL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (6.127,19.909,42.922).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 6d644506-458e-4c63-b58f-bd78f897ba2e (250)
+  Object name: left_PL_ins
+  Layer name: Objects::Reference::PL_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (16.677,25.097,19.591).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 3390d42b-b1f1-4414-b2db-cb14bef90a22 (251)
+  Object name: j_ISZ
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.727,14.873,68.572).
+
+point  
+  ID: d3a4cccb-2de6-476d-87fc-19c8f1ed1df9 (252)
+  Object name: j_ISY
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.727,14.873,68.572).
+
+point  
+  ID: 937b828c-152d-4656-897c-2431ec49794b (253)
+  Object name: j_urostyleZ
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.749,15.803,69.444).
+
+point  
+  ID: d69c0bf5-ff88-4e98-ab6f-cbd44e879eb8 (254)
+  Object name: j_urostyleY
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.749,15.803,69.444).
+
+point  
+  ID: 7b3d2e84-5f7d-41da-a219-d4b810111a96 (255)
+  Object name: j_urostyleX
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.749,15.803,69.444).
+
+point  
+  ID: 3ce62dd9-1a22-4f73-925c-36e70ad0bb4c (256)
+  Object name: j_ISX
+  Layer name: Objects::Joints
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (15.727,14.873,68.572).
+
+point  
+  ID: 37096a7a-c6d0-4607-b3d9-071aedaf03c1 (259)
+  Object name: w_left_AM_dors
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (10.826,22.657,48.701).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+point  
+  ID: 34fa0ef6-42a4-4850-a25a-3d6673fad772 (260)
+  Object name: w_left_AM_vent
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (8.983,25.213,48.020).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+surface  
+  ID: af1a4d18-c366-4243-8ae1-b66d9408bb94 (261)
+  Object name: w_left_AM
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 13.870)
+        "V":  (-3.467 <= V <= 3.467)
+        Axis of revolution: (9.655,22.746,49.405) to (10.464,22.732,49.038)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (7.868,22.778,50.215)
+            end = (11.442,22.714,48.595)
+            center = (9.655,22.746,49.405)
+            radius = 1.962
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  6233 vertices  6224 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 6
+
+extrusion  
+  ID: 8b8224b4-a066-419b-adb7-5f12cd521a97 (262)
+  Object name: w_left_AL_cyl
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 4.368)
+      "V":  (0.000 <= V <= 5.924)
+      Path: (13.795,18.589,56.059) to (16.795,31.017,57.150)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (1.506,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 1.506
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 9
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 12
+
+point  
+  ID: 746cb513-813d-4c98-a101-51dfda4e9c23 (263)
+  Object name: w_left_SA_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (9.742,24.920,52.609).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 3
+
+point  
+  ID: 6a5b5892-6518-4bbd-94eb-ed6f2ccaef0f (265)
+  Object name: left_SA_via
+  Layer name: Objects::Reference::SA_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.154,25.156,57.771).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 33
+
+extrusion  
+  ID: 29d28248-5cb9-4673-a7cf-67c7be26664d (266)
+  Object name: w_left_ilium_prox
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 1.885)
+      "V":  (0.000 <= V <= 2.817)
+      Path: (14.009,20.634,59.039) to (15.454,22.754,56.837)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.360,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.360
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 25
+
+extrusion  
+  ID: 072c74df-7379-45b9-a239-063813f59611 (267)
+  Object name: w_left_PY
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 1.885)
+      "V":  (0.000 <= V <= 2.817)
+      Path: (14.591,21.460,56.680) to (16.036,23.580,54.478)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.360,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.360
+    Geometry UserData:
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 36
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 13
+
+point  
+  ID: 52636202-dea4-4648-b94b-498ae409aad2 (268)
+  Object name: w_left_PY_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.403,21.671,54.023).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 3a6e44df-bd9b-4798-b84e-f5087fc784bf (269)
+  Object name: left_IFB_ins
+  Layer name: Objects::Reference::IFB_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.869,20.013,40.576).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+point  
+  ID: 63a68cfc-f252-46bb-838f-7c5ba74f8e61 (270)
+  Object name: w_left_IFB_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (5.939,19.888,41.592).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 8
+
+surface  
+  ID: 81beac70-e228-42bc-b91f-fa166a6afc09 (271)
+  Object name: w_left_IFB
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 4.437)
+        "V":  (-1.109 <= V <= 1.109)
+        Axis of revolution: (5.465,20.409,41.540) to (5.938,21.006,42.188)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (5.131,19.987,41.083)
+            end = (5.799,20.831,41.997)
+            center = (5.465,20.409,41.540)
+            radius = 0.706
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  2145 vertices  2048 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 8
+
+extrusion  
+  ID: 2069e5eb-a114-4302-b064-9cae3dff5355 (272)
+  Object name: w_left_femur
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 4.084)
+      "V":  (0.000 <= V <= 12.364)
+      Path: (15.162,25.006,56.555) to (3.974,20.787,42.378)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.650,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.650
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 15
+
+extrusion  
+  ID: 1dc82d2f-7903-4865-bf48-2b624109fac7 (273)
+  Object name: w_left_AM_fem
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid extrusion.
+    Extrusion Surface
+      "U": Periodic  (0.000 <= U <= 4.084)
+      "V":  (0.000 <= V <= 12.364)
+      Path: (15.930,25.270,57.316) to (3.408,20.548,41.450)
+      End caps: start and end capped
+      End miters: square start and end
+      Profile curve:
+        Circle
+          start = (0.727,0.000,0.000)
+          center = (0.000,0.000,0.000)
+          radius = 0.727
+    Geometry UserData:
+      UserData ID: A8130A3E-E4F3-4cb0-BB8A-F10A473912D0
+      Plug-in: c8cda597-d957-4625-a4b3-a0b510fc30d4
+        description: Cached meshes
+        saved in file: yes
+        copy count: 16
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 3
+
+point  
+  ID: 9a0d6d4b-5d42-42e5-a27f-e711c3ad3891 (274)
+  Object name: w_left_AM_fem_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (10.407,22.442,49.685).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 1
+
+surface  
+  ID: 97bc705d-f7d0-43ec-9588-b251d99ef251 (275)
+  Object name: w_left_SA
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 13.870)
+        "V":  (-3.467 <= V <= 3.467)
+        Axis of revolution: (13.428,22.668,49.438) to (16.007,22.622,48.269)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (7.734,22.769,52.018)
+            end = (19.122,22.567,46.857)
+            center = (13.428,22.668,49.438)
+            radius = 6.252
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  6233 vertices  6224 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 35
+
+point  
+  ID: 6165bc23-4414-4db1-99ee-ecfed2117af8 (276)
+  Object name: w_left_IE_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (13.252,20.370,57.354).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 3
+
+point  
+  ID: 3ed866ba-7663-496e-ba94-c3a1b6b5bdbb (277)
+  Object name: left_IE_ins_dist
+  Layer name: Objects::Reference::IE_Ref
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (14.974,23.895,55.552).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 13
+
+surface  
+  ID: 3ad674ee-7d46-42f7-a276-c62dde514266 (278)
+  Object name: w_left_IE_old
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 8.772)
+        "V":  (-2.193 <= V <= 2.193)
+        Axis of revolution: (14.754,23.839,58.267) to (14.588,23.782,59.801)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (14.986,23.919,56.126)
+            end = (14.523,23.759,60.408)
+            center = (14.754,23.839,58.267)
+            radius = 2.155
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9791 vertices  10224 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 33
+
+point  
+  ID: b0493f2d-292f-44fa-af06-0a8b362b9971 (281)
+  Object name: w_left_PL_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (18.671,25.473,27.796).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 4
+
+point  
+  ID: 52ec5b05-f296-47ff-aa22-78f67d976a1a (283)
+  Object name: w_left_II_side
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid point.
+    Point at (7.023,28.168,52.675).
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 2
+
+surface  
+  ID: eed5f3b9-d085-4a66-bf36-180af6e204ce (284)
+  Object name: w_left_II
+  Layer name: Objects::Wrapping
+  Render Material: 
+    source = from layer
+    index = -1
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 13.870)
+        "V":  (-3.467 <= V <= 3.467)
+        Axis of revolution: (13.024,20.614,49.335) to (15.236,20.575,48.333)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (8.143,20.700,51.547)
+            end = (17.906,20.527,47.123)
+            center = (13.024,20.614,49.335)
+            radius = 5.360
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  6233 vertices  6224 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 90
+
+surface  
+  ID: 6c46c023-7d5f-42b0-bce7-f23981768f95 (286)
+  Object name: left_eye
+  Layer name: Eyes
+  Render Material: 
+    source = from layer
+    index = 34
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 21.647)
+        "V":  (-5.412 <= V <= 5.412)
+        Axis of revolution: (9.627,16.416,94.282) to (9.627,16.416,95.151)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (9.627,16.416,91.288)
+            end = (9.627,16.416,97.276)
+            center = (9.627,16.416,94.282)
+            radius = 2.994
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9897 vertices  10352 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 64
+
+surface  
+  ID: f79e1218-b7f4-4595-84fa-89ce55bd35cb (287)
+  Object name: right_eye
+  Layer name: Eyes
+  Render Material: 
+    source = from layer
+    index = 35
+  Geometry:
+    Valid surface.
+    Closed surface
+      Surface of Revolution
+        U = angular parameter, V = curve parameter
+        "U": Periodic  (0.000 <= U <= 21.647)
+        "V":  (-5.412 <= V <= 5.412)
+        Axis of revolution: (20.194,15.090,94.963) to (20.194,15.090,95.832)
+        Angles: from 0 radians (0 degrees) to 6.28319 radians (360 degrees).
+        Revolute:
+          Arc
+            start = (20.194,15.090,91.969)
+            end = (20.194,15.090,97.957)
+            center = (20.194,15.090,94.963)
+            radius = 2.994
+            angle = 180 degrees
+    Edge Tally:
+        1 seam edges
+        2 singular edges
+      = 3 total edges
+    Edge Tolerances: all 0.000
+    Vertex Tolerances: all 0.000
+    Render mesh: 1 fast mesh  9897 vertices  10352 polygons
+    Analysis mesh: none present
+    Geometry UserData:
+      UserData ID: 3B7FB506-437C-431e-B1D7-93C4CBFF417F
+      Plug-in: Rhino
+        description: Gumball grip frame
+        saved in file: yes
+        copy count: 57
+

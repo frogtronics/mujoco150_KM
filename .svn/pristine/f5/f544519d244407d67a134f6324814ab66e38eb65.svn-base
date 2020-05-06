@@ -1,0 +1,281 @@
+<mujoco model='FrogBot'>
+	<compiler inertiafromgeom="auto" inertiagrouprange="0 4" angle="degree" strippath="true" meshdir="assets"/>
+
+	<option timestep='0.002' iterations="50" tolerance="1e-10"
+			solver="Newton" jacobian="dense" cone="elliptic"
+			gravity="0 0 -9.816"/>
+
+	<size nstack="1000000"/>
+	
+	
+	<default>
+		<geom type="mesh" density="2700" pos="1 -1 -1"/>
+		<joint type="hinge" axis="0 1 0" damping="0.001"/>
+		<site type="sphere" size="0.01" rgba="1 0 0 1"/>
+		<mesh scale="-0.001 0.001 0.001"/>
+		
+		
+		<equality solimp="0.98 0.999 0.00005"/>
+		
+		<default class="EC60"> <!-- armature = (0.0001210 + 0.0000193) * 30 = 0.004209 (rotor + gear inertia) -->
+			<joint armature="0.004209" frictionloss="0.05" damping="0.01"/>
+			<motor gear="30" forcelimited="true" forcerange="-2 2"/> <!-- stall torque is 4.19, ~2Nm @ 18A limit -->
+		</default>
+		
+		<default class="ECi40"> <!-- armature = 0.000001208 -->
+			<joint armature="0.000001208" frictionloss="0.01" damping="0.01"/>
+			<motor gear="1" ctrllimited="true" ctrlrange="-0.1 0.1" forcelimited="true" forcerange="-1.09 1.09"/>
+		</default>
+		
+		<default class="Strut">
+			<geom mesh="Strut"/> <!--quat="0 0 1 0" pos="-1 -1 1"/>-->
+		</default>
+		
+		<default class="Axes">
+			<geom type="capsule" size="0.001" density="0" pos="0 0 0" contype="0" conaffinity="0"/>
+		</default>
+	</default>
+	
+	
+	<asset>
+		<mesh file="assets/BaseLink.stl"/>
+		<mesh file="assets/TopLink.stl"/>
+		<mesh file="assets/ElbowLink.stl"/>
+		<mesh file="assets/BaseStatic.stl"/>
+		<mesh file="assets/BaseGear.stl"/>
+		<mesh file="assets/BaseMotor.stl"/>
+		<mesh file="assets/WristMotor.stl"/>
+		<mesh file="assets/Strut.stl"/>
+	</asset>
+	
+
+
+
+
+
+	<worldbody>
+		
+		
+		<geom class="Axes" fromto="0 0 0 0.1 0 0" rgba="1 0 0 1"/>
+		<geom class="Axes" fromto="0 0 0 0 0.1 0" rgba="0 1 0 1"/>
+		<geom class="Axes" fromto="0 0 0 0 0 0.1" rgba="0 0 1 1"/>
+		
+		
+		<body name="BaseLink" pos="0 0.1 0">
+			
+			<joint/>
+			
+			
+			<body>
+				<inertial pos="0 0 0" mass="1" diaginertia="1 0.0042 1"/>
+			</body>
+		
+			<geom mesh="BaseGear" pos="1 -1.008 -1"/>
+			
+			<geom mesh="BaseLink" name="BaseLink"/>
+			
+			<site pos="0 0 0.0737"/>
+			
+		</body>
+		
+		
+		<body name="TopLink" pos="0 0.2 0">
+			
+			<joint/>
+					
+			<geom mesh="TopLink" name="TopLink"/>
+			
+			<geom mesh="WristMotor" pos="1.25 -1 -1" mass="0.180"/>
+			
+			<site pos="0.1888 0 0"/>
+			
+		</body>
+		
+		
+		<body name="ElbowLink" pos="0 0.3 0">
+			
+			<joint/>
+			
+			<body>
+				<inertial pos="0 0 0" mass="1" diaginertia="1 0.0042 1"/>
+			</body>
+			
+			<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1.008 -1"/>
+			
+			<geom mesh="ElbowLink" name="ElbowLink"/>
+			
+			<site pos="0 0 0"/>
+			
+		</body>
+		
+		
+		<body name="Strut" pos="0 0.4 0">
+			
+			<joint/>
+			
+			<geom class="Strut"/>
+			
+			<site pos="0 0 0.125"/>
+			
+		</body>
+		
+		<!-- for measuring inertia change over angles
+		<body name="Link2" pos="0 0.5 0">
+			
+			<joint/>
+			
+			<geom mesh="TopLink"/>
+			
+			<geom mesh="WristMotor" pos="1.25 -1 -1" mass="0.180"/>
+			
+			<site pos="0.1888 0 0"/>
+			
+		</body>
+		
+		
+		<body name="Link1" pos="0 0.6 0">
+			
+			<joint/>
+				
+			<geom mesh="BaseGear" pos="1 -1.008 -1"/>
+			
+			<geom mesh="BaseLink"/>
+			
+			<geom class="Strut" pos="1.05 -1 -1"/>
+			
+			<geom class="Strut" pos="0.95 -1 -1"/>
+			
+			<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1.008 -1"/>
+			
+			<geom mesh="ElbowLink"/>
+			
+			
+		</body>
+		
+		<body name="Link115" pos="0 0.65 0">
+			
+			<joint/>
+			
+			<geom mesh="BaseGear" pos="1 -1.008 -1"/>
+			
+			<geom mesh="BaseLink"/>
+			
+			<geom class="Strut" pos="1.0483 -1 -1.0129"/>
+			
+			<geom class="Strut" pos="0.9517 -1 -0.9871"/>
+			
+			<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1.008 -1"/>
+			
+			<body quat="0.991 0 0.131 0">
+				<geom mesh="ElbowLink"/>
+			</body>
+			
+		</body>
+		
+		<body name="Link130" pos="0 0.7 0">
+			
+			<joint/>
+			
+			<geom mesh="BaseGear" pos="1 -1.008 -1"/>
+			
+			<geom mesh="BaseLink"/>
+			
+			<geom class="Strut" pos="1.0433 -1 -1.025"/>
+			
+			<geom class="Strut" pos="0.9577 -1 -0.975"/>
+			
+			<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1.008 -1"/>
+			
+			<body quat="0.966 0 0.259 0">
+				<geom mesh="ElbowLink"/>
+			</body>
+			
+		</body>
+		
+		<body name="Link145" pos="0 0.75 0">
+			
+			<joint/>
+			
+			<geom mesh="BaseGear" pos="1 -1.008 -1"/>
+			
+			<geom mesh="BaseLink"/>
+			
+			<geom class="Strut" pos="1.0354 -1 -1.0354"/>
+			
+			<geom class="Strut" pos="0.9646 -1 -0.9646"/>
+			
+			<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1.008 -1"/>
+			
+			<body quat="0.924 0 0.383 0">
+				<geom mesh="ElbowLink"/>
+			</body>
+			
+		</body>
+		
+		<body name="Link160" pos="0 0.8 0">
+			
+			<joint/>
+			
+			<geom mesh="BaseGear" pos="1 -1.008 -1"/>
+			
+			<geom mesh="BaseLink"/>
+			
+			<geom class="Strut" pos="1.025 -1 -1.0433"/>
+			
+			<geom class="Strut" pos="0.975 -1 -0.9577"/>
+			
+			<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1.008 -1"/>
+			
+			<body quat="0.866 0 0.500 0">
+				<geom mesh="ElbowLink"/>
+			</body>
+			
+		</body>
+		
+		<body name="Link175" pos="0 0.85 0">
+			
+			<joint/>
+			
+			<geom mesh="BaseGear" pos="1 -1.008 -1"/>
+			
+			<geom mesh="BaseLink"/>
+			
+			<geom class="Strut" pos="1.0129 -1 -1.0483"/>
+			
+			<geom class="Strut" pos="0.9871 -1 -0.9517"/>
+			
+			<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1.008 -1"/>
+			
+			<body quat="0.793 0 0.609 0">
+				<geom mesh="ElbowLink"/>
+			</body>
+			
+		</body>
+		
+		<body name="Link190" pos="0 0.9 0">
+			
+			<joint/>
+			
+			<geom mesh="BaseGear" pos="1 -1.008 -1"/>
+			
+			<geom mesh="BaseLink"/>
+			
+			<geom class="Strut" pos="1 -1 -1.05"/>
+			
+			<geom class="Strut" pos="1 -1 -0.95"/>
+			
+			<geom mesh="BaseGear" quat="0 0 0 1" pos="-1 1.008 -1"/>
+			
+			<body quat="0.707 0 0.707 0">
+				<geom mesh="ElbowLink"/>
+			</body>
+			
+		</body>
+		
+		-->
+
+
+	</worldbody>
+	
+
+</mujoco>

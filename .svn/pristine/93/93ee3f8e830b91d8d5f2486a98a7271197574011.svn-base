@@ -1,0 +1,159 @@
+<mujoco model='twosegment'>
+    <compiler inertiafromgeom='true' angle='degree'/>
+
+    <default>
+        <joint limited='false' damping='0.000001' armature='0'/>
+		<site type="sphere" size="0.01"/>
+		<tendon width="0.025" rgba="0.8 0.8 0.3 1"/>
+        <geom contype='1' conaffinity='1' condim='1' rgba='0.8 0.6 0.4 1'
+        	margin="0.001" solref=".02 1" solimp=".8 .8 .01" material="geom"/>
+    </default>
+
+    <option timestep='0.002' iterations="50" tolerance="1e-10" solver="Newton" jacobian="dense" cone="elliptic" gravity="0 0 -9.81"/>
+
+    <size nstack="1000000" nuser_actuator="3"/>
+
+    <visual>
+        <map fogstart="3" fogend="5" force="0.1" znear="0.01"/>
+        <quality shadowsize="2048" offsamples="8"/>
+        <global offwidth="800" offheight="800"/>
+    </visual>
+
+    <asset>
+        <texture type="skybox" builtin="gradient" width="128" height="128" rgb1=".4 .6 .8" 
+            rgb2="0 0 0"/>  
+        <texture name="texgeom" type="cube" builtin="flat" mark="cross" width="127" height="1278" 
+            rgb1="0.8 0.6 0.4" rgb2="0.8 0.6 0.4" markrgb="1 1 1" random="0.01"/>  
+        <texture name="texplane" type="2d" builtin="checker" rgb1=".2 .3 .4" rgb2=".1 0.15 0.2" 
+            width="512" height="512"/>  
+
+        <material name='MatPlane' reflectance='0.3' texture="texplane" texrepeat="1 1" texuniform="true"/>
+        <material name='geom' texture="texgeom" texuniform="true"/>
+    </asset>
+
+    <worldbody>
+        <geom name='floor' pos='0 0 0' size='5 5 .125' type='plane' material="MatPlane" condim='3'/>
+
+        <light mode='targetbodycom' target='seg1' directional='false' diffuse='.8 .8 .8' specular='0.3 0.3 0.3' pos='0 0 4.0' dir='0 0 -1'/>
+
+		<camera name='targeting' pos='1 1 2' mode='targetbodycom' target='seg1'/>
+		
+
+
+		<!-- test limb with muscle and tendon -->
+		<body name="seg1" pos="0 0 1.1">
+			
+			<joint name="x1" type="slide" axis="1 0 0"/>
+			<joint name="z1" type="slide" axis="0 0 1"/>
+			<joint name="t1" type="hinge" axis="0 1 0"/>
+			
+			<geom name="seg1" type="capsule" fromto="0 0 0 0 0 -0.5" size="0.05"/>
+			
+			<site name="tend1" pos="0.05 0 -0.2"/>
+			
+			<body name="muscle" pos="0.075 0 -0.4">
+				<joint name="muscle" limited="true" range="-0.2 0.025" type="slide" axis="0 0 1" damping="0.01"/>
+				<geom name="muscle" type="sphere" density="2000" size="0.025" contype="0" conaffinity="0"/>
+				<site name="tend2"/>
+			</body>
+			
+			
+			
+			
+			<!-- segment 2 has a single hinge joint -->
+			<body name="seg2" pos="0 0 -0.5">
+				
+				<joint name="knee2" type="hinge" limited="true" range="-5 135" axis="0 1 0"/>
+				
+				<geom name="seg2" type="capsule" fromto="0 0 0 0 0 -0.5" size="0.05"/>
+				
+				<geom name="wrap2" type="cylinder" fromto="0 -0.025 0 0 0.025 0" size="0.075" rgba="0.8 0.6 0.4 0.1" mass="0"/>
+				<site name="out2" pos="0.075 0 0.075"/>
+				
+				<site name="tend3" pos="0.05 0 -0.25"/>
+				
+			</body>
+			
+		</body>
+		
+		<!-- limb with simple flex and ext muscles
+		<body name="seg1" pos="0 0 1.1">
+			
+			<joint name="x" type="slide" axis="1 0 0"/>
+			<joint name="z" type="slide" axis="0 0 1"/>
+			<joint name="t" type="hinge" axis="0 1 0"/>
+			
+			<geom name="seg1" type="capsule" fromto="0 0 0 0 0 -0.5" size="0.05"/>
+			
+			<site name="ext1" pos="0.05 0 -0.25"/>
+			<site name="flex1" pos="-0.05 0 -0.25"/>
+			
+			<body name="seg2" pos="0 0 -0.5">
+				
+				<joint name="knee" type="hinge" limited="true" range="-5 135" axis="0 1 0"/>
+				
+				<geom name="seg2" type="capsule" fromto="0 0 0 0 0 -0.5" size="0.05"/>
+				
+				<geom name="wrap" type="cylinder" fromto="0 -0.025 0 0 0.025 0" size="0.05"/>
+				<site name="out" pos="0.05 0 0"/>
+				<site name="in" pos="-0.05 0 0"/>
+				
+				<site name="ext2" pos="0.05 0 -0.25"/>
+				<site name="flex2" pos="-0.05 0 -0.25"/>
+				
+			</body>
+			
+		</body>
+			 -->
+
+    </worldbody>
+	
+	
+	<tendon>
+		<!--
+		<spatial name="ext">
+			<site site="ext1"/>
+			<geom geom="wrap" sidesite="out"/>
+			<site site="ext2"/>
+		</spatial>
+		
+		<spatial name="flex">
+			<site site="flex1"/>
+			<geom geom="wrap" sidesite="in"/>
+			<site site="flex2"/>
+		</spatial>
+		-->
+		<spatial name="musc" rgba="0.8 0.2 0.2 1" damping="0.001">
+			<site site="tend1"/>
+			<site site="tend2"/>
+		</spatial>
+		
+		<spatial name="tend" stiffness="1000" damping="0.1">
+			<site site="tend2"/>
+			<geom geom="wrap2" sidesite="out2"/>
+			<site site="tend3"/>
+		</spatial>
+		
+	</tendon>
+	
+	
+	<actuator> <!-- actuator user params are fmax, vmax and hill for the muscle -->
+		
+		<!--
+		<general name="ext" tendon="ext" user="1000 5 0.37"
+		    ctrllimited="true" ctrlrange="0 1" forcelimited="false"
+			dyntype="user" gaintype="user" biastype="none"/>
+			
+		<general name="flex" tendon="flex" user="1000 5 0.37"
+			ctrllimited="true" ctrlrange="0 1" forcelimited="false"
+			dyntype="user" gaintype="user" biastype="none"/>
+		 -->
+			
+		<general name="musc" tendon="musc" user="1000 5 0.37"
+			ctrllimited="true" ctrlrange="0 1" forcelimited="false"
+			dyntype="user" gaintype="user" biastype="none"/>
+		
+	</actuator>
+	
+
+</mujoco>
