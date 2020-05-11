@@ -1,9 +1,12 @@
 Input data is in terms of quaternions for ..models/Kassina/Kassina.xml model
+See README_workflow.txt for information on how these relate to raw kinematics data
+
 Hop = jumping data (recorded by L. Porro, E. Eberhard, 2016 [1])
 Run = walking data (recorded by A. Collings, L. Porro, K. Chadwick, C. Richards, 2015 [1,2])
 
-0 is control condition (all global translation/rotational motions of the body have been removed, but otherwise no further alterations to kinematics)
-"fixed" refers to hypothetical pelvis which has been mathematically "glued" such that there is no lateral rotation [3]
+"fixed" refers to hypothetical pelvis which has been mathematically "glued" such that there is no lateral rotation [3].  For all other cases, all global translation/rotational motions of the body have been removed, but otherwise no further alterations to kinematics.  See publications for details.
+
+NOTE: You can make a list of muscle paths to highlight. This is done by modifying the muscle_highlight.txt.  This will colour only those paths and all other muscles will be transparent (they will still be present in the model).  For an example, see muscle_highlight_example.txt (this is just to show you how to write the file - the example file is ignored by the simulator).
 
 
 See README_workflow.txt for information on how quaternions files were generated
