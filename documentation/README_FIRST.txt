@@ -4,7 +4,7 @@ To all users
 
 1. Download the entire repository and store it locally.  Please do not alter the content/location of folders unless you know what you're doing.
 
-2. If you'd like to stay updated with later versions of this repository or experiment with your own changes, create a fork using your own GitHub.
+2. OPTIONAL: If you'd like to stay updated with later versions of this repository or experiment with your own changes, create a fork using your own GitHub.
 
 3. Open a command line terminal
 
