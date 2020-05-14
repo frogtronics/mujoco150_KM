@@ -1,6 +1,6 @@
 This repository contains source code and image data to reproduce a frog musculoskeletal model and simulation created by Amber Collings and Enrico Eberhard and modified by Chris Basu and Chris Richards.  It is currently incomplete and under development and has not been validated or fully tested and therefore is not yet intended for public use.
 
-The folder structure is as follows:
+Take a moment to check the folder structure, below.  Then open \documentation\README_FIRST.txt
 
 "_LINUX, _OSX, _WIN" contain binary compiled code for running MuJoCo programs
 "data" contains misc. data used in the workflow, but not direct input/output of simulations. 
