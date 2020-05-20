@@ -1,5 +1,10 @@
 To do list.  Anyone is welcome to contribute, in any order.
 
+AMBER:
+What frog (KM??) is the one that was scanned?
+
+
+ANYONE:
 1.Update/edit workflow file as a text description with steps outlining how to recreate the data from the model.  Should start with XYZ data and end with tendon/moment arm data.  Should also have information on softwares and version where applicable.
 2.Make generic readme file that points to documentation, etc. - modify README_whatAreFoldersFor.txt to do this...
 3. Need to make a wrapper kassinainputs function that calls the appropriate thing and only does one file at a time and is more intuitively named. Maybe Call this XYZ2quats.m  This will open the metadata file and convert a single XYZ file to quats and select inputs 12 or 8 depending.  Write in the % green text documentation where all files need to be 

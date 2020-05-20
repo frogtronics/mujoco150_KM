@@ -3,6 +3,7 @@ See README_workflow.txt for information on how these relate to raw kinematics da
 
 Hop = jumping data (recorded by L. Porro, E. Eberhard, 2016 [1])
 Run = walking data (recorded by A. Collings, L. Porro, K. Chadwick, C. Richards, 2015 [1,2])
+Ref = for reference poses.  E.g. ref 00 is the position of the frog in which it was scanned.
 
 "fixed" refers to hypothetical pelvis which has been mathematically "glued" such that there is no lateral rotation [3].  For all other cases, all global translation/rotational motions of the body have been removed, but otherwise no further alterations to kinematics.  See publications for details.
 
