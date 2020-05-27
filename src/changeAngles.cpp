@@ -255,19 +255,29 @@ int main(int argc, const char** argv)
 				
 				if(tfile) {
 					//first line is header with labels, now just print numbers
-					for(tID = 0; tID < m->ntendon; tID++)
-					{
-						fprintf(tendonFile,"%f,", d->ten_length[tID]);
+					// for(tID = 0; tID < m->ntendon; tID++)
+					// {
+					// 	fprintf(tendonFile,"%f,", d->ten_length[tID]);
 						
-						for(tMmtID = tID*m->nv; tMmtID < (tID+1)*m->nv; tMmtID++) {
-							fprintf(tendonFile,"%f",d->ten_moment[tMmtID]);
+					// 	for(tMmtID = tID*m->nv; tMmtID < (tID+1)*m->nv; tMmtID++) {
+					// 		fprintf(tendonFile,"%f",d->ten_moment[tMmtID]);
 							
-							if( (tID >= m->ntendon-1) && (tMmtID >= (tID+1)*m->nv - 1) )
-								fprintf(tendonFile,"\n");
-							else
-								fprintf(tendonFile,",");
-						}
+					// 		if( (tID >= m->ntendon-1) && (tMmtID >= (tID+1)*m->nv - 1) )
+					// 			fprintf(tendonFile,"\n");
+					// 		else
+					// 			fprintf(tendonFile,",");
+					// 	}
+					// }
+					for (int i = 0; i < (m->ntendon);i++) {
+						fprintf(tendonFile, "%2.6f", d->ten_length[i]);
+						if (i < (m->ntendon-1))
+							fprintf(tendonFile, ",");
+						else
+							fprintf(tendonFile, "\n");
 					}
+
+
+
 				}
 				
 				if(ffile) {
