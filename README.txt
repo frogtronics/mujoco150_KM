@@ -11,3 +11,8 @@ Take a moment to check the folder structure, below.  Then open \documentation\RE
 "output" contains data written by simulation
 "scripts" contains any associated scripts in Matlab (.m), mathematica (.nb) or other.  Also contains metadata files as well as some other useful items
 "src" contains all c++ source code for MuJoCo simulations
+
+
+
+TO DO:
+Chris: test filesave outputs from changeAngles to make sure it is the same as ChrisB's.  Make new folder in data called TEST, put two test cases in there one is a file known to work another is a new saved one.

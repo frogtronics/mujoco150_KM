@@ -30,9 +30,10 @@ mjData* d = 0;
 int displayWindow = 1;
 
 //input option args
-char *ffile = NULL;
-char *ifile = NULL;
-char *tfile = NULL;
+char *ffile = NULL;//output foot file (not currently used)
+char *ifile = NULL;//input quaternions file
+char *tfile = NULL;//tendon length file
+char *rfile = NULL;//moment arm file
 
 //defaults
 #ifdef _WIN32
@@ -74,7 +75,7 @@ int main(int argc, const char** argv)
 		inputFile = fopen(ifile, "r");
 	if (!inputFile) {
 		//printf("Could not open input file %s\n",ifile);
-		printf("FAILED\nUSAGE: changeAngles -m modelfile -i inputfile\noptional additional arguments\n-t tendondataOutputdile \n-f footpositionOutputfile\n");
+		printf("FAILED\nUSAGE: changeAngles -m modelfile -i inputfile\noptional additional arguments\n-t tendondataOutputdile \n-r momentarmOutputfile\n");
 		return 1;
 	}
 	
@@ -89,6 +90,16 @@ int main(int argc, const char** argv)
 		}
 	}
 	
+	//create output file for moment arms
+	FILE* momentarmFile;
+	if (rfile) {
+		momentarmFile = fopen(rfile, "w");
+		if (!momentarmFile) {
+			printf("Could not create moment arm file %s\n",rfile);
+			return 1;
+		}
+	}
+
 	
 	//create output file for foot pos if needed
 	FILE* footFile;
@@ -188,16 +199,24 @@ int main(int argc, const char** argv)
 		render(window);
 	
 
-
+	//find muscle highlights from highlights file
 	int muscle_highlight_id;
-	int hilight_id_list[n_highlights];
+	int highlight_id_list[n_highlights];
 	for (int i = 0; i < n_highlights; i++) 
 	{
 		int muscle_highlight_id = mj_name2id(m, mjOBJ_TENDON, highlight_list[i].c_str());
-		hilight_id_list[i] = muscle_highlight_id;
+		highlight_id_list[i] = muscle_highlight_id;
 		printf("highlighted tendons: %s, id = %i\n", highlight_list[i].c_str(), muscle_highlight_id);
 	}
-
+	//find site highlights from highlights file
+	int site_highlight_id;
+	int site_id_list[n_highlights];
+	for (int i = 0; i < n_highlights; i++) 
+	{
+		int site_highlight_id = mj_name2id(m, mjOBJ_SITE, highlight_list[i].c_str());
+		site_id_list[i] = site_highlight_id;
+		printf("highlighted sites: %s, id = %i\n", highlight_list[i].c_str(), site_highlight_id);
+	}
 
 
 	// main loop
@@ -213,6 +232,7 @@ int main(int argc, const char** argv)
 			//-------------------------------
 			if (highlightQ)
 			{
+				//---------HIGHLIGHT TENDONS
 				// first make all tendons transparent
 				for (int i = 0; i <  m->ntendon; i ++ )
 				{
@@ -231,10 +251,34 @@ int main(int argc, const char** argv)
 					{
 						if (j == 3)
 						{
-							m->tendon_rgba[ hilight_id_list[i] * 4 + j] = 1;
+							m->tendon_rgba[ highlight_id_list[i] * 4 + j] = 1;
 						}
 					}
 				}
+				//---------HIGHLIGHT SITES
+				// first make all sites transparent
+				for (int i = 0; i <  m->nsite; i ++ )
+				{
+					for (int j = 0; j < 4; j ++)
+					{
+						if (j == 3)
+						{
+							m->site_rgba[ i * 4 + j] = 0;
+						}
+					}
+				}
+				// fnow highlight specified sites
+				for (int i = 0; i <  n_highlights; i ++ )
+				{
+					for (int j = 0; j < 4; j ++)
+					{
+						if (j == 3)
+						{
+							m->site_rgba[ site_id_list[i] * 4 + j] = 1;
+						}
+					}
+				}
+
 			}
 			//-------------------------------
 			//-------------------------------
@@ -275,10 +319,18 @@ int main(int argc, const char** argv)
 						else
 							fprintf(tendonFile, "\n");
 					}
-
-
-
 				}
+				if (rfile) {
+					for(int ntendof = 0; ntendof < (m->nv)*(m->ntendon); ntendof++) {
+						fprintf(momentarmFile,"%2.6f", d->ten_moment[ntendof]);
+						if (ntendof < ((m->nv)*(m->ntendon) -1))
+							fprintf(momentarmFile,",");
+						else
+							fprintf(momentarmFile,"\n");
+					}
+				}
+
+				
 				
 				if(ffile) {
 				
@@ -355,7 +407,8 @@ int parseArgsLong(int argc, const char **argv) {
 		{"hide",	no_argument,		&displayWindow, 0},
 		{"model",	required_argument,	0, 'm'},
 		{"input",	required_argument,	0, 'i'},
-		{"foot",	required_argument,	0, 'f'},
+		{"momentarm", required_argument, 0, 'r'},
+		// {"foot",	required_argument,	0, 'f'},
 		{"tendon",	required_argument,	0, 't'},
 		{0, 0, 0, 0}
 	};
@@ -364,7 +417,7 @@ int parseArgsLong(int argc, const char **argv) {
 	int option_index = 0;
 	int c;
 	
-	while ((c = getopt_long(argc, (char**)argv, "hf:m:t:i:",
+	while ((c = getopt_long(argc, (char**)argv, "hf:m:t:i:r:",
 							long_options, &option_index)) != -1) {
 		
 		
@@ -373,14 +426,19 @@ int parseArgsLong(int argc, const char **argv) {
 				displayWindow = 0;
 				break;
 				
-			case 'f':
-				printf ("Saving foot pos to '%s'\n", optarg);
-				ffile = optarg;
-				break;
+			// case 'f':
+			// 	printf ("Saving foot pos to '%s'\n", optarg);
+			// 	ffile = optarg;
+			// 	break;
 				
 			case 'm':
 				printf ("Using model '%s'\n", optarg);
 				mfile = optarg;
+				break;
+
+			case 'r':
+				printf ("Saving moment arm info to '%s'\n", optarg);
+				rfile = optarg;
 				break;
 				
 			case 't':
