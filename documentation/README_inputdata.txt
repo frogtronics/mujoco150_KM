@@ -7,6 +7,10 @@ Ref = for reference poses.
 ref 00 is the position of the frog in which it was scanned.
 ref 01 is the frog in scan pose, but with the knee extending at a constant rate (all other joints motionless)
 ref 02 same as ref01 but with hip extension rather than knee
+ref 03 same as ref 2, but with modified tendon path of CR (experimental) - Version 1
+ref 04 same as ref 3, but with modified tendon path of CR (experimental) - Version 2
+ref 05 same as ref 4, but with modified tendon path of CR (experimental) - Version 3
+ref 06 same as ref 5, but with altered knee origin (Version 1)
 
 Test = for testing
 test00 is a copy of KM06_HOP_08 quaternions file sent by ChrisB's 

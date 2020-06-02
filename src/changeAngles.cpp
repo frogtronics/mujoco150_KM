@@ -217,6 +217,15 @@ int main(int argc, const char** argv)
 		site_id_list[i] = site_highlight_id;
 		printf("highlighted sites: %s, id = %i\n", highlight_list[i].c_str(), site_highlight_id);
 	}
+	//find geom highlights from highlights file
+	int geom_highlight_id;
+	int geom_id_list[n_highlights];
+	for (int i = 0; i < n_highlights; i++) 
+	{
+		int geom_highlight_id = mj_name2id(m, mjOBJ_GEOM, highlight_list[i].c_str());
+		geom_id_list[i] = geom_highlight_id;
+		printf("highlighted sites: %s, id = %i\n", highlight_list[i].c_str(), geom_highlight_id);
+	}
 
 
 	// main loop
@@ -275,6 +284,17 @@ int main(int argc, const char** argv)
 						if (j == 3)
 						{
 							m->site_rgba[ site_id_list[i] * 4 + j] = 1;
+						}
+					}
+				}
+				// fnow highlight specified geoms
+				for (int i = 0; i <  n_highlights; i ++ )
+				{
+					for (int j = 0; j < 4; j ++)
+					{
+						if (j == 3)
+						{
+							m->geom_rgba[ geom_id_list[i] * 4 + j] = 1;
 						}
 					}
 				}

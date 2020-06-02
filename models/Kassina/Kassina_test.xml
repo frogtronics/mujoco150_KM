@@ -370,12 +370,16 @@
                     
                     
                     <!-- wrapping surfaces -->
+                    <geom name="w_ctr_knee" type="sphere" pos="0.0007 0.000000 0.018143" size="0.001" rgba="1 0 0 1"/>
+                    <site name="w_ctr_knee_dors" pos="0.0007 0.001 0.018143" size="0.0001" rgba="0 0 1 1"/>
+                    <site name="w_ctr_knee_vent" pos="0.0000 0.000 0.0188" size="0.0001" rgba="0 0 1 1"/>
                     <geom name="w_left_femur" type="cylinder" fromto="0.000066 -0.000336 -0.000513 -0.000758 -0.000080 0.018013" size="0.000650" class="wrap"/>
                     <geom name="w_left_femur_prox" type="cylinder" fromto="0.000026 0.000302 -0.001065 0.000096 -0.000573 0.004432" size="0.000650" class="wrap"/>
                     <site name="w_left_femur_prox_side" pos="0.000361 0.000413 0.001954" class="wrap"/> 
                     <geom name="w_left_CR" type="sphere" pos="0.000269 -0.000456 0.009247" size="0.003752" class="wrap"/>
                     <site name="w_left_CR_side" pos="-0.002858 0.001453 0.010054" class="wrap"/> 
                     <geom name="w_left_CR_apo1" type="sphere" pos="-0.00258 0.000153 0.01554" size="0.003915" class="wrap"/>
+                    <geom name="w_left_CR_apo2" type="sphere" pos="-0.00158 0.000053 0.01754" size="0.003915" class="wrap"/>
                     <site name="left_CR_apo1" pos="-0.00258 0.000153 0.01554" class="wrap"/><!--proximal aponeurosis -->
                     <site name="left_CR_apo2" pos="-0.00158 0.000053 0.01754" class="wrap"/> <!--distal aponeurosis -->   
                     <geom name="w_left_SM" type="sphere" pos="0.000198 -0.000989 0.006451" size="0.003915" class="wrap"/>
@@ -445,12 +449,20 @@
 
 
                     <!-- TibFib Left -->
-                    <body name="TibFibL" pos="-0.000000 0.000000 0.018143">
+                    <!-- <body name="TibFibL" pos="-0.000000 0.000000 0.018143"> -->
+                    <body name="TibFibL" pos="0.0004 0.000000 0.018143">
                             
                         <camera name="KneeTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
                         
                         <!-- KNEE JOINT  -->
-                        <joint name="j_kneeL" pos="0.001000 0.00000 -0.001000" type="ball"/> <!--
+                        <!-- VERSION 0 -->
+                        <!-- <joint name="j_kneeL" pos="0.00 0.000 -0.00000" type="ball"/> -->
+                        <!-- VERSION 1 -->
+                        <joint name="j_kneeL" pos="0.0003 0.000  0.00001" type="ball"/> 
+                        <geom name="ctr_knee" type="sphere" pos="0.0003 0.000  0.00001" size="0.000706" rgba="1 0 0 0"/>
+                        <!-- <site name="w_ctr_knee_side" pos="0.00033 0.000  -0.0008" size="0.0001" rgba="0 0 1 1"/> -->
+
+                        <!--
                         <joint name="j_kneeLX" pos="0.000000 0.000000 -0.000000" type="hinge" axis="1 0 0" range="-180 180"/>
                         <joint name="j_kneeLY" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 1 0" range="-180 180"/>
                         <joint name="j_kneeLZ" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 0 1" range="-180 180"/> -->
@@ -833,7 +845,7 @@
             
         
         <!-- CR MUSCLE left -->
-        <spatial name="t_left_CR_dors" class="m_CR" user="1.079">
+<!--         <spatial name="t_left_CR_dors" class="m_CR" user="1.079">
             <site site="left_CR_org"/>
             <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
             <site site="left_CR_via_fem"/>
@@ -846,19 +858,19 @@
 			<site site="left_CR_via_vent"/>
 			<geom geom="w_left_knee" sidesite="w_left_knee_side"/>
 			<site site="left_CR_ins"/>
-		</spatial>
+		</spatial> -->
 
         <!-- ------------------ -->
         <!-- ------------------ -->
 		<!-- TEST SECTION START-->
         <!-- ------------------ -->
         <!-- ------------------ -->
-<!--         <spatial name="t_left_CR_dors" class="m_CR" user="1.079">
+        <spatial name="t_left_CR_dors" class="m_CR" user="1.079">
             <site site="left_CR_org"/>
             <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
             <site site="left_CR_via_fem"/>
             <site site="left_CR_ins_dors"/>
-        </spatial> -->
+        </spatial>
 
         <!-- |||||||||||||||||||||| -->
         <!-- VENTRAL HEAD VERSION 1-->
@@ -896,6 +908,28 @@
             <geom geom="w_left_CR_apo1"/>
             <site site="left_CR_ins_dors"/>
         </spatial> -->
+
+        <!-- |||||||||||||||||||||| -->
+        <!-- VENTRAL HEAD VERSION 3-->
+        <!-- |||||||||||||||||||||| -->
+        
+        <spatial name="t_left_CR_vent" class="m_CR" user="1.183">
+            <site site="left_CR_org"/>
+            <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
+            <site site="w_left_CR_side"/>
+            <site site="left_CR_apo1"/>
+            <geom geom="w_left_CR_apo1"/>
+            <site site="left_CR_apo2"/>
+            <geom geom="ctr_knee" sidesite="w_ctr_knee_vent"/>
+            <site site="w_ctr_knee_vent"/>
+            <site site="left_CR_ins"/>
+            <pulley divisor="2"/>
+            <!-- <site site="w_left_CR_side"/> -->
+            <site site="left_CR_apo2"/>
+            <geom geom="ctr_knee" sidesite="w_ctr_knee_dors"/>
+            <site site="w_ctr_knee_dors"/>
+            <site site="left_CR_ins_dors"/>
+        </spatial>
         <!-- ------------------ -->
         <!-- ------------------ -->
         <!-- TEST SECTION END-->
