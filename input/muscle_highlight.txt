@@ -1,6 +1,6 @@
+/allsites
 left_CR_ins
 left_CR_ins_dors
-w_ctr_knee
-w_ctr_knee_dors
-w_ctr_knee_vent
+left_CR_via_fem
+t_left_CR_dors
 t_left_CR_vent

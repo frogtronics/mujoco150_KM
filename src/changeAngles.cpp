@@ -118,9 +118,14 @@ int main(int argc, const char** argv)
     std::string *highlight_list = new std::string[n_highlights];
     file2StringList(highlight_filename, highlight_list);
     bool highlightQ = false;
+    bool allsitesQ = false;
     if (n_highlights > 0)
     {
     	highlightQ = true;
+    }
+     if (highlight_list[0] == "allsites")
+    {
+    	allsitesQ = true;
     }
 	
 	//---- Pre-processing ----//
@@ -266,13 +271,16 @@ int main(int argc, const char** argv)
 				}
 				//---------HIGHLIGHT SITES
 				// first make all sites transparent
-				for (int i = 0; i <  m->nsite; i ++ )
+				if (!allsitesQ)
 				{
-					for (int j = 0; j < 4; j ++)
+					for (int i = 0; i <  m->nsite; i ++ )
 					{
-						if (j == 3)
+						for (int j = 0; j < 4; j ++)
 						{
-							m->site_rgba[ i * 4 + j] = 0;
+							if (j == 3)
+							{
+								m->site_rgba[ i * 4 + j] = 0;
+							}
 						}
 					}
 				}
@@ -287,6 +295,7 @@ int main(int argc, const char** argv)
 						}
 					}
 				}
+				//---------HIGHLIGHT GEOMS
 				// fnow highlight specified geoms
 				for (int i = 0; i <  n_highlights; i ++ )
 				{
