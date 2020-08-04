@@ -1,8 +1,8 @@
-MuJoCo Pro Individual license activation key, number 6730, type 6.
+MuJoCo Pro Lab license activation key, number 7113, type 6.
 
-Issued to Chris Richards, Royal Veterinary College.
+Issued to Dr. Christopher Richards, Royal Veterinary College.
 
-Expires July 19, 2020.
+Expires May 12, 2021.
 
 Do not share this file with anyone other than the users covered
 by your license agreement with Roboti LLC. This file activates
@@ -11,11 +11,11 @@ MuJoCo Pro on any computer running any supported OS.
 Do not modify this file. Its entire content, including the
 plain text section, is used by the activation manager.
 
-4b8e4f6b97e42c429ac48ff58a9ef15993056ab90bdba6d7982aa1c13011e329
-d3717df982bb2d54b67a9f8dc143a3d4044d0d899f79ffa8dc5ff53c4202810a
-1a7c970329518daf3096efc49d88c4e1380fd08a8fdadbaa31b99274b02f7d45
-9aa0111ed3983709cb81507ccd3aff2990cb580c1f095c0d61aa7a65ee572bf9
-f94abeb019a8f9bdb9dde2b9aec90557bb73ed8a97977621d2f2bcc515e1f443
-fecc51aba3925efbbecd9862c89a666451757088695732ee3b29f13c2a9ee9ca
-316ac9979421d8e21d4cc4d3e83ad63ba331fc5027548f41881b4b179c4b0d49
-950d8bed57259b27f1837f6bd82b45ece40f598c35de7fd85322e33eec35fdd5
+0343430debe3ecefdaa499c4efe14ae6d0e363ba53d58711a998362b06ed06d4
+c5c93019f12a4513ed1f05724de8dfe932aaf695e9c4997ed9b4d84f3ad2027c
+1dfa34885a0193cd2db027a8479f0a10c382c4c1d11deaea6beb70783f7547e3
+416bb5b22ef255aa1260039bcc57426a1af97d4ad092dd5d2bf71de053e4ded2
+4bebd1d05020dc46eae3c519f28ce1f945b25b42bd05b6b1fa6cd3ad88276cb1
+1b5455f933ff216adce0f02861fc870319d1f13b60b4562f83f56a3c3a022342
+324110c0548bc5c3a0434af65829fe7fe6e1173444ad0911970954e3cea3bcf6
+cee4ab635505401c8ddce78e3c72908f206f2fcab13933e4c5abc17b9950dcc1

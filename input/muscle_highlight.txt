@@ -1,4 +1,4 @@
-/allsites
+allsites
 left_CR_ins
 left_CR_ins_dors
 left_CR_via_fem

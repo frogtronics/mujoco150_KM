@@ -22,3 +22,6 @@ WARNING: Inertia matrix is too close to singular at DOF 26. Check model. Time = 
 Wed May 20 06:53:35 2020
 WARNING: Inertia matrix is too close to singular at DOF 26. Check model. Time = 0.0000.
 
+Tue Aug  4 14:55:16 2020
+ERROR: Expired activation key
+
