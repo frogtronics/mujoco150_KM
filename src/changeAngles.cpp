@@ -232,7 +232,6 @@ int main(int argc, const char** argv)
 		printf("highlighted sites: %s, id = %i\n", highlight_list[i].c_str(), geom_highlight_id);
 	}
 
-
 	// main loop
 	while( !glfwWindowShouldClose(window) ) {
 		
@@ -308,6 +307,7 @@ int main(int argc, const char** argv)
 					}
 				}
 
+
 			}
 			//-------------------------------
 			//-------------------------------
@@ -321,8 +321,27 @@ int main(int argc, const char** argv)
 			
 			mj_forward(m,d);
 
-			
-			
+			// --- experimental - for visualising the moment arms of specific tendons.
+			// makes ALL sites to be the diameter of a moment arm of choice.
+			// highlight the sight you wish to see that one only
+			int knee_id;
+			int knee_dof_id;
+			knee_id = mj_name2id(m, mjOBJ_JOINT, "j_hipL");
+			knee_dof_id = m->jnt_dofadr[knee_id];
+			//select first muscle in list and show its moment arm
+			int momentarm_highlight_id = mj_name2id(m, mjOBJ_TENDON, highlight_list[0].c_str());
+			int momentarm_site_id = mj_name2id(m, mjOBJ_SITE, "ctr_hipL");
+			mjtNum ma_radius;
+			ma_radius = d->ten_moment[ momentarm_highlight_id * (m->nv) + knee_dof_id + 0];
+			//printf("%f\n", ma_radius);
+			printf("%i %i %f\n", knee_dof_id, momentarm_highlight_id, ma_radius);
+			// for (int i = 0; i < m->nsite; i ++) 
+			// {
+			// 	m->site_size[ i * 3 ] = 0.007;
+			// }		
+			//m->site_size[ momentarm_site_id * 3] = ma_radius;
+
+
 			//on the first loop through, print all tendon information to file
 			if(firstTime) {
 				

@@ -1,0 +1,27 @@
+
+Sure, mine is thebadlizard.
+
+
+I may not be very useful for a while – our newborn is due at the end of this month, so may arrive at any time now! I’m doing the bulk of childcare right now, not much time to sit down and concentrate.
+
+ 
+
+The things that need tweaking (as far as I know, but there could be more):
+
+Gluteus – add its insertion to the femur segment
+
+Knee aponeurosis – how to model; consider a shared site for associated tendons?
+
+PER – move the wrapping surface or associated sites, to stop the tendon from slipping
+
+ECB – as above
+
+CR – reality check its path
+
+ 
+
+Thanks,
+
+ 
+
+ChrisB

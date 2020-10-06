@@ -362,7 +362,7 @@
                     <joint name="j_hipLX" pos="0.000000 0.000000 0.000000" type="hinge" axis="1 0 0" range="-170 170"/>
                     <joint name="j_hipLY" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 1 0" range="-160 5"/>
                     <joint name="j_hipLZ" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 0 1" range="-170 170"/> -->
-                    <site name="ctr_hipL" pos="0.0003 0.000  0.00001" size="0.01" rgba="0 0 1 1"/>
+                    
                     
                     <!-- femur geometry -->
                     <geom type="mesh" mesh="FemurL" class="bone"/>
@@ -370,9 +370,9 @@
                     
                     
                     <!-- wrapping surfaces -->
-                    <geom name="w_ctr_kneL" type="sphere" pos="0.0007 0.000000 0.018143" size="0.001" rgba="1 0 0 1"/>
-                    <site name="w_ctr_kneL_dors" pos="0.0007 0.001 0.018143" size="0.0001" rgba="0 0 1 1"/>
-                    <site name="w_ctr_kneL_vent" pos="0.0000 0.000 0.0188" size="0.0001" rgba="0 0 1 1"/>
+                    <geom name="w_ctr_knee" type="sphere" pos="0.0007 0.000000 0.018143" size="0.001" rgba="1 0 0 1"/>
+                    <site name="w_ctr_knee_dors" pos="0.0007 0.001 0.018143" size="0.0001" rgba="0 0 1 1"/>
+                    <site name="w_ctr_knee_vent" pos="0.0000 0.000 0.0188" size="0.0001" rgba="0 0 1 1"/>
                     <geom name="w_left_femur" type="cylinder" fromto="0.000066 -0.000336 -0.000513 -0.000758 -0.000080 0.018013" size="0.000650" class="wrap"/>
                     <geom name="w_left_femur_prox" type="cylinder" fromto="0.000026 0.000302 -0.001065 0.000096 -0.000573 0.004432" size="0.000650" class="wrap"/>
                     <site name="w_left_femur_prox_side" pos="0.000361 0.000413 0.001954" class="wrap"/> 
@@ -451,7 +451,7 @@
                     <!-- TibFib Left -->
                     <!-- <body name="TibFibL" pos="-0.000000 0.000000 0.018143"> -->
                     <body name="TibFibL" pos="0.0004 0.000000 0.018143">
-                         
+                            
                         <camera name="KneeTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
                         
                         <!-- KNEE JOINT  -->
@@ -459,9 +459,8 @@
                         <!-- <joint name="j_kneeL" pos="0.00 0.000 -0.00000" type="ball"/> -->
                         <!-- VERSION 1 -->
                         <joint name="j_kneeL" pos="0.0003 0.000  0.00001" type="ball"/> 
-                        <geom name="ctr_kneL" type="sphere" pos="0.0003 0.000  0.00001" size="0.000706" rgba="1 0 0 0"/>
-                        <site name="ctr_kneL" pos="0.0003 0.000  0.00001" size="0.01" rgba="0 0 1 1"/>
-                        <!-- <site name="w_ctr_kneL_side" pos="0.00033 0.000  -0.0008" size="0.0001" rgba="0 0 1 1"/> -->
+                        <geom name="ctr_knee" type="sphere" pos="0.0003 0.000  0.00001" size="0.000706" rgba="1 0 0 0"/>
+                        <!-- <site name="w_ctr_knee_side" pos="0.00033 0.000  -0.0008" size="0.0001" rgba="0 0 1 1"/> -->
 
                         <!--
                         <joint name="j_kneeLX" pos="0.000000 0.000000 -0.000000" type="hinge" axis="1 0 0" range="-180 180"/>
@@ -611,8 +610,7 @@
                     <body name="TibFibR" pos="0.000000 0.000000 0.018143"  >
                         
                         <!-- KNEE JOINT -->
-                        <joint name="j_kneeL_mir" pos="-0.000000 0.000000 -0.000000" type="ball"/> 
-                        <geom name="ctr_kneR" type="sphere" pos="0.0003 0.000  0.00001" size="0.000706" rgba="1 0 0 0"/> <!--
+                        <joint name="j_kneeL_mir" pos="-0.000000 0.000000 -0.000000" type="ball"/>  <!--
                         <joint name="j_kneeLX_mir" pos="-0.000000 0.000000 -0.000000" type="hinge" axis="1 0 0" range="-5 5"/>
                         <joint name="j_kneeLY_mir" pos="-0.000000 0.000000 -0.000000" type="hinge" axis="0 1 0" range="-170 10"/>
                         <joint name="j_kneeLZ_mir" pos="-0.000000 0.000000 -0.000000" type="hinge" axis="0 0 1" range="-15 15"/> -->
@@ -922,14 +920,14 @@
             <site site="left_CR_apo1"/>
             <geom geom="w_left_CR_apo1"/>
             <site site="left_CR_apo2"/>
-            <geom geom="ctr_kneL" sidesite="w_ctr_kneL_vent"/>
-            <site site="w_ctr_kneL_vent"/>
+            <geom geom="ctr_knee" sidesite="w_ctr_knee_vent"/>
+            <site site="w_ctr_knee_vent"/>
             <site site="left_CR_ins"/>
             <pulley divisor="2"/>
             <!-- <site site="w_left_CR_side"/> -->
             <site site="left_CR_apo2"/>
-            <geom geom="ctr_kneL" sidesite="w_ctr_kneL_dors"/>
-            <site site="w_ctr_kneL_dors"/>
+            <geom geom="ctr_knee" sidesite="w_ctr_knee_dors"/>
+            <site site="w_ctr_knee_dors"/>
             <site site="left_CR_ins_dors"/>
         </spatial>
         <!-- ------------------ -->
