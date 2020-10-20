@@ -205,7 +205,6 @@
                 <joint name="j_urostyle" pos="0.000000 0.000000 -0.000000" type="ball"/> -->
 				<joint name="j_urostyleX" pos="0.000000 0.000000 -0.000000" type="hinge" axis="1 0 0" limited="true" range="-0.05 20"/>
 				<joint name="j_urostyleY" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 1 0" limited="true" range="-2.5 2.5"/>
-                
                 <!-- urostyle geometry -->
                 <geom type="mesh" mesh="Urostyle" class="bone"/>
                 <!--
@@ -359,6 +358,7 @@
                     
                     <!-- HIP JOINT -->
                     <joint name="j_hipL" pos="0.000000 0.000000 0.000000" type="ball"/>
+                    <site name="s_ctr_hipL" pos="0.000000 0.00000 -0.00000" size="0.001" rgba="0 0 1 1"/>
                      <!--
                     <joint name="j_hipLX" pos="0.000000 0.000000 0.000000" type="hinge" axis="1 0 0" range="-170 170"/>
                     <joint name="j_hipLY" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 1 0" range="-160 5"/>
@@ -447,6 +447,10 @@
                         <camera name="KneeTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
                         
                         <!-- KNEE JOINT  -->
+                        <geom name="g_test" type="sphere" pos="0 0 0" size="0.000212" rgba="0 0 1 1"/>
+                        <joint name="j_kneeL_rollingX" pos="0.000000 0.000000 0.00000" axis="1 0 0" type="slide"/>
+                        <joint name="j_kneeL_rollingY" pos="0.000000 0.000000 0.00000" axis="0 1 0" type="slide"/>
+                        <joint name="j_kneeL_rollingZ" pos="0.000000 0.000000 0.00000" axis="0 0 1" type="slide"/>
                         <joint name="j_kneeL" pos="0.000000 0.000000 -0.000000" type="ball"/> 
                         <site name="s_ctr_kneL" pos="0.000000 0.00000 -0.00000" size="0.001" rgba="0 0 1 1"/><!-- knee ctr of rotation - if this is placed along the axis of the bone it can mimic the effect of a "rolling joint" -->
                         <!-- <site name="s_test" pos="-0 0.00000 0.005" size="0.001" rgba="0 0 1 0.5"/> -->
@@ -458,7 +462,7 @@
                         <joint name="j_kneeLZ" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 0 1" range="-180 180"/> -->
                         
                         <!-- TibFib geometry -->
-                        <geom type="mesh" mesh="TibFibL" class="bone"/>
+                        <geom type="mesh" mesh="TibFibL" pos="0 0 0.001" class="bone"/>
                         <geom type="mesh" mesh="TibFibBody" class="body"/>
                         
 						<!-- wrapping surfaces -->
@@ -536,7 +540,9 @@
 							<camera name="AnkleSideCam" pos="0.006 0.035 0.015" xyaxes="-1 -0.1 0 0 -1 2" mode="track"/>
 							
                             <!-- ANKLE JOINT -->
-                            <joint name="j_ankleL" pos="0.000001 -0.000000 -0.001307" type="ball"/> <!--
+                            <joint name="j_ankleL" pos="0.000001 -0.000000 -0.001307" type="ball"/> 
+                            <site name="s_ctr_ankL" pos="0.000000 0.00000 -0.00000" size="0.001" rgba="0 0 1 1"/>
+                            <!--
                             <joint name="j_ankleLX" pos="0.000001 -0.000000 -0.001307" type="hinge" axis="1 0 0" range="-180 180"/>
                             <joint name="j_ankleLY" pos="0.000001 -0.000000 -0.001307" type="hinge" axis="0 1 0" range="-180 180"/>
                             <joint name="j_ankleLZ" pos="0.000001 -0.000000 -0.001307" type="hinge" axis="0 0 1" range="-180 180"/> -->

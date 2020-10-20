@@ -15,7 +15,6 @@
 #include "stdio.h"
 #include "string.h"
 #include "math.h"
-#include "rollingJoint.h"
 //#include "fileToolbox.h"
 
 
@@ -349,56 +348,100 @@ int main(int argc, const char** argv)
 			//-------------------------------
 			//-------------------------------
 
-			//------- experimental - try a knee slide joint
-			int slideX_joint = mj_name2id(m, mjOBJ_JOINT, "j_kneeL_rollingX");
-			int slideX_index = m->jnt_qposadr[slideX_joint];
-			int slideY_joint = mj_name2id(m, mjOBJ_JOINT, "j_kneeL_rollingY");
-			int slideY_index = m->jnt_qposadr[slideY_joint];
-			int slideZ_joint = mj_name2id(m, mjOBJ_JOINT, "j_kneeL_rollingZ");
-			int slideZ_index = m->jnt_qposadr[slideZ_joint];
-			//printf("%i\n", r);
-
+			//------- experimental - 
+			// --- get position of dummy site in femur, but in tibfib coordinates
+			// --  this will be used to approximate a rolling joint
+			// -- get cartesian coordinates of "roll centre" site on femur which is in femur frame
+			// -- convert roll centre into tib frame			
 			
+			
+			
+			mjtNum tib_mat[4];// orientation of femur
+			int tib_index = mj_name2id(m, mjOBJ_BODY, "TibFibL");
+			int site_index = mj_name2id(m, mjOBJ_SITE, "s_roll_kneL");
+			int ctr_index = mj_name2id(m, mjOBJ_SITE, "s_ctr_kneL");
+			int kne_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");
 
-			mju_copy(d->qpos,&q[0*m->nq],m->nq);
-			//d->qpos[slideX_index] = r * 0.0001;
-			//if (r == 10)
-			//{
-			mjtNum rollingXYZ[3];
-
-			//------FOR TESTING 
-			// USE THIS FOR TESTING AND ADJUSTING POSITION OF ELLIPSE
-			//-----------------
-			///----------------
-			//mju_copy(d->qpos,&q[0*m->nq],m->nq);
-			rollingCenter(rollingXYZ, mj_id2name(m, mjOBJ_JOINT, slideX_joint), ((float)r )/rows);
-			d->qpos[slideX_index] = -rollingXYZ[0];
-			d->qpos[slideY_index] = -rollingXYZ[1];
-			d->qpos[slideZ_index] = -rollingXYZ[2];
-			//}
-			int test_geom_id = mj_name2id(m, mjOBJ_GEOM, "g_test");
-			//printf("%f %f %f\n", rollingXYZ[0], rollingXYZ[1], rollingXYZ[2]);
 			for (int i = 0; i < 3; i ++) 
 			{
-				m->geom_pos[test_geom_id * 3 + i] = rollingXYZ[i];
+				m->jnt_pos[3 * (kne_id) + i] = 0;
 			}
-			//-----------------
-			///---------------			
-			///----------------
 
-			// ----------
-			// ----------
-			// FOR TESTING: isolate a joint - only have that one joint move and others are fixed at a frame
-			// ----------
-			// ----------
-			int knee_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");
-			int knee_dof_id = m->jnt_qposadr[knee_id];	
-    		int joint_sizes[4] = {7, 4, 1, 1};
-    		int knee_size = joint_sizes[m->jnt_type[knee_id]];
-			//printf("%i\n", knee_size);	
+			mju_copy(d->qpos,&q[r*m->nq],m->nq);
+			//mj_forward(m,d);
 
+			for (int i = 0; i < 9; i ++) 
+			{
+				tib_mat[i] = d->xmat[9 * tib_index + i];
+			}
+			//mju_printMat(fem_mat, 3, 3);
+			// get cartesian coordinates of roll centre site in femur frame
+			mjtNum roll_pos[3];
+			for (int i = 0; i < 3; i ++)
+			{
+				roll_pos[i] = d->site_xpos[ site_index * 3 + i];
+			}
+			
+			mjtNum roll_pos_tib[3]; // roll centre in tibia frame
+			mjtNum temp[3];
+			mjtNum tib_pos[3];
+			for (int i = 0; i < 3; i ++)
+			{
+				tib_pos[i] = d->xpos[3 * tib_index + i];
+			}
+			// quote from Emo 
+			//"Note that xmat is a 3x3 matrix which rotates from local to global coordinates. 
+			// So you need the transpose to go the other way."
+			mju_sub3(temp, roll_pos, tib_pos); // note I don't understand "d->xpos + 3 * tib_index shorthand - it was copied from Emo's post"
+			mju_rotVecMatT(roll_pos_tib, temp, tib_mat);
 
+			
+			for (int i = 0; i < 3; i ++) 
+			{
+				//m->jnt_pos[3 * (kne_id) + i] = roll_pos_tib[i];
+				d->xpos[3 * (tib_index) + i] = 0*roll_pos_tib[i] + 0.1;
+				//printf("%f\n", d->xpos[3 * tib_index + i]);
+			}
+			//printf("%i\n", tib_index);
+			//mju_copy(d->qpos,&q[r*m->nq],m->nq);
 			mj_forward(m,d);
+
+			//mju_printMat(roll_pos_tib, 3, 1);
+			// int kne_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");
+			// for (int i = 0; i < 3; i ++) 
+			// {
+			// 	m->jnt_pos[3 * (kne_id) + i] = roll_pos_tib[i];
+			// }
+			//printf("%i\n", kne_id);
+			//set model state
+			// mju_copy(d->qpos,&q[r*m->nq],m->nq);
+			
+			// mj_forward(m,d);
+
+
+
+            // WHAT I NEED TO DO: take the s_ctr_kneL site, transform it to global (negate out motion of tib)
+            //then rotate into fem coordinates.
+
+			// // --- experimental - for visualising the moment arms of specific tendons.
+			// // makes ALL sites to be the diameter of a moment arm of choice.
+			// // highlight the sight you wish to see that one only
+			// int knee_id;
+			// int knee_dof_id;
+			// knee_id = mj_name2id(m, mjOBJ_JOINT, "j_hipL");
+			// knee_dof_id = m->jnt_dofadr[knee_id];
+			// //select first muscle in list and show its moment arm
+			// int momentarm_highlight_id = mj_name2id(m, mjOBJ_TENDON, highlight_list[0].c_str());
+			// int momentarm_site_id = mj_name2id(m, mjOBJ_SITE, "ctr_hipL");
+			// mjtNum ma_radius;
+			// ma_radius = d->ten_moment[ momentarm_highlight_id * (m->nv) + knee_dof_id + 0];
+			// //printf("%f\n", ma_radius);
+			// printf("%i %i %f\n", knee_dof_id, momentarm_highlight_id, ma_radius);
+			// for (int i = 0; i < m->nsite; i ++) 
+			// {
+			// 	m->site_size[ i * 3 ] = 0.007;
+			// }		
+			// m->site_size[ momentarm_site_id * 3] = ma_radius;
 
 
 			//on the first loop through, print all tendon information to file

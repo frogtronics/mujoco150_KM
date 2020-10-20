@@ -34,6 +34,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "time.h"
+#include "fileToolbox.h"
 
 
 // model and data structs from main .c
@@ -892,6 +893,78 @@ void CSV2qpos(const mjModel* m, mjtNum* q, int rows, int cols, FILE* file) {
 	fclose(file);
 }
 
+//build q based on a model map which directly assigns qpos indices based on a "map" file
+// NOTE!!  number of columns must correspond to number of columns in the map file
+void CSV2qpos_mapped(const mjModel* m, mjtNum* q, int rows, int cols, FILE* file, std::string map_filename_k, std::string map_filename_m) {
+
+	int r,c,ret; //ret value can be used for error checking
+	int c_map_m, c_map_k;// rows and columns of the map - r_map not used. c_map is for the model, c_map_k is for the kinematics file
+	c_map_m = numberOfLines(map_filename_m);
+	c_map_k = numberOfLines(map_filename_k);
+
+	//model can have more DOF than kinematics file, but not the other way around
+	//i.e. if model has an extra joint (wrt kinematics file) that joint will always be in the null position
+	//however, every column in kinematics file must map to a dof
+	if (c_map_k > c_map_m)
+	{
+		printf("WARNING!!! Too many columns in kinematics input file.\nNumber of columns exceeds the number of dof in the model\n");
+		return;
+	}
+	if (c_map_m != m->nq)
+	{
+		printf("WARNING!!! Model map does not correspond to xml model file\nThis code may not work properly");
+		return;
+	}
+
+    std::string *joints_list_k = new std::string[c_map_k];
+    std::string *joints_list_m = new std::string[c_map_m];
+   	file2StringList(map_filename_k, joints_list_k);
+   	file2StringList(map_filename_m, joints_list_m);
+   	int dof_indices_k[c_map_k];//map each dof to the order in which it appears in the map file (thereofre qpos kinematics file)
+   	int dof_indices_m[c_map_m];
+
+   	/// Note - this code may seem unecessary, but should allow model to move correctly
+    /// even if dof's for qpos input file are in wrong order compared to the xml file - as long as the mapdata file
+    /// maps the columns to th qpos kinematics file in the correct order.
+
+    ///////////////////// copied code - make a 2D array of integers to match ordered indices
+	int **index_orders;
+	index_orders = new int*[c_map_k]; // dynamic array (size 10) of pointers to int
+
+	for (int i = 0; i < c_map_k; ++i) {
+	  index_orders[i] = new int[c_map_k];
+	  // each i-th pointer is now pointing to dynamic array (size 10) of actual int values
+	}
+
+	mjtNum q_raw[rows*m->nq];
+	CSV2qpos(m,q_raw,rows,c_map_k,file); // this is inefficient, but do not want to reinvent the wheel.
+	// now overwrite q
+	for (r = 0; r < rows; r ++)
+	{
+		// make sure q is all zeros - otherwise missing dofs will have odd values
+		for (int i = 0; i < m->nq; i ++)
+		{
+			q[r * m->nq + i] = 0;
+		}
+		for (int i = 0; i < c_map_k; i ++)
+		{
+			//go down k map and search for matching dof's in m map
+			//fill in q appropriately
+			std::string map_name;
+			std::string search_name = joints_list_k[i];
+			int j = 0;
+			while ( (search_name.compare(map_name)!= 0) && (j < m->nq) )
+			{
+				map_name = joints_list_m[j];
+				j++;
+			}//end while
+			q[r * c_map_m + (j - 1)] = q_raw[r * c_map_k + i]; // note j-1 because it's already been incremented
+		}//end if
+	}// end r loop
+		
+
+}
+
 void CSV2dof(const mjModel* m, mjtNum* u, int rows, int cols, FILE* file) {
 	
 	int r,c,ret; //ret value can be used for error checking
@@ -918,6 +991,8 @@ void CSV2dof(const mjModel* m, mjtNum* u, int rows, int cols, FILE* file) {
 	//close the file now that we are finished
 	fclose(file);
 }
+
+
 
 
 //expects a nq x t matrix q, a nv x t matrix v, and length t
@@ -1104,8 +1179,22 @@ void waitSeconds(double delay)
 }
 
 
+double vector_dot(double* vec1, double* vec2, int size)
 
+{
+    double product = 0;
+    for (int i = 0; i < size; i++) {
+       product += (vec1[i]) * (vec2[i]); // += means add to product
+    }
+    return product;
+}
 
+double unitVectorAngle(double* vec1, double* vec2, int size)
+{
+	double angle = acos(vector_dot(vec1, vec2, size));
+	return angle;
+
+}
 
 
 //sets qpos0 from first line of CSV

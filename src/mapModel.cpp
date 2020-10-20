@@ -1,12 +1,12 @@
 //
-//  analyseModel.cpp
+//  mapModel.cpp
 //
-//  Created by Enrico Eberhard
+//  Created by Chris Richards, based on analyzeModel.cpp by Enrico Eberhard
 
 
 //  This code opens an xml or binary model and
-//  prints out relevant information about it
-//  to the terminal
+//  saves a "map" file which is all of the qpos addreses and their indices
+// for convenience, map is saved both as CSV and as a multi-line file
 
 
 #include "mujocoToolbox.h"
@@ -15,6 +15,8 @@
 #include "stdio.h"
 #include "string.h"
 #include "math.h"
+#include <string>
+
 
 
 int parseArgsLong(int argc, const char **argv);
@@ -31,11 +33,17 @@ char *dfile = NULL;
 char *ifile = NULL;
 //char *mfile = (char*)"../models/Kassina/Kassina - basu.xml";
 char *mfile = NULL;
+char *ofile = NULL;//output file
+
+
+
+
 
 //-------------------------------- main function ----------------------------------------
 
 int main(int argc, const char** argv)
 {
+	printf("USAGE: changeAngles -m modelfile -o outputfile");
     //activate mujoco
     checkAndActivate();
 	
@@ -48,7 +56,27 @@ int main(int argc, const char** argv)
 	//-- parse input options --//
 	parseArgsLong(argc, argv);
 	
-	
+
+	// get input filename and save it as two files, one as multi line format and another qs csv
+	// for example, if filename is "mapfile.txt" outputs will be mapfile.txt and mapfile_csv
+	std::string filestring = tail(ofile, 200).c_str();//sloppy way to get filename as string
+	int file_len = filestring.size();
+	std::string filestring_multi = filestring.substr(0, file_len - 4) + ".txt";
+	std::string filestring_csv = filestring.substr(0, file_len - 4) + ".csv";
+	printf("%i %s\n", file_len, filestring_csv.c_str());
+	//create output file for model map
+
+	FILE* outputFile;
+	FILE* outputFile_csv;
+	if (ofile) {
+		outputFile = fopen(ofile, "w");
+		outputFile_csv = fopen(filestring_csv.c_str(), "w");
+		if (!outputFile || !outputFile_csv) {
+			//printf("Could not open input file %s\n",ifile);
+			printf("USAGE: changeAngles -m modelfile -o outputfile\n");
+			return 1;
+		}
+	}
 	
     // load model file
 	loadmodel(window,mfile, 0);
@@ -66,6 +94,7 @@ int main(int argc, const char** argv)
 	const char *TrnTypes[] = {"mjTRN_JOINT", "mjTRN_JOINTINPARENT", "mjTRN_SLIDERCRANK", "mjTRN_TENDON", "mjTRN_SITE"};
 	
     printf("\nJoint information\n(ID)\tqAdr\tDoF\tTYPE\t\tNAME\n");
+    int joint_sizes[4] = {7, 4, 1, 1};
     for(int jointID=0;jointID<m->njnt;jointID++)
     {
 		printf("(%i)\t%i\t%i\t%s\t%s\n",jointID,
@@ -73,68 +102,42 @@ int main(int argc, const char** argv)
 			   m->jnt_dofadr[jointID],
 			   JointTypes[m->jnt_type[jointID]],
 			   mj_id2name(m, mjOBJ_JOINT, jointID));
+
+		int joint_size = joint_sizes[m->jnt_type[jointID]];
+		//printf("%s\n", tail(JointTypes[m->jnt_type[jointID]], 4).c_str());
+		for (int i = 0; i < joint_size; i ++)
+		{
+			if (jointID == m->njnt - 1 && i == joint_size - 1)
+			{
+				//write to multi line
+				fprintf(outputFile,"%s", mj_id2name(m, mjOBJ_JOINT, jointID));
+				fprintf(outputFile,"_%s", std::to_string(i).c_str());
+
+				//write to csv
+				fprintf(outputFile_csv,"%s", mj_id2name(m, mjOBJ_JOINT, jointID));
+				fprintf(outputFile_csv,"_%s", std::to_string(i).c_str());
+			}
+			else 
+			{
+				//write to multi line
+				fprintf(outputFile,"%s", mj_id2name(m, mjOBJ_JOINT, jointID));
+				fprintf(outputFile,"_%s", std::to_string(i).c_str());
+				fprintf(outputFile,"\n");
+
+				//write to csv
+				fprintf(outputFile_csv,"%s", mj_id2name(m, mjOBJ_JOINT, jointID));
+				fprintf(outputFile_csv,"_%s", std::to_string(i).c_str());
+				fprintf(outputFile_csv,",");
+			}
+		}
     }
 	printf("\n");
+
+
+
+
 	
-	
-	if(m->nu > 0) {
-		printf("\nActuator information\n(ID)\tTRN_ID\tTYPE\t\tNAME\n");
-		for(int actID=0;actID<m->nu;actID++)
-		{
-			printf("(%i)\t%i:%i\t%s\t%s\n",actID,
-				   m->actuator_trnid[2*actID], m->actuator_trnid[2*actID+1],
-				   TrnTypes[m->actuator_trntype[actID]],
-				   mj_id2name(m, mjOBJ_ACTUATOR, actID));
-		}
-		printf("\n");
-	}
-	
-	if ((d->nefc > 0)&&(constraints)) {
-	
-		printf("\nConstraint information:\n");
-		printf("Total number of constraints: %i\n",	d->nefc);
-		
-		
-		printf("Constraint Jacobian in initial pose:\n");
-		mju_printMat(d->efc_J, d->nefc, m->nv);
-	}
-	
-		
-	
-	if (m->ntendon > 0) {
-		
-		printf("\nTendon information:\n");
-		
-		printf("Total number of tendons: %i\n",m->ntendon);
-		
-		
-		printf("Tendon (id) and names:\n");
-		for(int tendID = 0; tendID < m->ntendon; tendID++)
-			printf("(%i) %s\n",tendID, mj_id2name(m, mjOBJ_TENDON, tendID));
-		
-	}
-	
-	
-	if (0) {
-		
-		 for (int bod=0; bod < m->nbody; bod++)
-			 printf("%s\t", mj_id2name(m, mjOBJ_BODY, bod));
-		 printf("\n");
-		 
-		 mj_forward(m, d);
-		 
-		 printf("body mass:\n");
-		 mju_printMat(m->body_mass,1,m->nbody);
-		 printf("body CoMs:\n");
-		 mju_printMat(m->body_ipos, 3, m->nbody);
-		
-		 
-		 printf("%i inertias:\n", m->nM);
-		 mju_printMat(d->qM, 1, m->nM);
-		 
-	}
-	
-	
+	//std::to_string(3.1415926).c_str()
 	
 	//printf("First tendon name: %s\n",m->name_tendonadr[0]);
 	
@@ -147,7 +150,6 @@ int main(int argc, const char** argv)
 		printf("Printing model info to %s\n", ifile);//mj_printModel(m, mfile);
 	if (dfile && dfile[0])
 		printf("Printing model data to %s\n", dfile);//mj_printData(m, d, dfile);
-	
     // delete everything we allocated
     closeAndTerminate();
     
@@ -170,7 +172,7 @@ int parseArgsLong(int argc, const char **argv) {
 	int option_index = 0;
 	int c;
 	
-	while ((c = getopt_long(argc, (char**)argv, "d:i:m:",
+	while ((c = getopt_long(argc, (char**)argv, "o:i:m:",
 				long_options, &option_index)) != -1) {
 		
 	
@@ -179,9 +181,9 @@ int parseArgsLong(int argc, const char **argv) {
 				printf ("Showing constraint info\n");
 				constraints = 1;
 				break;
-			case 'd':
+			case 'o':
 				printf ("Saving data to '%s'\n", optarg);
-				dfile = optarg;
+				ofile = optarg;
 				break;
 				
 			case 'i':

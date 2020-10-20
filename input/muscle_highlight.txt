@@ -1,6 +1,8 @@
-t_left_LD
-t_left_SM
-t_left_PL
-t_left_CR_vent
+g_test
+/s_ctr_hipL
+s_ctr_kneL
+/s_ctr_ankL
+/s_roll_kneL
+/t_left_CR_vent
 /note the slash which is a way of commenting out lines
 /allsites <-- place this word first in list (without slash) if all sites are desired

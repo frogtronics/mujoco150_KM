@@ -205,7 +205,7 @@
                 <joint name="j_urostyle" pos="0.000000 0.000000 -0.000000" type="ball"/> -->
 				<joint name="j_urostyleX" pos="0.000000 0.000000 -0.000000" type="hinge" axis="1 0 0" limited="true" range="-0.05 20"/>
 				<joint name="j_urostyleY" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 1 0" limited="true" range="-2.5 2.5"/>
-                
+                <joint name="j_extra" pos="0.000000 0.000000 -0.000000" type="ball"/>
                 <!-- urostyle geometry -->
                 <geom type="mesh" mesh="Urostyle" class="bone"/>
                 <!--
