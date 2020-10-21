@@ -1,4 +1,7 @@
-g_test
+/s_ctr_hipL
+s_ctr_kneL
+/s_ctr_ankL
+/s_test
 /s_ctr_hipL
 s_ctr_kneL
 /s_ctr_ankL

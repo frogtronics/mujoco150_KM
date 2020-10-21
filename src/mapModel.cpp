@@ -66,6 +66,7 @@ int main(int argc, const char** argv)
 	printf("%i %s\n", file_len, filestring_csv.c_str());
 	//create output file for model map
 
+	//for the model map file
 	FILE* outputFile;
 	FILE* outputFile_csv;
 	if (ofile) {
@@ -77,6 +78,15 @@ int main(int argc, const char** argv)
 			return 1;
 		}
 	}
+
+	//for the doflist file
+	FILE* outputFile1_csv;
+	outputFile1_csv = fopen("../output/dof_list.csv", "w");
+
+	//for the tendonlist file
+	FILE* outputFile2_csv;
+	outputFile2_csv = fopen("../output/tendon_list.csv", "w");
+
 	
     // load model file
 	loadmodel(window,mfile, 0);
@@ -95,6 +105,7 @@ int main(int argc, const char** argv)
 	
     printf("\nJoint information\n(ID)\tqAdr\tDoF\tTYPE\t\tNAME\n");
     int joint_sizes[4] = {7, 4, 1, 1};
+    int dof_sizes[4] = {6, 3, 1, 1};
     for(int jointID=0;jointID<m->njnt;jointID++)
     {
 		printf("(%i)\t%i\t%i\t%s\t%s\n",jointID,
@@ -104,6 +115,7 @@ int main(int argc, const char** argv)
 			   mj_id2name(m, mjOBJ_JOINT, jointID));
 
 		int joint_size = joint_sizes[m->jnt_type[jointID]];
+		
 		//printf("%s\n", tail(JointTypes[m->jnt_type[jointID]], 4).c_str());
 		for (int i = 0; i < joint_size; i ++)
 		{
@@ -133,7 +145,37 @@ int main(int argc, const char** argv)
     }
 	printf("\n");
 
+	// save dof_list file
+	for (int i = 0; i < m->njnt; i ++)
+	{
+		int dof_size = dof_sizes[m->jnt_type[i]];
+		if ( i == m->njnt - 1 )
+		{
+			//write to csv
+			fprintf(outputFile1_csv,"%i", dof_size);
+		}
+		else 
+		{
+			//write to csv
+			fprintf(outputFile1_csv,"%i", dof_size);
+			fprintf(outputFile1_csv,",");
+		}
+	}
 
+	for (int i = 0; i < m->ntendon; i ++)
+	{
+		if ( i == m->ntendon - 1 )
+		{
+			//write to csv
+			fprintf(outputFile2_csv,"%s", mj_id2name(m, mjOBJ_TENDON, i));
+		}
+		else 
+		{
+			//write to csv
+			fprintf(outputFile2_csv,"%s", mj_id2name(m, mjOBJ_TENDON, i));
+			fprintf(outputFile2_csv,",");
+		}
+	}
 
 
 	
@@ -144,6 +186,7 @@ int main(int argc, const char** argv)
 	
     
     printf("\n-----------------\n");
+    printf("\n PLEASE NOTE !!!!!\nBE SURE TO TRANSFER dof_list.csv FILE\n and tendon_list.csv\nTO FrogWork\\DATA\\FrogMJModelling\\DATA\n!!");
 	
 	
 	if (ifile && ifile[0]) //something in this string

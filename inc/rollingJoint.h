@@ -147,8 +147,19 @@ void jointAngle2Roll (mjtNum result[3], std::string filename, mjtNum joint_angle
   mjtNum min_joint_angle = stod(parameter_list[6]);
   mjtNum max_joint_angle = stod(parameter_list[7]);
   mjtNum roll_range = stod(parameter_list[8]);
+  //Step 2. Enforce the min/max range of the input angle
+  if (joint_angle_rad < min_joint_angle)
+    joint_angle_rad = min_joint_angle;
+  if (joint_angle_rad > max_joint_angle)
+    joint_angle_rad = max_joint_angle;
+
   //printf("%f %f %f \n", min_joint_angle, max_joint_angle, roll_range);
-  //Step 2. Convert angle parameters to position on ellipse
+  //Step 3. Convert angle parameters to position on ellipse
+  mjtNum roll_gain = roll_range / (max_joint_angle - min_joint_angle);
+  mjtNum roll_pos = roll_gain * (joint_angle_rad - min_joint_angle) / 6.28; //position along the ellipse
+
+  rollingCenter(result, filename, roll_pos);
+  //printf("%f\n", roll_pos);
 
 
 }

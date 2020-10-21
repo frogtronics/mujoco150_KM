@@ -1,6 +1,8 @@
 Input data is in terms of quaternions for ..models/Kassina/Kassina.xml model
 See README_workflow.txt for information on how these relate to raw kinematics data
 
+Note some important changes were made to the model files in Oct, 2020 by C. Richards including mapModel.cpp which opens a model file and writes a "map file" that names each dof in order, in case changes to the model are made and tested.  There is a corresponding mapfile_k for kinematics which names each dof for the kinematics.  This is not meant to change.  Importantly, all joints in the model file must be preceded with "j_" for the mathematica analysis code to work.
+
 Hop = jumping data (recorded by L. Porro, E. Eberhard, 2016 [1])
 Run = walking data (recorded by A. Collings, L. Porro, K. Chadwick, C. Richards, 2015 [1,2])
 Ref = for reference poses.  

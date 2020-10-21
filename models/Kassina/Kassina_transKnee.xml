@@ -447,7 +447,7 @@
                         <camera name="KneeTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
                         
                         <!-- KNEE JOINT  -->
-                        <geom name="g_test" type="sphere" pos="0 0 0" size="0.000212" rgba="0 0 1 1"/>
+                        <site name="s_test" type="sphere" pos="0 0 0" size="0.003" rgba="0 1 1 1"/>
                         <joint name="j_kneeL_rollingX" pos="0.000000 0.000000 0.00000" axis="1 0 0" type="slide"/>
                         <joint name="j_kneeL_rollingY" pos="0.000000 0.000000 0.00000" axis="0 1 0" type="slide"/>
                         <joint name="j_kneeL_rollingZ" pos="0.000000 0.000000 0.00000" axis="0 0 1" type="slide"/>
@@ -462,7 +462,7 @@
                         <joint name="j_kneeLZ" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 0 1" range="-180 180"/> -->
                         
                         <!-- TibFib geometry -->
-                        <geom type="mesh" mesh="TibFibL" pos="0 0 0.001" class="bone"/>
+                        <geom type="mesh" mesh="TibFibL" pos="0 0 0.0001" class="bone"/>
                         <geom type="mesh" mesh="TibFibBody" class="body"/>
                         
 						<!-- wrapping surfaces -->
@@ -612,7 +612,7 @@
                         <joint name="j_kneeLZ_mir" pos="-0.000000 0.000000 -0.000000" type="hinge" axis="0 0 1" range="-15 15"/> -->
                         
                         
-                        <geom type="mesh" mesh="TibFibR" class="bone"/>
+                        <geom type="mesh" mesh="TibFibR" class="bone" pos="0 0 0.0001"/>
                         <geom type="mesh" mesh="TibFibBodyR" class="body"/>
                         
                         <!-- Tarsals Left -->
@@ -645,7 +645,7 @@
 		
 		
 		<body name="EE" pos="0 0 0">
-			<freejoint name="EE"/>
+			<freejoint name="j_EE"/>
 			
 			<geom type="sphere" size="0.001" rgba="0 0 0 0" contype="0" conaffinity="0"/>
 			

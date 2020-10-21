@@ -639,7 +639,7 @@
 		
 		
 		<body name="EE" pos="0 0 0">
-			<freejoint name="EE"/>
+			<freejoint name="j_EE"/>
 			
 			<geom type="sphere" size="0.001" rgba="0 0 0 0" contype="0" conaffinity="0"/>
 			

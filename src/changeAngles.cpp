@@ -264,7 +264,13 @@ int main(int argc, const char** argv)
 		geom_id_list[i] = geom_highlight_id;
 		printf("highlighted sites: %s, id = %i\n", highlight_list[i].c_str(), geom_highlight_id);
 	}
+	//-------------------------------
+	//-------------------------------
+	// Initialise pose --------------
+	//-------------------------------
 
+	mju_copy(d->qpos,&q[0*m->nq],m->nq);
+	mj_forward(m,d);
 	// main loop
 	while( !glfwWindowShouldClose(window) ) {
 		
@@ -349,6 +355,7 @@ int main(int argc, const char** argv)
 			//-------------------------------
 			//-------------------------------
 
+
 			//------- experimental - try a knee slide joint
 			int slideX_joint = mj_name2id(m, mjOBJ_JOINT, "j_kneeL_rollingX");
 			int slideX_index = m->jnt_qposadr[slideX_joint];
@@ -360,10 +367,59 @@ int main(int argc, const char** argv)
 
 			
 
-			mju_copy(d->qpos,&q[0*m->nq],m->nq);
-			//d->qpos[slideX_index] = r * 0.0001;
-			//if (r == 10)
-			//{
+			mju_copy(d->qpos,&q[r*m->nq],m->nq);
+			//mju_copy(d->qpos,&q[0*m->nq],m->nq);// for testing
+
+			// // ----------
+			// // ----------
+			// // FOR TESTING: isolate a joint - only have that one joint move and others are fixed at a frame
+			// // ----------
+			// // ----------
+			// int knee_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");
+			// int knee_dof_id = m->jnt_qposadr[knee_id];	
+   //  		int joint_sizes[4] = {7, 4, 1, 1};
+   //  		int knee_size = joint_sizes[m->jnt_type[knee_id]];
+   //  		// animate knee joint, but leave all other joints frozen at frame 1
+   //  		for (int i = 0; i < knee_size; i ++)
+   //  		{
+   //  			d->qpos[knee_dof_id + i] = q[r * m->nq + knee_dof_id + i];
+   //  		}
+			//printf("%i\n", knee_size);	
+			// ----------
+			// ----------
+			// Get knee 3D angle
+			// ----------
+			// ----------
+			int hip_marker_id = mj_name2id(m, mjOBJ_SITE, "s_ctr_hipL");
+			int kne_marker_id = mj_name2id(m, mjOBJ_SITE, "s_ctr_kneL");
+			int ank_marker_id = mj_name2id(m, mjOBJ_SITE, "s_ctr_ankL");
+			int test_marker_id = mj_name2id(m, mjOBJ_SITE, "s_test");	
+
+			mjtNum hipXYZ[3];
+			mjtNum kneXYZ[3];
+			mjtNum ankXYZ[3];
+			mjtNum fem_vec[3];
+			mjtNum tib_vec[3];
+
+			//printf("%i  %i   %i\n", hip_marker_id, kne_marker_id, ank_marker_id);	
+			// get XYZ coordinates of hip, knee and ankle markers	
+			for (int i = 0; i < 3; i ++)
+			{
+				hipXYZ[i] = d->site_xpos[hip_marker_id * 3 + i];
+				kneXYZ[i] = d->site_xpos[kne_marker_id * 3 + i];
+				ankXYZ[i] = d->site_xpos[ank_marker_id * 3 + i];
+			}
+
+
+
+			mju_sub3(fem_vec, hipXYZ, kneXYZ);
+			mju_sub3(tib_vec, ankXYZ, kneXYZ);
+			mju_normalize3(fem_vec);
+			mju_normalize3(tib_vec);
+
+			mjtNum kne_angle = unitVectorAngle(tib_vec, fem_vec, 3);
+			//printf("%f\n", kne_angle);
+
 			mjtNum rollingXYZ[3];
 
 			//------FOR TESTING 
@@ -371,34 +427,27 @@ int main(int argc, const char** argv)
 			//-----------------
 			///----------------
 			//mju_copy(d->qpos,&q[0*m->nq],m->nq);
-			rollingCenter(rollingXYZ, mj_id2name(m, mjOBJ_JOINT, slideX_joint), ((float)r )/rows);
+			//rollingCenter(rollingXYZ, mj_id2name(m, mjOBJ_JOINT, slideX_joint), ((float)r )/rows);
+			jointAngle2Roll(rollingXYZ, mj_id2name(m, mjOBJ_JOINT, slideX_joint), kne_angle);
 			d->qpos[slideX_index] = -rollingXYZ[0];
 			d->qpos[slideY_index] = -rollingXYZ[1];
 			d->qpos[slideZ_index] = -rollingXYZ[2];
 			//}
-			int test_geom_id = mj_name2id(m, mjOBJ_GEOM, "g_test");
-			//printf("%f %f %f\n", rollingXYZ[0], rollingXYZ[1], rollingXYZ[2]);
-			for (int i = 0; i < 3; i ++) 
-			{
-				m->geom_pos[test_geom_id * 3 + i] = rollingXYZ[i];
-			}
+			//int test_geom_id = mj_name2id(m, mjOBJ_GEOM, "g_test");
+
+
 			//-----------------
 			///---------------			
 			///----------------
 
-			// ----------
-			// ----------
-			// FOR TESTING: isolate a joint - only have that one joint move and others are fixed at a frame
-			// ----------
-			// ----------
-			int knee_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");
-			int knee_dof_id = m->jnt_qposadr[knee_id];	
-    		int joint_sizes[4] = {7, 4, 1, 1};
-    		int knee_size = joint_sizes[m->jnt_type[knee_id]];
-			//printf("%i\n", knee_size);	
 
 
 			mj_forward(m,d);
+
+			// for (int i = 0; i < 3; i ++)
+			// {
+			// 	d->site_xpos[test_marker_id * 3 + i] = ankXYZ[i];
+			// }
 
 
 			//on the first loop through, print all tendon information to file
