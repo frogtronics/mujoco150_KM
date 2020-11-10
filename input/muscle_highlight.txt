@@ -1,11 +1,12 @@
-/s_ctr_hipL
-s_ctr_kneL
-/s_ctr_ankL
-/s_test
-/s_ctr_hipL
-s_ctr_kneL
-/s_ctr_ankL
-/s_roll_kneL
-/t_left_CR_vent
+t_left_CR_vent
+/w_left_knee_side_1
+/w_left_knee_side
+/left_CR_via_vent_1
+left_CR_org
+/w_left_CR
+/g_kne_FE
+/g_hip_FE
+/w_left_knee
+
 /note the slash which is a way of commenting out lines
 /allsites <-- place this word first in list (without slash) if all sites are desired

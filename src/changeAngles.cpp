@@ -117,7 +117,7 @@ int main(int argc, const char** argv)
 	//create output file for foot pos if needed
 	FILE* mapfile;
 	mapfile = fopen(map_file, "r");
-	//CSV2qpos_mapped(m, mjtNum* q, int rows, int cols, FILE* file, std::string map_filename);
+
 
     printf("nbod %i\n", m->nbody);
     printf("nq = %i\n", m->nq);
@@ -179,7 +179,8 @@ int main(int argc, const char** argv)
 	
 	//get positions from file
 	//CSV2qpos(m,q,rows,cols,inputFile);
-	CSV2qpos_mapped(m,q,rows,cols,inputFile, "../input/mapdata_k.txt", "../input/mapdata_m.txt");
+	mj_forward(m,d);//just put the model in null pose for testing
+	CSV2qpos_mapped(m,q,rows,cols,inputFile, "../input/mapdata_k.txt", "../input/mapdata_m.txt");//flag_1
 
 	
 	
@@ -270,7 +271,13 @@ int main(int argc, const char** argv)
 	//-------------------------------
 
 	mju_copy(d->qpos,&q[0*m->nq],m->nq);
-	mj_forward(m,d);
+	
+
+
+	bool fwdYes = true;// for testing will halt any advance of the model
+	if (fwdYes)
+		mj_forward(m,d);
+	mjtNum tendon_len_data[rows];
 	// main loop
 	while( !glfwWindowShouldClose(window) ) {
 		
@@ -341,7 +348,7 @@ int main(int argc, const char** argv)
 					{
 						if (j == 3)
 						{
-							m->geom_rgba[ geom_id_list[i] * 4 + j] = 1;
+							m->geom_rgba[ geom_id_list[i] * 4 + j] = 0.3;
 						}
 					}
 				}
@@ -366,24 +373,18 @@ int main(int argc, const char** argv)
 			//printf("%i\n", r);
 
 			
-
+			int tendon_id = mj_name2id(m, mjOBJ_TENDON, "t_left_CR_vent");
+			
 			mju_copy(d->qpos,&q[r*m->nq],m->nq);
 			//mju_copy(d->qpos,&q[0*m->nq],m->nq);// for testing
 
-			// // ----------
-			// // ----------
-			// // FOR TESTING: isolate a joint - only have that one joint move and others are fixed at a frame
-			// // ----------
-			// // ----------
-			// int knee_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");
-			// int knee_dof_id = m->jnt_qposadr[knee_id];	
-   //  		int joint_sizes[4] = {7, 4, 1, 1};
-   //  		int knee_size = joint_sizes[m->jnt_type[knee_id]];
-   //  		// animate knee joint, but leave all other joints frozen at frame 1
-   //  		for (int i = 0; i < knee_size; i ++)
-   //  		{
-   //  			d->qpos[knee_dof_id + i] = q[r * m->nq + knee_dof_id + i];
-   //  		}
+			// ----------
+			// ----------
+			// FOR TESTING: isolate a joint - only have that one joint move and others are fixed at a frame
+			// ----------
+			// ----------
+
+			//isolateJoint(m, d, q, "j_kneeL", r, 0);
 			//printf("%i\n", knee_size);	
 			// ----------
 			// ----------
@@ -400,6 +401,8 @@ int main(int argc, const char** argv)
 			mjtNum ankXYZ[3];
 			mjtNum fem_vec[3];
 			mjtNum tib_vec[3];
+
+
 
 			//printf("%i  %i   %i\n", hip_marker_id, kne_marker_id, ank_marker_id);	
 			// get XYZ coordinates of hip, knee and ankle markers	
@@ -436,23 +439,69 @@ int main(int argc, const char** argv)
 			//int test_geom_id = mj_name2id(m, mjOBJ_GEOM, "g_test");
 
 
+			// int w_knee_id = mj_name2id(m, mjOBJ_GEOM, "g_ctr_kneL");// wrapping cylinder of knee
+			// int knee_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");// wrapping cylinder of knee
+			// for (int i = 0; i < 3; i ++)
+			// {
+			// 	printf("%f, %f\n", d->geom_xpos[3 * w_knee_id + i], d->xanchor[3 * knee_id + i]);
+			// }
+
+
+			//// DO when you get the chance:
+			//// move wrapping cylinder (w_left_knee_side) with rolling joint
+			/// need xpos coordinates to assign location of cylinder
+			/// confirm if the xpos of the tibfib is where that needs to be - move tibfib slightly distal and put marker there to see
+
+			// int knee_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");
+			// for (int i = 0; i < 3; i ++)
+			// {
+			// 	printf("%f\n", d->xaxis[3 * knee_id + i]);
+			// }
+			// printf("\n");
+
+
+
 			//-----------------
 			///---------------			
 			///----------------
 
 
 
-			mj_forward(m,d);
+			if (fwdYes)
+				mj_forward(m,d);
 
-			// for (int i = 0; i < 3; i ++)
-			// {
-			// 	d->site_xpos[test_marker_id * 3 + i] = ankXYZ[i];
-			// }
+			//-------------------------
+			//-------------------------
+			//-------------------------
+			// see what tendon is doing
+			//-------------------------
+			//-------------------------
+			//-------------------------
+
+			int knee_ext_id = m->jnt_dofadr[ mj_name2id(m, mjOBJ_JOINT, "j_kneeL") ];
+			int hip_ext_id = m->jnt_dofadr[ mj_name2id(m, mjOBJ_JOINT, "j_hipL") ];
+			//printf("%i \n", tendon_id * m->nv + knee_ext_id);
+			mjtNum r_CR = d->ten_moment[tendon_id * m->nv + knee_ext_id + 1];//y component is flex-extend
+			mjtNum rh_CR = d->ten_moment[tendon_id * m->nv + hip_ext_id + 1];//y component is flex-extend
+			std::string shortorlength;
+			mjtNum tendon_len_curr = d->ten_length[tendon_id];
+			tendon_len_data[r] = tendon_len_curr;
+			mjtNum tendon_len_prev = tendon_len_data[r - 1];
+			if (tendon_len_curr < tendon_len_prev)
+			{
+				shortorlength = "shortening";
+			}
+			else
+			{
+				shortorlength = "lengthening";
+			}
+			
+			//printf("knee length prev %f cur %f mm %s\n", tendon_len_prev, tendon_len_curr, shortorlength.c_str() );
 
 
 			//on the first loop through, print all tendon information to file
 			if(firstTime) {
-				
+				printf("knee moment arm %f mm hip %f mm %s timestep %i \n", 1000*r_CR, 1000*rh_CR, shortorlength.c_str(), r );
 				if(tfile) {
 					//first line is header with labels, now just print numbers
 					// for(tID = 0; tID < m->ntendon; tID++)

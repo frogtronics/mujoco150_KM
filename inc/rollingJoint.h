@@ -18,6 +18,9 @@
 //#include "fileToolbox.h"
 
 //The parameters file has the following format (note all vectors have values separated by commas)
+
+// NOTE!! YOU CAN DISABLE THE ROLLING JOINT BY MAKING THE MAJOR RADIUS NEGATIVE
+
 // XYZ coordinates of ellipse center in local coordinates of the body where the joint is
 // major axis radius
 // minor axis radius
@@ -92,6 +95,8 @@ void rollingCenter(mjtNum result[3], std::string filename, mjtNum position)
   mjtNum r_major = stod(parameter_list[1]);
   mjtNum r_minor = stod(parameter_list[2]);
 
+  bool isEnabled = r_major > 0;//rolling joint is only enabled if the major axis is positive
+
   if (pos < 0)
   pos = 0;
   if (pos > 1)
@@ -120,12 +125,13 @@ void rollingCenter(mjtNum result[3], std::string filename, mjtNum position)
 
   //step 6. offset to desired origin in local coordinates
   mjtNum ellipse_XYZ[3];
-  mju_add3(ellipse_XYZ, ellipse_XYZ_nonOffset, center_XYZ);
-
   //printf("%f %f %f\n", ellipse_XYZ[0], ellipse_XYZ[1], ellipse_XYZ[2] );
-  //printf("%f %f\n", r_major, r_minor);
-  mju_copy3(result, ellipse_XYZ);
+  if (isEnabled)
+  {
+  mju_add3(ellipse_XYZ, ellipse_XYZ_nonOffset, center_XYZ);
+  }
 
+  mju_copy3(result, ellipse_XYZ);
 
 
 }

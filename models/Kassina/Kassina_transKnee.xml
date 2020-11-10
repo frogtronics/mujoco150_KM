@@ -301,8 +301,10 @@
                 
                 
                 <!-- CR origin -->
-                <site name="left_CR_org" pos="-0.001495 -0.000898 -0.004434" class="m_CR"/>
-                
+                <!-- <site name="left_CR_org" pos="-0.001495 -0.000898 -0.004434" class="m_CR"/> -->
+                <!-- origin changed 26.10.2020 by CTR and again on 11.10 -->
+                <!-- <site name="left_CR_org" pos="-0.001495 -0.000898 -0.004434" class="m_CR"/> -->
+                <site name="left_CR_org" pos="-0.001495 -0.002000 -0.003500" class="m_CR" size="0.0001"/>
                 
                 <!-- SM origin -->
                 <site name="left_SM_org" pos="-0.000494 -0.000317 0.000236" class="m_SM"/>
@@ -359,6 +361,7 @@
                     <!-- HIP JOINT -->
                     <joint name="j_hipL" pos="0.000000 0.000000 0.000000" type="ball"/>
                     <site name="s_ctr_hipL" pos="0.000000 0.00000 -0.00000" size="0.001" rgba="0 0 1 1"/>
+                    <geom name="g_hip_FE" type="cylinder" fromto="0.000 -0.01 0.000  0.000  0.01 0.000" size="0.0002"/>
                      <!--
                     <joint name="j_hipLX" pos="0.000000 0.000000 0.000000" type="hinge" axis="1 0 0" range="-170 170"/>
                     <joint name="j_hipLY" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 1 0" range="-160 5"/>
@@ -374,6 +377,7 @@
                     <geom name="w_left_femur_prox" type="cylinder" fromto="0.000026 0.000302 -0.001065 0.000096 -0.000573 0.004432" size="0.000650" class="wrap"/>
                     <site name="w_left_femur_prox_side" pos="0.000361 0.000413 0.001954" class="wrap"/> 
                     <geom name="w_left_CR" type="sphere" pos="0.000269 -0.000456 0.009247" size="0.003752" class="wrap"/>
+                    <!-- <geom name="w_left_CR" type="sphere" pos="0.000269 -0.000456 0.009247" size="0.003752" class="wrap"/> -->
                     <site name="w_left_CR_side" pos="-0.002858 0.001453 0.010054" class="wrap"/> 
                     <geom name="w_left_SM" type="sphere" pos="0.000198 -0.000989 0.006451" size="0.003915" class="wrap"/>
 					<site name="w_left_SM_side" pos="0.004552 -0.000544 0.003777" class="wrap"/>
@@ -386,8 +390,24 @@
                     <site name="w_left_AM_fem_side" pos="0.000157 0.000421 0.008193" class="wrap"/>
                     <geom name="w_left_SA" type="sphere" pos="0.002735 0.000745 0.006616" size="0.006252" class="wrap"/>
                     <site name="w_left_SA_side" pos="-0.001916 -0.001764 0.005731" class="wrap"/>
-                    <geom name="w_left_knee" type="cylinder" fromto="-0.000081 0.001387 0.018172 0.000080 -0.001388 0.018113" size="0.000749" class="wrap"/>
-                    <site name="w_left_knee_side" pos="-0.000882 0.000025 0.018858" class="wrap"/>
+<!--                     <geom name="w_left_knee" type="cylinder" fromto="0.000481 0.001387 0.017172 0.000481 -0.001388 0.017113" size="0.000749" class="wrap" rgba="1 0 .2 1"/> -->
+ 
+<!--                     <geom name="w_left_knee" type="cylinder" fromto="-0.000081 0.001387 0.018172 0.000080 -0.001388 0.018113" size="0.000749" class="wrap"/> -->  <!-- original version -->
+ 
+
+                    <geom name="w_left_knee_1" type="cylinder" fromto="-0.001000 0.001387 0.017000 -0.000840 -0.001388 0.017059" size="0.000749" class="wrap"/> <!--position of w_left_knee and side changed by CTR, Oct 22, 2020 -->
+                    <!--w_left_knee_1 and side_1 added by CTR, Oct 22, 2020 -->
+                   
+
+                    <!-- <site name="w_left_knee_side" pos="-0.000582 0.000025 0.018600" class="wrap" rgba="1 1 1 1"/> --> <!-- original version -->
+                    <!-- <site name="w_left_knee_side" pos="0.000290 0.000125 0.017800" class="wrap" rgba="0 1 1 1"/> -->
+                   <!--position changed by CTR, Oct 22, 2020 -->
+                   
+
+
+
+                    <site name="w_left_knee_side_1" pos="-0.001582 0.000025 0.0173" class="wrap" rgba="1 1 1 1"/>
+
                     <geom name="w_left_II" type="sphere" pos="0.002307 0.002657 0.007361" size="0.005360" class="wrap"/>
                     <site name="w_left_II_side" pos="-0.003863 -0.005437 0.006547" class="wrap"/>
                     
@@ -401,7 +421,19 @@
                     <site name="left_IE_ins_dist" pos="0.000424 0.000588 0.000624" class="m_IE"/>
                     
                     <!-- CR insertion -->
-                    <site name="left_CR_via_vent" pos="-0.001308 -0.000021 0.016894" class="m_CR"/>
+                    <site name="left_CR_via_vent" pos="-0.001308 -0.000021 0.016894" class="m_CR"/>  --><!-- original
+                   <!--  <site name="left_CR_via_vent" pos="-0.001808 -0.000021 0.0136894" class="m_CR"/>  -->
+
+
+
+                    <!-- via_vent_1 added by CTR 22.20.20 -->
+                    <site name="left_CR_via_vent_1" pos="0.000000 0.000021 0.017894" class="m_CR"/>
+                    
+
+
+
+
+
                     <site name="left_CR_via_fem" pos="0.000054 0.001757 0.015568" class="m_CR"/>
                     
                     <!-- GL insertions -->
@@ -442,8 +474,8 @@
 
 
                     <!-- TibFib Left -->
-                    <body name="TibFibL" pos="-0.000000 0.000000 0.018143">
-                            
+                    <!-- <body name="TibFibL" pos="-0.000000 0.000000 0.018143"> --><!-- original -->
+                        <body name="TibFibL" pos="0.00000 0.000000 0.017143"> <!-- changed by CTR 9.11.20 -->
                         <camera name="KneeTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
                         
                         <!-- KNEE JOINT  -->
@@ -451,9 +483,22 @@
                         <joint name="j_kneeL_rollingX" pos="0.000000 0.000000 0.00000" axis="1 0 0" type="slide"/>
                         <joint name="j_kneeL_rollingY" pos="0.000000 0.000000 0.00000" axis="0 1 0" type="slide"/>
                         <joint name="j_kneeL_rollingZ" pos="0.000000 0.000000 0.00000" axis="0 0 1" type="slide"/>
-                        <joint name="j_kneeL" pos="0.000000 0.000000 -0.000000" type="ball"/> 
-                        <site name="s_ctr_kneL" pos="0.000000 0.00000 -0.00000" size="0.001" rgba="0 0 1 1"/><!-- knee ctr of rotation - if this is placed along the axis of the bone it can mimic the effect of a "rolling joint" -->
+                        <joint name="j_kneeL" pos="0.000000 0.000000 0.0001" type="ball"/> 
+                        <site name="s_ctr_kneL" pos="0.000000 0.00000 -0.00000" size="0.001" rgba="0 0 1 1"/>
+                        <geom name="g_kne_FE" type="cylinder" fromto="0.000 -0.01 0.000  0.000  0.01 0.000" size="0.0002"/><!-- flex ext axis -->
+                        <!-- <geom name="g_kne_AA" type="cylinder" fromto="-0.01 0.000 0.000 0.01 0.000 0.000" size="0.0002"/> --><!-- ab/add axis -->
+                        <!-- knee ctr of rotation - if this is placed along the axis of the bone it can mimic the effect of a "rolling joint" -->
                         <!-- <site name="s_test" pos="-0 0.00000 0.005" size="0.001" rgba="0 0 1 0.5"/> -->
+
+                        <!-- -------------------- -->
+                        <!-- This knee wrapping surface was moved to the distal segment to follow the knee rolling joint, 2.11.2020 -->
+<!--                         <geom name="w_left_knee" type="cylinder" fromto="0 0.001387 0 0.000080 -0.001388 0" size="0.000949" class="wrap"/>
+                        <site name="w_left_knee_side" pos="-0.0006 0 -0.0007" class="wrap" rgba="1 1 1 1"/> -->
+<!--                         <geom name="w_left_knee" type="cylinder" fromto="0 0.001387 0 0.000080 -0.001388 0" size="0.001200" class="wrap"/> -->
+                        <geom name="w_left_knee" type="sphere" pos="0 0 0" size="0.001200" class="wrap"/>
+                        <!-- <site name="w_left_knee_side" pos="-0.0010 0 -0.0011" class="wrap" rgba="1 1 1 1"/> -->
+                        <site name="w_left_knee_side" pos="-0.0012 0 -0.0005" class="wrap" rgba="1 1 1 1"/>
+                        <!-- -------------------- -->
 
 
                         <!--
@@ -462,7 +507,8 @@
                         <joint name="j_kneeLZ" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 0 1" range="-180 180"/> -->
                         
                         <!-- TibFib geometry -->
-                        <geom type="mesh" mesh="TibFibL" pos="0 0 0.0001" class="bone"/>
+                        <!-- <geom type="mesh" mesh="TibFibL" pos="0 0 0.0001" class="bone"/> -->
+                        <geom type="mesh" mesh="TibFibL" pos="0 0 0" class="bone"/> --><!-- original
                         <geom type="mesh" mesh="TibFibBody" class="body"/>
                         
 						<!-- wrapping surfaces -->
@@ -483,7 +529,9 @@
                         <site name="left_SM_ins" pos="0.000179 -0.000982 0.001876" class="m_SM"/>
 						
 						<!-- CR insertion -->
-						<site name="left_CR_ins" pos="-0.000907 0.000069 0.000416" class="m_CR"/>
+						<!-- <site name="left_CR_ins" pos="-0.000907 0.000069 0.000416" class="m_CR"/> original -->
+                        <site name="left_CR_via_dist" pos="-0.000907 0.000069 0.000816" class="m_CR" rgba="1 0.4 0.2 1"/>  <!-- added by CTR, 2.11.20  same w_left_knee_side site-->
+                        <site name="left_CR_ins" pos="-0.000907 0.000069 0.001916" class="m_CR"/> <!-- mod by CTR, 2.11.20 -->
 						<site name="left_CR_ins_dors" pos="0.000018 0.001421 0.000520" class="m_CR"/>
                         <!-- <site name="left_CR_via_tib" class="m_CR"/>-->
 						
@@ -841,7 +889,7 @@
             
         
         <!-- CR MUSCLE left -->
-        <spatial name="t_left_CR_dors" class="m_CR" user="1.079">
+        <spatial name="t_left_CR_dors" class="m_CR_dors" user="1.079">
             <site site="left_CR_org"/>
             <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
             <site site="left_CR_via_fem"/>
@@ -849,6 +897,7 @@
             <site site="left_CR_ins_dors"/>
         </spatial>
 		
+        <!-- original -->
 		<spatial name="t_left_CR_vent" class="m_CR" user="1.183">
 			<site site="left_CR_org"/>
 			<geom geom="w_left_CR" sidesite="w_left_CR_side"/>
@@ -856,8 +905,38 @@
 			<geom geom="w_left_knee" sidesite="w_left_knee_side"/>
 			<site site="left_CR_ins"/>
 		</spatial>
+
+        <!-- version 1 -->
+<!--         <spatial name="t_left_CR_vent" class="m_CR" user="1.183">
+            <site site="left_CR_org"/>
+            <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
+            <site site="left_CR_via_vent"/>
+            <site site="w_left_knee_side"/>
+            <site site="left_CR_via_dist"/>
+            <site site="left_CR_ins"/>
+        </spatial> -->
+
+
+        <!-- version 2 -->
+
+<!--         <spatial name="t_left_CR_vent" class="m_CR" user="1.183">
+            <site site="left_CR_org"/>
+            <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
+            <site site="left_CR_via_vent"/>
+            <geom geom="w_left_knee_1" sidesite="w_left_knee_side_1"/>
+            <site site="left_CR_via_vent_1"/>
+            <geom geom="w_left_knee" sidesite="w_left_knee_side"/>
+            <site site="left_CR_ins"/>
+        </spatial>	 -->	
 		
-		
+        <!-- version 3 -->
+<!--         <spatial name="t_left_CR_vent" class="m_CR" user="1.183">
+            <site site="left_CR_org"/>
+            <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
+            <site site="w_left_knee_side_1"/>
+            <site site="w_left_knee_side"/>
+            <site site="left_CR_ins"/>
+        </spatial> -->
 		
         <!-- SM MUSCLE left -->
         <spatial name="t_left_SM" class="m_SM" user="1.372">

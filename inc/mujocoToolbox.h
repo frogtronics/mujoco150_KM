@@ -1235,6 +1235,23 @@ int setInitialPoseFromFile(const mjModel* m, const char* filename)
 	
 }
 
+//isolate a joint by freezing all joints at a given frame except for selected joint
+void isolateJoint(const mjModel* m, mjData* d, mjtNum* q, std::string jointName, int current_frame, int freeze_frame)
+{
+	int joint_id = mj_name2id(m, mjOBJ_JOINT, jointName.c_str() );
+	int joint_dof_id = m->jnt_qposadr[joint_id];	
+	int joint_sizes[4] = {7, 4, 1, 1};
+	int joint_size = joint_sizes[m->jnt_type[joint_id]];
+	int r = current_frame;
+	int ri = freeze_frame;
+	mju_copy(d->qpos,&q[ri*m->nq],m->nq);
+	// animate knee joint, but leave all other joints frozen at frame 1
+	for (int i = 0; i < joint_size; i ++)
+	{
+		d->qpos[joint_dof_id + i] = q[r * m->nq + joint_dof_id + i];
+	}
+}
+
 
 //reads a line from a CSV joint file and saves it to q
 //expects q to be mjtNum[m->nq]

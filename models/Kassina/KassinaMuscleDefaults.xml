@@ -29,6 +29,10 @@
             <site rgba="0.4 0 0.4 1"/>
             <tendon rgba="0.4 0 0.4 1"/>
         </default>
+        <default class="m_CR_dors"> <!-- purple -->
+            <site rgba="0.4 0 0.4 0.2"/>
+            <tendon rgba="0.4 0 0.4 0.2"/>
+        </default>
         <default class="m_SM"> <!-- yellow -->
             <site rgba="1 0.9 0 1"/>
             <tendon rgba="1 0.9 0 1"/>
