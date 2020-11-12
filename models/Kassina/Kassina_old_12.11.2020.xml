@@ -1,0 +1,1021 @@
+<!-- This model is a template for a kassina maculata model 
+
+    It uses bone meshes from scans of individual KM02. The 
+    coordinates of sites and joints are left as variables in
+    this template - though mujoco can't explicitly parse 
+    these variables at compilation, we can fill in the xyz
+    values from reference data programmatically.
+    This makes it easier and less error-prone to change
+    values later.
+-->
+
+<!-- parent wrapper is always mujoco -->
+<mujoco model="FrogTemplate">
+
+    <option collision="all" gravity="0 0 -2" timestep="0.0005"/>
+    
+    <compiler inertiagrouprange="0 1" strippath="true" texturedir="assets" meshdir="assets"/>
+	
+	<size nuser_tendon="1"/> <!-- maxforce param -->
+    
+    <visual>
+        <map znear="0.05"/>
+	</visual>
+	
+	<asset>
+        <texture name="tex_sky" type="skybox" builtin="flat" rgb1="1 1 1" rgb2="1 1 1" width="1" height="1"/>
+        <texture name="tex_skin" file="skin.png"/>
+        <material name="mat_skin" shininess="0.5" rgba="0.7 0.7 0.7 0.2"/>
+        <material name="mat_skin_plain" shininess="0.5" rgba="0.2824 0.2431 0.2157 1"/>
+        
+        
+		<!-- Bones -->
+		<mesh file="SpineSacrum.stl"/>
+		<mesh file="Urostyle.stl"/>
+		<mesh file="Pelvis.stl"/>
+		<mesh file="FemurL.stl"/>
+		<mesh file="TibFibL.stl"/>
+		<mesh file="TarsalsL.stl"/>
+		<!-- mirror leg bones -->
+		<mesh file="FemurL.stl" name="FemurR" scale="-0.001 0.001 0.001"/>
+		<mesh file="TibFibL.stl" name="TibFibR" scale="-0.001 0.001 0.001"/>
+		<mesh file="TarsalsL.stl" name="TarsalsR" scale="-0.001 0.001 0.001"/>
+		
+		<!-- Body  -->
+		<mesh file="Body.stl"/>
+		<mesh file="UrostyleBody.stl"/>
+		<mesh file="PelvisBody.stl"/>
+		<mesh file="FemurBody.stl"/>
+		<mesh file="TibFibBody.stl"/>
+		<mesh file="TarsalsBody.stl"/>
+		<!-- mirror leg bodies -->
+		<mesh file="FemurBody.stl" name="FemurBodyR" scale="-0.001 0.001 0.001"/>
+		<mesh file="TibFibBody.stl" name="TibFibBodyR" scale="-0.001 0.001 0.001"/>
+		<mesh file="TarsalsBody.stl" name="TarsalsBodyR" scale="-0.001 0.001 0.001"/>
+	</asset>
+	
+    <default>
+        <mesh scale="0.001 0.001 0.001"/>
+        <site type="sphere" size="0.0003"/>
+        <tendon width="0.0004" rgba="0.8 0.8 0.3 1"/>
+        <joint limited="false" damping="0.000001" range="-180 180"/>
+        
+        <geom contype="0" conaffinity="0" group="0"/>
+        
+        <default class="bone">
+            <geom density="1750" rgba=".89 .855 .788 1" contype="0" conaffinity="0" group="0"/>
+        </default>
+        
+        <default class="body"> <!-- rgba="0.1 0.2 0.6 0.4" -->
+            <geom density="1060" material="mat_skin" contype="2" conaffinity="2" group="1"
+                solimp="0.9 0.95 0.001" solref="0.02 1"/>
+        </default>
+        
+        <default class="wrap">
+            <geom rgba="0.6 0.1 0.1 0" group="2"/>
+            <site rgba="0.6 0.1 0.1 0" size="0.0001"/>
+        </default>
+        
+        <default class="highlight">
+            <geom rgba="1 1 1 0.2" group="2"/>
+            <site rgba="1 1 1 0.2" size="0.0005"/>
+        </default>
+        
+        
+        <!-- default colours for muscles -->
+        <include file="KassinaMuscleDefaults.xml"/>
+        
+    </default>
+
+    
+    <contact>
+        <exclude body1="Spine" body2="Urostyle"/>
+        <exclude body1="Spine" body2="Pelvis"/>
+        <exclude body1="Pelvis" body2="Urostyle"/>
+    </contact>
+    
+    <!-- worldbody is the parent of every light, body, etc.
+         Provides a static global reference frame -->
+    <worldbody>
+		
+		<!--
+		<geom type="sphere" size="0.01" pos="0.2 0 0" rgba="1 0 0 1"/>
+		<geom type="sphere" size="0.01" pos="0 0.2 0" rgba="0 1 0 1"/>
+		<geom type="sphere" size="0.01" pos="0 0 0.2" rgba="0 0 1 1"/>
+		-->
+		
+        <light mode="targetbodycom" target="Spine" directional="false" castshadow="false"
+            diffuse=".5 .5 .5" specular="0.3 0.3 0.3" pos="-0.1 0.1 0.5" dir="0 0 -1"/>
+			
+		<light mode="targetbodycom" target="Spine" directional="false" castshadow="false"
+			diffuse=".5 .5 .5" specular="0.3 0.3 0.3" pos="0 1 0.2" dir="0 0 -1"/>
+			
+        <camera name="targetSpine" pos="0 -0.15 0.07" xyaxes="1 0 0 0 0 1"/>
+        
+        <!--
+        <geom name="floor" pos="0 0 0.0005" size="0.2 0.2 .002" type="plane"
+            condim="6" contype="2" conaffinity="1" group="1" solimp="0.96 0.995 0.0001" solref="0.002 1.2"/>
+        -->
+        
+        <!-- child bodies xyaxes="1 0 0 0 0 1" -->
+        <body name="Spine" pos="0 0 0">
+                            
+            <camera name="SpineTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
+            
+            
+            <!-- world joint -->
+            <!-- MJPRO140 -->
+            <joint name="j_body" type="free" limited="false"/>
+            <!-- MJPRO150
+            <freejoint name="j_body"/> -->
+            
+            <!-- spine geometry -->        
+            <geom type="mesh" mesh="SpineSacrum" class="bone"/>
+            <geom type="mesh" mesh="Body" class="body"/>
+            
+            <geom name="left_eye" type="sphere" pos="-0.005009 -0.006204 -0.024315" size="0.002994" class="wrap" rgba="0 0.02 0.02 1"/>
+            <geom name="right_eye" type="sphere" pos="0.005620 -0.005338 -0.024727" size="0.002994" class="wrap" rgba="0 0.02 0.02 1"/>
+
+            <!-- wrapping surfaces -->
+            <geom name="w_cent_sa" type="cylinder" fromto="0.002416 0.000494 -0.000679 -0.002584 0.000494 -0.000680" size="0.000500" class="wrap"/>
+            <!-- sidesites for wrapping surfs -->
+            <site name="w_cent_sa_side" pos="-0.000070 0.002092 -0.000675" class="wrap"/>
+            <site name="w_right_sa_side" pos="0.004142 0.000685 0.000204" class="wrap"/>
+            <site name="w_left_sa_side" pos="-0.004377 0.000538 0.000354" class="wrap"/>
+
+            <!-- sites on spine -->
+
+            <!-- LD origins -->
+            <!-- left -->
+            <site name="left_LD_org_med" pos="-0.000411 0.000941 -0.009775" class="m_LD"/>
+            <site name="left_LD_org_med_3" pos="-0.000380 0.001279 -0.008504" class="m_LD"/>
+            <site name="left_LD_org_med_2" pos="-0.000388 0.001412 -0.006355" class="m_LD"/>
+            <site name="left_LD_org_med_1" pos="-0.000324 0.001265 -0.004511" class="m_LD"/>
+            <site name="left_LD_org_med_0" pos="-0.000282 0.001172 -0.002481" class="m_LD"/>
+            <site name="left_LD_org_lat" pos="-0.001584 0.000523 -0.009645" class="m_LD"/>
+            <site name="left_LD_org_lat_3" pos="-0.001690 0.000962 -0.008561" class="m_LD"/>
+            <site name="left_LD_org_lat_2" pos="-0.001613 0.001082 -0.006089" class="m_LD"/>
+            <site name="left_LD_org_lat_1" pos="-0.001615 0.001081 -0.003771" class="m_LD"/>
+            <site name="left_LD_org_lat_0" pos="-0.001472 0.001089 -0.001700" class="m_LD"/>
+            
+            <!-- right -->
+            <site name="right_LD_org_med" pos="0.000292 0.000899 -0.009778" class="m_LD"/>
+            <site name="right_LD_org_med_3" pos="0.000306 0.001243 -0.008529" class="m_LD"/>
+            <site name="right_LD_org_med_2" pos="0.000247 0.001274 -0.006365" class="m_LD"/>
+            <site name="right_LD_org_med_1" pos="0.000169 0.001215 -0.004475" class="m_LD"/>
+            <site name="right_LD_org_med_0" pos="0.000177 0.001195 -0.002442" class="m_LD"/>
+            <site name="right_LD_org_lat" pos="0.001515 0.000533 -0.009754" class="m_LD"/>
+            <site name="right_LD_org_lat_3" pos="0.001572 0.001021 -0.008518" class="m_LD"/>
+            <site name="right_LD_org_lat_2" pos="0.001462 0.001113 -0.006029" class="m_LD"/>
+            <site name="right_LD_org_lat_1" pos="0.001511 0.001116 -0.003731" class="m_LD"/>
+            <site name="right_LD_org_lat_0" pos="0.001505 0.001159 -0.001645" class="m_LD"/>
+            
+            <!-- Iliolumbaris origins -->
+            <!-- left -->
+            <site name="left_IL_org_0" pos="-0.002752 0.000500 -0.002869" class="m_IL"/>
+            <site name="left_IL_org_1" pos="-0.002677 0.000407 -0.005083" class="m_IL"/>
+            <site name="left_IL_org_2" pos="-0.002691 0.000269 -0.007258" class="m_IL"/>
+            <site name="left_IL_org_3" pos="-0.002538 0.000150 -0.009341" class="m_IL"/>
+            
+            <!-- right -->
+            <site name="right_IL_org_0" pos="0.002557 0.000561 -0.002906" class="m_IL"/>
+            <site name="right_IL_org_1" pos="0.002421 0.000300 -0.005002" class="m_IL"/>
+            <site name="right_IL_org_2" pos="0.002387 0.000059 -0.007314" class="m_IL"/>
+            <site name="right_IL_org_3" pos="0.002377 0.000252 -0.009561" class="m_IL"/>
+            
+            <!-- Iliolumbaris insertions -->
+            <site name="left_IL_ins_med" pos="-0.002801 0.001250 0.000945" class="m_IL"/>
+            <site name="right_IL_ins_med" pos="0.002928 0.001646 0.001023" class="m_IL"/>
+            
+            
+            <!-- CS insertions -->
+            <site name="left_CS_ins_med" pos="-0.000350 0.001003 -0.000812" class="m_CS"/>
+            <site name="left_CS_ins_lat" pos="-0.003233 0.001271 0.001403" class="m_CS"/>
+            <site name="right_CS_ins_med" pos="0.000397 0.000883 -0.000907" class="m_CS"/>
+            <site name="right_CS_ins_lat" pos="0.003427 0.001537 0.001351" class="m_CS"/>
+            
+            
+            
+            
+            <!-- UROSTYLE -->
+            <body name="Urostyle" pos="0.000000 -0.000000 -0.000000">
+                
+                
+                <!-- urostyle-spine joint
+                <joint name="j_urostyle" pos="0.000000 0.000000 -0.000000" type="ball"/> -->
+				<joint name="j_urostyleX" pos="0.000000 0.000000 -0.000000" type="hinge" axis="1 0 0" limited="true" range="-0.05 20"/>
+				<joint name="j_urostyleY" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 1 0" limited="true" range="-2.5 2.5"/>
+                
+                <!-- urostyle geometry -->
+                <geom type="mesh" mesh="Urostyle" class="bone"/>
+                <!--
+                <geom type="mesh" mesh="UrostyleBody" class="body"/>-->
+                
+                <!-- sites on urostyle -->
+                
+                <!-- CS origins -->
+                <site name="prox_CS_org_dors" pos="-0.000000 0.000575 0.000375" class="m_CS"/>
+                <!-- left -->
+                <site name="left_CS_org_dist_dist" pos="-0.000128 0.001109 0.009116" class="m_CS"/>
+                <!-- right -->
+                <site name="right_CS_org_dist_dist" pos="0.000022 0.001111 0.009126" class="m_CS"/>
+      
+                
+                <!-- CI origins -->
+                <site name="vent_CI_org_dist" class="m_CI"/>
+                <!-- left -->
+                <site name="left_CI_org_prox" pos="-0.000697 0.000153 0.002365" class="m_CI"/>
+                <site name="left_CI_org_mid" pos="-0.000513 0.000296 0.007636" class="m_CI"/>
+                <site name="left_CI_org_dist" pos="-0.000376 0.000046 0.014767" class="m_CI"/>
+                <!-- right -->
+                <site name="right_CI_org_prox" pos="0.000511 0.000192 0.002436" class="m_CI"/>
+                <site name="right_CI_org_mid" pos="0.000288 0.000271 0.007586" class="m_CI"/>
+                <site name="right_CI_org_dist" pos="0.000290 -0.000006 0.014808" class="m_CI"/>
+                
+               
+                <!-- LD insertions -->
+                <site name="left_LD_ins" pos="-0.000149 0.001423 0.005669" class="m_LD"/>
+                <site name="right_LD_ins" pos="0.000013 0.001405 0.005676" class="m_LD"/>
+                
+                
+                <!-- PY origin -->
+                <site name="left_PY_org" pos="-0.000326 0.000037 0.014818" class="m_PY"/>
+                
+                
+            </body>
+            
+            
+			<body name="Pelvis" pos="0.000000 -0.000112 0.018203">
+				<camera name="PelvisSideCam" pos="0.015 0.04 0.03" xyaxes="-1 0.4 0 0 -1 1" mode="track"/>
+				
+                <!-- Iliosacral joint
+				<joint name="j_IS" pos="-0.000028 0.001220 -0.017571" type="ball"/> -->
+				<joint name="j_ISX" pos="-0.000028 0.001220 -0.017571" type="hinge" axis="1 0 0" limited="true" range="-5 20"/>
+				<joint name="j_ISY" pos="-0.000028 0.001220 -0.017571" type="hinge" axis="0 1 0" limited="true" range="-10 10"/> 
+                
+                
+                <!-- pelvis geometry -->
+                <geom type="mesh" mesh="Pelvis" class="bone"/>
+                <geom type="mesh" mesh="PelvisBody" class="body"/>
+                
+                
+                <!-- wrapping surfaces -->
+                <geom name="w_right_sa" type="sphere" pos="0.003548 0.001191 -0.017541" size="0.000837" class="wrap"/>
+                <geom name="w_left_sa" type="sphere" pos="-0.003647 0.001020 -0.017549" size="0.000857" class="wrap"/>
+                <geom name="w_left_IE_old" type="sphere" pos="-0.001802 -0.002262 -0.004446" size="0.002155" class="wrap"/>
+                <geom name="w_left_ilium_dist" type="cylinder" fromto="-0.002725 0.000715 -0.006538 0.000660 -0.002592 -0.001284" size="0.000360" class="wrap"/>
+                <geom name="w_left_ilium_prox" type="cylinder" fromto="-0.002392 0.000282 -0.006592 -0.001129 -0.000666 -0.003602" size="0.000360" class="wrap"/>
+                <geom name="w_left_AL_cyl" type="cylinder" fromto="-0.002667 0.003436 -0.004834 -0.000079 -0.008234 -0.000168" size="0.001506" class="wrap"/>
+                <site name="w_left_AL_side" pos="-0.002028 -0.003550 -0.003882" class="wrap"/>
+                <geom name="w_left_PY" type="cylinder" fromto="-0.001950 0.000576 -0.004081 -0.000686 -0.000373 -0.001091" size="0.000360" class="wrap"/>
+                <site name="w_left_PY_side" pos="-0.002267 0.001562 -0.001618" class="wrap"/>
+                <geom name="w_left_IE" type="sphere" pos="-0.002749 -0.000941 -0.004569" size="0.001123" class="wrap"/>
+
+                
+                <!-- sites on pelvis -->
+                
+                <!-- IL insertions -->
+                <site name="left_IL_ins_lat" pos="-0.004310 0.000545 -0.017188" class="m_IL"/>
+                <site name="right_IL_ins_lat" pos="0.004214 0.000750 -0.017188" class="m_IL"/>
+                
+                <!-- CI insertions -->
+                <site name="left_CI_ins_prox" pos="-0.003512 0.000556 -0.018075" class="m_CI"/>
+                <site name="left_CI_ins_mid" pos="-0.003359 0.001336 -0.013997" class="m_CI"/>
+                <site name="left_CI_ins_dist" pos="-0.002639 0.000920 -0.008643" class="m_CI"/>
+                <site name="right_CI_ins_prox" pos="0.003422 0.000830 -0.018123" class="m_CI"/>
+                <site name="right_CI_ins_mid" pos="0.003350 0.001329 -0.014069" class="m_CI"/>
+                <site name="right_CI_ins_dist" pos="0.002759 0.000796 -0.008715" class="m_CI"/>
+                
+                <!-- II origins -->
+                <site name="left_II_org_prox" pos="-0.002161 0.000973 -0.005493" class="m_II"/>
+                <site name="left_II_org_dist" pos="-0.001659 0.000666 -0.003640" class="m_II"/>
+                <!-- II vias -->
+                <site name="left_II_via_prox" pos="-0.002401 -0.000279 -0.006207" class="m_II"/>
+                <site name="left_II_via_dist" pos="-0.001671 -0.001184 -0.003551" class="m_II"/>
+                
+                
+                <!-- IE origins -->
+                <site name="left_IE_org" pos="-0.004138 0.001220 -0.014276" class="m_IE"/>
+                <site name="left_IE_org_dist" pos="-0.001669 -0.000357 -0.002915" class="m_IE"/>
+                <!-- IE via -->
+                <site name="left_IE_via" class="m_IE"/>
+                
+                
+                <!-- CR origin -->
+                <site name="left_CR_org" pos="-0.001495 -0.000898 -0.004434" class="m_CR"/>
+                
+                
+                <!-- SM origin -->
+                <site name="left_SM_org" pos="-0.000494 -0.000317 0.000236" class="m_SM"/>
+                
+                
+                <!-- GR origin -->
+                <site name="left_GR_org" pos="-0.000285 -0.001566 0.001104" class="m_GR"/>
+                
+                
+                <!-- GL origin -->
+                <site name="left_GL_org" pos="-0.002017 0.000771 -0.004190" class="m_GL"/>
+                
+                
+                <!-- ST origins -->
+                <site name="left_ST_org_dors" pos="-0.000491 -0.001403 -0.000002" class="m_ST"/>
+                <site name="left_ST_org_vent" pos="-0.000468 -0.002948 -0.000433" class="m_ST"/>
+                
+                
+                <!-- AM origins -->
+                <site name="left_AM_org_crv" pos="-0.000243 -0.002547 0.000699" class="m_AM"/>
+                <site name="left_AM_org_str" pos="-0.000094 -0.003931 -0.002775" class="m_AM"/>
+				
+				
+				<!-- AL origins -->
+				<site name="left_AL_org" pos="-0.000208 -0.002101 -0.004985" class="m_AL"/>
+                
+                
+				<!-- SA origins -->
+				<site name="left_SA_org" pos="-0.000297 -0.002480 -0.004795" class="m_SA"/>
+				
+                <!-- IFB origin -->
+                <site name="left_IFB_org" pos="-0.001986 0.000626 -0.003488" class="m_IFB"/>
+                
+                <!-- IFM origin -->
+                <site name="left_IFM_org" pos="-0.001494 0.000202 -0.002687" class="m_IFM"/>
+                
+                <!-- OE origin -->
+                <site name="left_OE_org" pos="-0.000294 -0.003429 -0.003696" class="m_OE"/>
+                
+                <!-- PE origin -->
+                <site name="left_PE_org" pos="-0.000329 -0.002370 -0.004853" class="m_PE"/>
+                
+                <!-- QF origin -->
+                <site name="left_QF_org" pos="-0.000509 -0.000953 -0.000041" class="m_QF"/>
+			
+				
+                
+                <!-- FEMUR Left -->
+                <body name="FemurL" pos="-0.001796 -0.002014 -0.002292">
+                            
+                    <camera name="HipTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
+                    
+                    
+                    <!-- HIP JOINT -->
+                    <joint name="j_hipL" pos="0.000000 0.000000 0.000000" type="ball"/>
+                     <!--
+                    <joint name="j_hipLX" pos="0.000000 0.000000 0.000000" type="hinge" axis="1 0 0" range="-170 170"/>
+                    <joint name="j_hipLY" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 1 0" range="-160 5"/>
+                    <joint name="j_hipLZ" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 0 1" range="-170 170"/> -->
+                    <site name="s_roll_kneL" pos="-0.000000 0.00000 0.01543" size="0.001" rgba="1 1 0 1"/>
+                    <!-- femur geometry -->
+                    <geom type="mesh" mesh="FemurL" class="bone"/>
+                    <geom type="mesh" mesh="FemurBody" class="body"/>
+                    
+                    
+                    <!-- wrapping surfaces -->
+                    <geom name="w_left_femur" type="cylinder" fromto="0.000066 -0.000336 -0.000513 -0.000758 -0.000080 0.018013" size="0.000650" class="wrap"/>
+                    <geom name="w_left_femur_prox" type="cylinder" fromto="0.000026 0.000302 -0.001065 0.000096 -0.000573 0.004432" size="0.000650" class="wrap"/>
+                    <site name="w_left_femur_prox_side" pos="0.000361 0.000413 0.001954" class="wrap"/> 
+                    <geom name="w_left_CR" type="sphere" pos="0.000269 -0.000456 0.009247" size="0.003752" class="wrap"/>
+                    <site name="w_left_CR_side" pos="-0.002858 0.001453 0.010054" class="wrap"/> 
+                    <geom name="w_left_SM" type="sphere" pos="0.000198 -0.000989 0.006451" size="0.003915" class="wrap"/>
+					<site name="w_left_SM_side" pos="0.004552 -0.000544 0.003777" class="wrap"/>
+					<geom name="w_left_ST" type="sphere" pos="0.000170 0.002333 0.008769" size="0.005106" class="wrap"/>
+					<site name="w_left_ST_side" pos="0.003973 -0.003092 0.008172" class="wrap"/>
+                    <site name="w_left_AM_dors" pos="0.001096 0.000171 0.008689" class="wrap"/>
+                    <site name="w_left_AM_vent" pos="0.000238 -0.002752 0.009743" class="wrap"/>
+                    <geom name="w_left_AM" type="sphere" pos="-0.000252 -0.000053 0.008780" size="0.001962" class="wrap"/>
+                    <geom name="w_left_AM_fem" type="cylinder" fromto="0.000247 -0.000355 -0.001611 -0.000676 -0.000068 0.019123" size="0.000727" class="wrap"/>
+                    <site name="w_left_AM_fem_side" pos="0.000157 0.000421 0.008193" class="wrap"/>
+                    <geom name="w_left_SA" type="sphere" pos="0.002735 0.000745 0.006616" size="0.006252" class="wrap"/>
+                    <site name="w_left_SA_side" pos="-0.001916 -0.001764 0.005731" class="wrap"/>
+                    <geom name="w_left_knee" type="cylinder" fromto="-0.000081 0.001387 0.018172 0.000080 -0.001388 0.018113" size="0.000749" class="wrap"/>
+                    <site name="w_left_knee_side" pos="-0.000882 0.000025 0.018858" class="wrap"/>
+                    <geom name="w_left_II" type="sphere" pos="0.002307 0.002657 0.007361" size="0.005360" class="wrap"/>
+                    <site name="w_left_II_side" pos="-0.003863 -0.005437 0.006547" class="wrap"/>
+                    
+                
+                    <!-- II insertions -->
+                    <site name="left_II_ins_prox" pos="0.000096 0.000342 0.003166" class="m_II"/>
+                    <site name="left_II_ins_dist" pos="-0.001039 0.000256 0.011847" class="m_II"/>
+                    <site name="left_II_ins_dist_vent" pos="0.000280 -0.000173 0.009365" class="m_II"/>
+                    
+                    <!-- IE insertions -->
+                    <site name="left_IE_ins_dist" pos="0.000424 0.000588 0.000624" class="m_IE"/>
+                    
+                    <!-- CR insertion -->
+                    <site name="left_CR_via_vent" pos="-0.001308 -0.000021 0.016894" class="m_CR"/>
+                    <site name="left_CR_via_fem" pos="0.000054 0.001757 0.015568" class="m_CR"/>
+                    
+                    <!-- GL insertions -->
+                    <site name="left_GL_ins" pos="0.000117 0.001261 0.016821" class="m_GL"/>
+                    
+                    <!-- AM insertions -->
+                    <site name="left_AM_ins_crv" pos="-0.000979 -0.000203 0.015950" class="m_AM"/>
+                    <site name="left_AM_via_crv" pos="-0.001039 0.000256 0.011847" class="m_AM"/>
+                    <site name="left_AM_ins_str" pos="-0.000218 -0.001019 0.015679" class="m_AM"/>
+					
+					<!-- AL insertion -->
+					<site name="left_AL_ins" pos="-0.000474 -0.000920 0.015601" class="m_AL"/>
+                    
+                    <!-- IFM insertion -->
+                    <site name="left_IFM_ins" pos="0.000434 -0.000189 0.006407" class="m_IFM"/>
+                    
+                    <!-- PY insertion -->
+                    <site name="left_PY_ins" pos="0.000617 -0.000693 0.005333" class="m_PY"/>
+                    
+                    <!-- OE insertion -->
+                    <site name="left_OE_ins" pos="-0.000744 -0.000766 0.011221" class="m_OE"/>
+                    
+                    <!-- PE insertion -->
+                    <site name="left_PE_ins" pos="-0.000770 -0.000603 0.008077" class="m_PE"/>
+                    
+                    <!-- QF insertion -->
+                    <site name="left_QF_ins" pos="0.000741 -0.000502 0.002896" class="m_QF"/>
+                    
+                    
+                    <!-- PL origin -->
+                    <site name="left_PL_org" pos="0.000566 0.001251 0.016537" class="m_PL"/>
+					
+					<!-- PER origin -->
+					<site name="left_PER_org" pos="-0.000538 0.001118 0.017237" class="m_PER"/>
+					
+					<!-- ECB origin -->
+					<site name="left_ECB_org" pos="-0.000635 0.000991 0.017161" class="m_ECB"/>
+
+
+                    <!-- TibFib Left -->
+                    <body name="TibFibL" pos="-0.000000 0.000000 0.018143">
+                            
+                        <camera name="KneeTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
+                        
+                        <!-- KNEE JOINT  -->
+                        <joint name="j_kneeL" pos="0.000000 0.000000 -0.000000" type="ball"/> 
+                        <site name="s_ctr_kneL" pos="0.000000 0.00000 -0.00000" size="0.001" rgba="0 0 1 1"/><!-- knee ctr of rotation - if this is placed along the axis of the bone it can mimic the effect of a "rolling joint" -->
+                        <!-- <site name="s_test" pos="-0 0.00000 0.005" size="0.001" rgba="0 0 1 0.5"/> -->
+
+
+                        <!--
+                        <joint name="j_kneeLX" pos="0.000000 0.000000 -0.000000" type="hinge" axis="1 0 0" range="-180 180"/>
+                        <joint name="j_kneeLY" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 1 0" range="-180 180"/>
+                        <joint name="j_kneeLZ" pos="0.000000 0.000000 -0.000000" type="hinge" axis="0 0 1" range="-180 180"/> -->
+                        
+                        <!-- TibFib geometry -->
+                        <geom type="mesh" mesh="TibFibL" class="bone"/>
+                        <geom type="mesh" mesh="TibFibBody" class="body"/>
+                        
+						<!-- wrapping surfaces -->
+						<geom name="w_left_knee_tib" type="cylinder" fromto="0.000056 0.001667 0.000794 -0.000069 -0.002074 0.000834" size="0.000706" class="wrap"/>
+						<site name="w_left_knee_tib_side" pos="-0.000689 0.000202 0.000155" class="wrap"/>
+                        <geom name="w_left_CR_dors" type="cylinder" fromto="0.000048 0.000736 0.000317 -0.000225 0.000482 0.002973" size="0.000712" class="wrap"/>
+                        <site name="w_left_CR_dors_side" pos="-0.000061 0.001090 0.002043" class="wrap"/> 
+                        <geom name="w_left_IFB" type="sphere" pos="0.000340 0.000613 0.000773" size="0.000706" class="wrap"/>
+                        <site name="w_left_IFB_side" pos="0.000579 0.001256 0.000943" class="wrap"/>
+						<geom name="w_left_PL_prox" type="sphere" pos="-0.004413 0.000102 0.008645" size="0.008007" class="wrap"/>
+						<geom name="w_left_PL" type="cylinder" fromto="-0.000114 -0.001428 0.018911 -0.000071 0.001477 0.019084" size="0.000708" class="wrap"/>
+						<geom name="w_left_TiAB" type="cylinder" fromto="-0.000421 -0.000024 0.004018 -0.000414 0.000082 0.014638" size="0.000625" class="wrap"/>
+						<site name="w_left_TiAB_side" pos="-0.001334 0.000120 0.009623" class="wrap"/>
+						<geom name="w_left_TiAL" type="sphere" pos="0.001909 0.000787 0.009957" size="0.004222" class="wrap"/>
+						
+						
+                        <!-- SM insertion -->
+                        <site name="left_SM_ins" pos="0.000179 -0.000982 0.001876" class="m_SM"/>
+						
+						<!-- CR insertion -->
+						<site name="left_CR_ins" pos="-0.000907 0.000069 0.000416" class="m_CR"/>
+						<site name="left_CR_ins_dors" pos="0.000018 0.001421 0.000520" class="m_CR"/>
+                        <!-- <site name="left_CR_via_tib" class="m_CR"/>-->
+						
+                        <!-- GR insertion -->
+                        <site name="left_GR_ins" pos="0.000052 -0.001079 0.001742" class="m_GR"/>
+                        
+                        <!-- ST insertion -->
+                        <site name="left_ST_ins" pos="-0.000182 -0.001051 0.002672" class="m_ST"/>
+                        
+                        <!-- SA insertion -->
+                        <site name="left_SA_ins" pos="0.000138 -0.001341 0.001124" class="m_SA"/>
+                        
+                        <!-- IFB insertion -->
+                        <site name="left_IFB_ins" pos="-0.000174 0.001120 0.001626" class="m_IFB"/>
+						
+						<!-- PER insertion -->
+						<site name="left_PER_via" pos="-0.001104 0.000745 0.001750" class="m_PER"/>
+						<site name="left_PER_ins" pos="-0.000707 0.001435 0.018317" class="m_PER"/>
+						
+						<!-- ECB insertion -->
+						<site name="left_ECB_via" pos="-0.000998 0.000005 0.002253" class="m_ECB"/>
+						<site name="left_ECB_ins" pos="-0.000267 -0.001089 0.017746" class="m_ECB"/>
+						
+						
+						<!-- TiAB origin -->
+						<site name="left_TiAB_org" pos="-0.000776 0.000538 0.005180" class="m_TiAB"/>
+						
+						<!-- TiAL origin -->
+						<site name="left_TiAL_org" pos="-0.000692 0.000205 0.001996" class="m_TiAL"/>
+						
+						<!-- TiP origin -->
+						<site name="left_TiP_org" pos="0.000167 -0.000403 0.003907" class="m_TiP"/>
+						<site name="left_TiP_via" pos="0.000633 -0.000623 0.019516" class="m_TiP"/>
+						
+						<!-- TaP origin -->
+						<site name="left_TaP_org" pos="0.000533 -0.000988 0.019359" class="m_TaP"/>
+						
+						<!-- TaA origin -->
+						<site name="left_TaA_org" pos="-0.000826 0.000695 0.017477" class="m_TaA"/>
+						
+						
+						
+                        <!-- PL via -->
+						<site name="left_PL_via" pos="0.001674 0.000322 0.018219" class="m_PL"/>
+						
+						<site name="w_left_PL_side" pos="0.000177 -0.000017 0.020484" class="wrap"/>
+						
+						
+						
+                        <!-- Tarsals Left -->
+                        <body name="TarsalsL" pos="-0.000001 0.000001 0.019438">
+                            
+							<camera name="AnkleTopCam" pos="0 0 0.05" zaxis="0 0 1" mode="track"/>
+							<camera name="AnkleSideCam" pos="0.006 0.035 0.015" xyaxes="-1 -0.1 0 0 -1 2" mode="track"/>
+							
+                            <!-- ANKLE JOINT -->
+                            <joint name="j_ankleL" pos="0.000001 -0.000000 -0.001307" type="ball"/> <!--
+                            <joint name="j_ankleLX" pos="0.000001 -0.000000 -0.001307" type="hinge" axis="1 0 0" range="-180 180"/>
+                            <joint name="j_ankleLY" pos="0.000001 -0.000000 -0.001307" type="hinge" axis="0 1 0" range="-180 180"/>
+                            <joint name="j_ankleLZ" pos="0.000001 -0.000000 -0.001307" type="hinge" axis="0 0 1" range="-180 180"/> -->
+                            
+							
+                            
+                            <!-- Tarsals geometry -->
+                            <geom type="mesh" mesh="TarsalsL" class="bone"/>
+                            <geom type="mesh" mesh="TarsalsBody" class="body"/>
+							
+							<!-- TiAB insertion -->
+							<site name="left_TiAB_ins" pos="-0.000436 -0.001248 0.000752" class="m_TiAB"/>
+							
+							<!-- TiAL insertions -->
+							<site name="left_TiAL_ins_dors" pos="-0.000467 0.001585 0.000301" class="m_TiAL"/>
+							<site name="left_TiAL_ins_vent" pos="-0.000282 -0.001091 0.000606" class="m_TiAL"/>
+							
+							<!-- TiP insertion -->
+							<site name="left_TiP_ins" pos="0.000398 -0.000750 0.001070" class="m_TiP"/>
+							
+							<!-- TaP insertion -->
+							<site name="left_TaP_ins" pos="0.000573 -0.000939 0.009137" class="m_TaP"/>
+							
+							<!-- TaA insertion -->
+							<site name="left_TaA_ins" pos="-0.000128 -0.001006 0.008865" class="m_TaA"/>
+							
+                            <!-- PL insertion -->
+                            <site name="left_PL_ins" pos="0.000417 0.001049 0.008338" class="m_PL"/>
+                            
+                            <!-- End of tarsals -->
+                            <site name="TarsalsLZ" pos="-0.000000 0.000000 0.009812"/>
+							
+							
+							
+                        </body>
+                        
+                    </body>
+                    
+                </body>
+                
+                
+                
+                <!-- MIRRORED LIMB -->
+                
+                
+                <!-- Femur Right -->
+                <body name="FemurR" pos="0.001796 -0.002014 -0.002292"  >
+                    
+                    <!-- HIP JOINT -->
+                    <joint name="j_hipL_mir" pos="0.000000 0.000000 0.000000" type="ball"/>  <!--
+                    <joint name="j_hipLX_mir" pos="0.000000 0.000000 0.000000" type="hinge" axis="1 0 0" range="-170 170"/>
+                    <joint name="j_hipLY_mir" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 1 0" range="-5 160"/>
+                    <joint name="j_hipLZ_mir" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 0 1" range="-170 170"/> -->
+                    
+                    
+                    <geom type="mesh" mesh="FemurR" class="bone"/>
+                    <geom type="mesh" mesh="FemurBodyR" class="body"/>
+                    
+                    
+                    <!-- TibFib Right -->
+                    <body name="TibFibR" pos="0.000000 0.000000 0.018143"  >
+                        
+                        <!-- KNEE JOINT -->
+                        <joint name="j_kneeL_mir" pos="-0.000000 0.000000 -0.000000" type="ball"/>  <!--
+                        <joint name="j_kneeLX_mir" pos="-0.000000 0.000000 -0.000000" type="hinge" axis="1 0 0" range="-5 5"/>
+                        <joint name="j_kneeLY_mir" pos="-0.000000 0.000000 -0.000000" type="hinge" axis="0 1 0" range="-170 10"/>
+                        <joint name="j_kneeLZ_mir" pos="-0.000000 0.000000 -0.000000" type="hinge" axis="0 0 1" range="-15 15"/> -->
+                        
+                        
+                        <geom type="mesh" mesh="TibFibR" class="bone"/>
+                        <geom type="mesh" mesh="TibFibBodyR" class="body"/>
+                        
+                        <!-- Tarsals Left -->
+                        <body name="TarsalsR" pos="0.000001 0.000001 0.019438"  >
+                            
+                            <!-- ANKLE JOINT -->
+                            <joint name="j_ankleL_mir" pos="-0.000001 -0.000000 -0.001307" type="ball"/> <!--
+                            <joint name="j_ankleLX_mir" pos="-0.000001 -0.000000 -0.001307" type="hinge" axis="1 0 0" range="-20 20"/>
+                            <joint name="j_ankleLY_mir" pos="-0.000001 -0.000000 -0.001307" type="hinge" axis="0 1 0" range="-60 100"/>
+                            <joint name="j_ankleLZ_mir" pos="-0.000001 -0.000000 -0.001307" type="hinge" axis="0 0 1" range="-5 5"/> -->
+                            
+                            
+                            <geom type="mesh" mesh="TarsalsR" class="bone"/>
+                            <geom type="mesh" mesh="TarsalsBodyR" class="body"/>
+                            
+                            <site name="TarsalsLZ_mir" pos="0.000000 0.000000 0.009812"/>
+                            
+                        </body>
+                        
+                    </body>
+                    
+                </body>
+                
+                
+           
+                
+            </body>
+            
+        </body>
+		
+		
+		<body name="EE" pos="0 0 0">
+			<freejoint name="j_EE"/>
+			
+			<geom type="sphere" size="0.001" rgba="0 0 0 0" contype="0" conaffinity="0"/>
+			
+			<!-- End-effector for measuring feasible force -->
+			<site name="EE" size="0.001" rgba="1 0 0 0.5"/>
+			
+		</body>
+		
+	
+	
+    </worldbody>
+    
+    <tendon>
+        
+        <!-- LD MUSCLE -->
+        
+        <!-- med/lat orgs, 1 ins... make a triangle-->
+        <spatial name="t_left_LD" class="m_LD" user="0.610">
+            <site site="left_LD_org_med"/>
+            <site site="left_LD_org_med_3"/>
+            <site site="left_LD_org_med_2"/>
+            <site site="left_LD_org_med_1"/>
+            <site site="left_LD_org_med_0"/>
+            <geom geom="w_cent_sa" sidesite="w_cent_sa_side"/>
+            <site site="left_LD_ins"/>
+            <geom geom="w_cent_sa" sidesite="w_cent_sa_side"/>
+            <site site="left_LD_org_lat_0"/>
+            <site site="left_LD_org_lat_1"/>
+            <site site="left_LD_org_lat_2"/>
+            <site site="left_LD_org_lat_3"/>
+            <site site="left_LD_org_lat"/>
+        </spatial>
+        
+        <spatial name="t_right_LD" class="m_LD" user="0.610">
+            <site site="right_LD_org_med"/>
+            <site site="right_LD_org_med_3"/>
+            <site site="right_LD_org_med_2"/>
+            <site site="right_LD_org_med_1"/>
+            <site site="right_LD_org_med_0"/>
+            <geom geom="w_cent_sa" sidesite="w_cent_sa_side"/>
+            <site site="right_LD_ins"/>
+            <geom geom="w_cent_sa" sidesite="w_cent_sa_side"/>
+            <site site="right_LD_org_lat_0"/>
+            <site site="right_LD_org_lat_1"/>
+            <site site="right_LD_org_lat_2"/>
+            <site site="right_LD_org_lat_3"/>
+            <site site="right_LD_org_lat"/>
+        </spatial>
+        
+        
+        <!-- IL MUSCLE left -->
+        <spatial name="t_left_IL_0" class="m_IL" user="0.097">
+            <site site="left_IL_ins_med"/>
+            <geom geom="w_left_sa" sidesite="w_cent_sa_side"/>
+            <site site="left_IL_org_0"/>
+            <geom geom="w_left_sa" sidesite="w_left_sa_side"/>
+            <site site="left_IL_ins_lat"/>
+        </spatial>
+        <spatial name="t_left_IL_1" class="m_IL" user="0.151">
+            <site site="left_IL_ins_med"/>
+            <geom geom="w_left_sa" sidesite="w_cent_sa_side"/>
+            <site site="left_IL_org_1"/>
+            <geom geom="w_left_sa" sidesite="w_left_sa_side"/>
+            <site site="left_IL_ins_lat"/>
+        </spatial>
+        <spatial name="t_left_IL_2" class="m_IL" user="0.205">
+            <site site="left_IL_ins_med"/>
+            <geom geom="w_left_sa" sidesite="w_cent_sa_side"/>
+            <site site="left_IL_org_2"/>
+            <geom geom="w_left_sa" sidesite="w_left_sa_side"/>
+            <site site="left_IL_ins_lat"/>
+        </spatial>
+        <spatial name="t_left_IL_3" class="m_IL" user="0.257">
+            <site site="left_IL_ins_med"/>
+            <geom geom="w_left_sa" sidesite="w_cent_sa_side"/>
+            <site site="left_IL_org_3"/>
+            <geom geom="w_left_sa" sidesite="w_left_sa_side"/>
+            <site site="left_IL_ins_lat"/>
+        </spatial>
+        
+        <!-- IL MUSCLE right -->
+        <spatial name="t_right_IL_0" class="m_IL" user="0.097">
+            <site site="right_IL_ins_med"/>
+            <geom geom="w_right_sa" sidesite="w_cent_sa_side"/>
+            <site site="right_IL_org_0"/>
+            <geom geom="w_right_sa" sidesite="w_right_sa_side"/>
+            <site site="right_IL_ins_lat"/>
+        </spatial>
+        <spatial name="t_right_IL_1" class="m_IL" user="0.151">
+            <site site="right_IL_ins_med"/>
+            <geom geom="w_right_sa" sidesite="w_cent_sa_side"/>
+            <site site="right_IL_org_1"/>
+            <geom geom="w_right_sa" sidesite="w_right_sa_side"/>
+            <site site="right_IL_ins_lat"/>
+        </spatial>
+        <spatial name="t_right_IL_2" class="m_IL" user="0.205">
+            <site site="right_IL_ins_med"/>
+            <geom geom="w_right_sa" sidesite="w_cent_sa_side"/>
+            <site site="right_IL_org_2"/>
+            <geom geom="w_right_sa" sidesite="w_right_sa_side"/>
+            <site site="right_IL_ins_lat"/>
+        </spatial>
+        <spatial name="t_right_IL_3" class="m_IL" user="0.257">
+            <site site="right_IL_ins_med"/>
+            <geom geom="w_right_sa" sidesite="w_cent_sa_side"/>
+            <site site="right_IL_org_3"/>
+            <geom geom="w_right_sa" sidesite="w_right_sa_side"/>
+            <site site="right_IL_ins_lat"/>
+        </spatial>
+       
+        
+        
+        <!-- CS MUSCLE left-->
+        <spatial name="t_left_CS_lat" class="m_CS" user="0.629">
+            <site site="left_CS_ins_lat"/>
+            <site site="left_CS_org_dist_dist"/>
+        </spatial>
+        <spatial name="t_left_CS_med" class="m_CS" user="0.105">
+            <site site="left_CS_ins_med"/>
+            <site site="prox_CS_org_dors"/>
+        </spatial>
+        
+        <!-- CS MUSCLE right-->
+        <spatial name="t_right_CS_lat" class="m_CS" user="0.629">
+            <site site="right_CS_ins_lat"/>
+            <site site="right_CS_org_dist_dist"/>
+        </spatial>
+        <spatial name="t_right_CS_med" class="m_CS" user="0.105">
+            <site site="right_CS_ins_med"/>
+            <site site="prox_CS_org_dors"/>
+        </spatial>
+        
+        
+        <!-- CI MUSCLE left -->
+        <spatial name="t_left_CI_prox" class="m_CI" user="0.293">
+            <site site="left_CI_org_prox"/>
+            <site site="left_CI_ins_prox"/>
+        </spatial>
+        <spatial name="t_left_CI_mid" class="m_CI" user="0.357">
+            <site site="left_CI_org_mid"/>
+            <site site="left_CI_ins_mid"/>
+        </spatial>
+        <spatial name="t_left_CI_dist" class="m_CI" user="0.507">
+            <site site="left_CI_org_dist"/>
+            <site site="left_CI_ins_dist"/>
+        </spatial>
+        
+        <!-- CI MUSCLE right -->
+        <spatial name="t_right_CI_prox" class="m_CI" user="0.293">
+            <site site="right_CI_org_prox"/>
+            <site site="right_CI_ins_prox"/>
+        </spatial>
+        <spatial name="t_right_CI_mid" class="m_CI" user="0.357">
+            <site site="right_CI_org_mid"/>
+            <site site="right_CI_ins_mid"/>
+        </spatial>
+        <spatial name="t_right_CI_dist" class="m_CI" user="0.507">
+            <site site="right_CI_org_dist"/>
+            <site site="right_CI_ins_dist"/>
+        </spatial>
+        
+           
+        <!-- II MUSCLE left -->
+        <spatial name="t_left_II_lat" class="m_II" user="0.135">
+            <site site="left_II_org_dist"/>
+            <geom geom="w_left_ilium_dist" sidesite="right_CI_ins_dist"/>
+            <site site="left_II_via_dist"/>
+            <geom geom="w_left_femur"/>
+            <site site="left_II_ins_prox"/>
+        </spatial>
+        
+        <spatial name="t_left_II_med" class="m_II" user="0.291">
+            <site site="left_II_org_prox"/>
+            <geom geom="w_left_ilium_prox" sidesite="right_CI_ins_dist"/>
+            <site site="left_II_via_prox"/>
+            <geom geom="w_left_II" sidesite="w_left_II_side"/>
+            <site site="left_II_ins_dist"/>
+        </spatial>
+        
+        
+        
+        <!-- IE MUSCLE left -->
+        <spatial name="t_left_IE_prox" class="m_IE" user="0.306">
+            <site site="left_IE_org"/>
+            <geom geom="w_left_IE"/>
+            <site site="left_IE_ins_dist"/>
+        </spatial>
+        <spatial name="t_left_IE_dist" class="m_IE" user="0.042">
+            <site site="left_IE_org_dist"/>
+            <geom geom="w_left_femur_prox" sidesite="w_left_femur_prox_side"/>
+            <site site="left_IE_ins_dist"/>
+        </spatial>
+            
+        
+        <!-- CR MUSCLE left -->
+        <spatial name="t_left_CR_dors" class="m_CR" user="1.079">
+            <site site="left_CR_org"/>
+            <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
+            <site site="left_CR_via_fem"/>
+            <!--<site site="left_CR_via_tib"/>-->
+            <site site="left_CR_ins_dors"/>
+        </spatial>
+		
+		<spatial name="t_left_CR_vent" class="m_CR" user="1.183">
+			<site site="left_CR_org"/>
+			<geom geom="w_left_CR" sidesite="w_left_CR_side"/>
+			<site site="left_CR_via_vent"/>
+			<geom geom="w_left_knee" sidesite="w_left_knee_side"/>
+			<site site="left_CR_ins"/>
+		</spatial>
+		
+		
+		
+        <!-- SM MUSCLE left -->
+        <spatial name="t_left_SM" class="m_SM" user="1.372">
+            <site site="left_SM_org"/>
+            <geom geom="w_left_SM" sidesite="w_left_SM_side"/>
+            <site site="left_SM_ins"/>
+        </spatial>
+        
+        
+        <!-- ST MUSCLE left -->
+        <spatial name="t_left_ST_vent" class="m_ST" user="0.182">
+            <site site="left_ST_org_vent"/>
+            <geom geom="w_left_ST" sidesite="w_left_ST_side"/>
+            <site site="left_ST_ins"/>
+        </spatial>
+        <spatial name="t_left_ST_dors" class="m_ST" user="0.197">
+            <site site="left_ST_org_dors"/>
+            <geom geom="w_left_ST" sidesite="w_left_ST_side"/>
+            <site site="left_ST_ins"/>
+        </spatial>
+        
+        <!-- GR MUSCLE left -->
+        <spatial name="t_left_GR" class="m_GR" user="1.025">
+            <site site="left_GR_org"/>
+            <geom geom="w_left_SM" sidesite="w_left_SM_side"/>
+            <site site="left_GR_ins"/>
+        </spatial>
+        
+        <!-- GL MUSCLE left -->
+        <spatial name="t_left_GL" class="m_GL" user="0.565">
+            <site site="left_GL_org"/>
+            <geom geom="w_left_CR" sidesite="w_left_CR_side"/>
+            <site site="left_GL_ins"/>
+        </spatial>
+            
+        
+        
+        <!-- AM MUSCLE left -->
+        <spatial name="t_left_AM_crv" class="m_AM" user="0.862">
+            <site site="left_AM_org_crv"/>
+            <geom geom="w_left_AM_fem" sidesite="w_left_AM_fem_side"/>
+            <site site="left_AM_via_crv"/>
+            <site site="left_AM_ins_crv"/>
+        </spatial>
+        
+        <spatial name="t_left_AM_str" class="m_AM" user="0.734">
+            <site site="left_AM_org_str"/>
+            <geom geom="w_left_AM" sidesite="w_left_AM_vent"/>
+            <site site="left_AM_ins_str"/>
+        </spatial>
+		
+		
+		<!-- AL MUSCLE left -->
+		<spatial name="t_left_AL" class="m_AL" user="0.152">
+			<site site="left_AL_org"/>
+			<geom geom="w_left_AL_cyl" sidesite="w_left_AL_side"/>
+			<site site="left_AL_ins"/>
+		</spatial>
+        
+        
+        <!-- SA MUSCLE left -->
+		<spatial name="t_left_SA" class="m_SA" user="0.279">
+			<site site="left_SA_org"/>
+			<geom geom="w_left_SA" sidesite="w_left_SA_side"/>
+			<site site="left_SA_ins"/>
+		</spatial>
+        
+        
+        <!-- IFB MUSCLE left -->
+        <spatial name="t_left_IFB" class="m_IFB" user="0.333">
+            <site site="left_IFB_org"/>
+			<geom geom="w_left_IFB" sidesite="w_left_IFB_side"/>
+			<site site="left_IFB_ins"/>
+		</spatial>
+        
+        <!-- IFM MUSCLE left -->
+        <spatial name="t_left_IFM" class="m_IFM" user="0.174">
+            <site site="left_IFM_org"/>
+            <!--<geom geom="w_left_IFM"/>-->
+			<site site="left_IFM_ins"/>
+		</spatial>
+        
+        <!-- PY MUSCLE left -->
+        <spatial name="t_left_PY" class="m_PY" user="0.363">
+            <site site="left_PY_org"/>
+            <geom geom="w_left_PY" sidesite="w_left_PY_side"/>
+			<site site="left_PY_ins"/>
+		</spatial>
+        
+        <!-- OE MUSCLE left -->
+        <spatial name="t_left_OE" class="m_OE" user="0.418">
+            <site site="left_OE_org"/>
+			<site site="left_OE_ins"/>
+		</spatial>
+        
+        <!-- PE MUSCLE left -->
+        <spatial name="t_left_PE" class="m_PE" user="0.260">
+            <site site="left_PE_org"/>
+			<geom geom="w_left_AL_cyl" sidesite="w_left_AL_side"/>
+			<site site="left_PE_ins"/>
+		</spatial> 
+        
+        <!-- PL MUSCLE left -->
+        <spatial name="t_left_PL" class="m_PL" user="2.371">
+            <site site="left_PL_org"/>
+			<geom geom="w_left_PL_prox"/>
+            <site site="left_PL_via"/>
+            <geom geom="w_left_PL" sidesite="w_left_PL_side"/>
+			<site site="left_PL_ins"/>
+		</spatial>
+		
+		<!-- PER MUSCLE left -->
+		<spatial name="t_left_PER" class="m_PER" user="0.357">
+			<site site="left_PER_org"/>
+			<geom geom="w_left_knee_tib" sidesite="w_left_knee_tib_side"/>
+			<site site="left_PER_via"/>
+			<site site="left_PER_ins"/>
+		</spatial>
+		
+		<!-- ECB MUSCLE left -->
+		<spatial name="t_left_ECB" class="m_ECB" user="0.356">
+			<site site="left_ECB_org"/>
+			<geom geom="w_left_knee_tib" sidesite="w_left_knee_tib_side"/>
+			<site site="left_ECB_via"/>
+			<site site="left_ECB_ins"/>
+		</spatial>
+		
+		<!-- TiAB MUSCLE left -->
+		<spatial name="t_left_TiAB" class="m_TiAB" user="0.220">
+			<site site="left_TiAB_org"/>
+			<geom geom="w_left_TiAB" sidesite="w_left_TiAB_side"/>
+			<site site="left_TiAB_ins"/>
+		</spatial>
+		
+		<!-- TiAL MUSCLE left -->
+		<spatial name="t_left_TiAL" class="m_TiAL" user="0.524">
+			<site site="left_TiAL_ins_vent"/>
+			<geom geom="w_left_TiAL"/>
+			<site site="left_TiAL_org"/>
+			<geom geom="w_left_TiAL"/>
+			<site site="left_TiAL_ins_dors"/>
+		</spatial>
+		
+		<!-- TiP MUSCLE left -->
+		<spatial name="t_left_TiP" class="m_TiP" user="0.579">
+			<site site="left_TiP_org"/>
+			<site site="left_TiP_via"/>
+			<site site="left_TiP_ins"/>
+		</spatial>
+		
+		<!-- TaP MUSCLE left -->
+		<spatial name="t_left_TaP" class="m_TaP" user="0.366">
+			<site site="left_TaP_org"/>
+			<site site="left_TaP_ins"/>
+		</spatial>
+		
+		<!-- TaA MUSCLE left -->
+		<spatial name="t_left_TaA" class="m_TaA" user="0.217">
+			<site site="left_TaA_org"/>
+			<site site="left_TaA_ins"/>
+		</spatial>
+		
+    </tendon>
+	
+	
+	
+</mujoco>

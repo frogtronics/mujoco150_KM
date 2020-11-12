@@ -29,3 +29,13 @@ USAGE: changeAngles -m modelfile -i inputfile
 optional additional arguments
 -t tendondataOutputdile 
 -f footpositionOutputfile
+
+ALTERNATIVE USAGE:
+changeAngles -i inputfile
+This will load a text file of instructions.
+The instructions file has the following:
+Row 0 model filename (in form of ../models/...)
+Row 1 filenames list filename (in form of ../input/...)
+Row 2 trials list filename (in form of ../input/...)
+
+the filenames are the names of text file data to be loaded into the simulation.  The trials file are the list of trial names, in case they are needed. q

@@ -17,6 +17,8 @@
 
 //-----------------  MISC string parsing and finding functions
 
+
+
 // --- just to get the end of a sring....
 
 std::string tail(std::string const& source, size_t const length) {
