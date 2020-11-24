@@ -15,7 +15,7 @@
 #include "stdio.h"
 #include "string.h"
 #include "math.h"
-#include "rollingJoint.h"
+#include "jointToolbox.h"
 //#include "fileToolbox.h"
 
 
@@ -34,7 +34,7 @@ int displayWindow = 1;
 char *ffile = NULL;//output foot file (not currently used)
 char *kfile = (char*)"../input/KM06_HOP_08.txt";//NULL;//input quaternions file
 char *ifile = (char*)"../input/instructionsFile.txt";//NULL;//input instructions file
-char *tfile = (char*)"../output/ten_lenghth.csv";//NULL;//tendon length file
+char *tfile = (char*)"../output/ten_length.csv";//NULL;//tendon length file
 char *rfile = (char*)"../output/momentarm.csv";//NULL;//moment arm file
 char *map_file = (char*)"../models/Kassina/Kassina_map.txt";
 
@@ -52,6 +52,11 @@ char *mfile = (char*)"../models/Kassina/Kassina.xml";
 
 int main(int argc, const char** argv)
 {
+	// File name constants for output files
+	std::string momentarmOutputfile;
+	std::string momentarmOutputfile_suffix = "_momentarm.csv";
+	std::string tendondataOutputdile;
+	std::string tendondataOutputdile_suffix ="_ten_length.csv";
 	//---- Initialization ----//
 	
 	//activate mujoco
@@ -72,6 +77,10 @@ int main(int argc, const char** argv)
 	//-- parse input options --//
 	parseArgsLong(argc, argv);
 	
+	//----- LOAD INSTRUCTIONS FILE TO FILL IN EMPTY ARGUMENTS------	
+	//------ if the user has left the arguments blank -------------
+	// ------ OPEN MODEL FILE -------------------------------------
+
 	//open input file
 	FILE* inputFile;
 	if (kfile)
@@ -82,17 +91,36 @@ int main(int argc, const char** argv)
 	}
 
 
-	//create output file for tendons
-	FILE* tendonFile;
-	if (tfile) {
-		tendonFile = fopen(tfile, "w");
-		if (!tendonFile) {
-			printf("Could not create tendon file %s\n",tfile);
-			return 1;
-		}
+	std::string model_filename;
+	std::string *instructions_list = new std::string[3];
+	file2StringList(ifile, instructions_list);
+	model_filename = instructions_list[0];
+	std::string trials_filename = instructions_list[1];
+	int n_trials = numberOfLines(trials_filename);
+	std::string *filenames_list = new std::string[n_trials];
+	file2StringList(trials_filename, filenames_list);
+	if (n_trials == 0)
+		n_trials = 1;
+	// check number of arguments - if usage is changeAngles -i instructionsfile then do the  following...
+	if (argc == 3)
+	{
+		printf("Using Model %s\n", model_filename.c_str());
+		printf("Trials to be processed:  %i\n", n_trials);
+		printf("first trial loaded: %s\n", filenames_list[0].c_str());
+
+
+		loadmodel(window,model_filename.c_str(), 0);
+
+		inputFile = fopen(filenames_list[0].c_str(), "r");
+	}
+	else
+	{
+		loadmodel(window,mfile, 0);
 	}
 	
-	//create output file for moment arms
+	//create output files for tendon and moment arm data
+	FILE* tendonFile;
+	//FILE* tendonFile_default = fopen(tfile, "w");
 	FILE* momentarmFile;
 	if (rfile) {
 		momentarmFile = fopen(rfile, "w");
@@ -118,48 +146,15 @@ int main(int argc, const char** argv)
 	FILE* mapfile;
 	mapfile = fopen(map_file, "r");
 
-	//----- LOAD INSTRUCTIONS FILE TO FILL IN EMPTY ARGUMENTS------	
-	//------ if the user has left the arguments blank -------------
-	std::string model_filename;
-	std::string *instructions_list = new std::string[3];
-	file2StringList(ifile, instructions_list);
-	model_filename = instructions_list[0];
-	std::string trials_filename = instructions_list[1];
-	int n_trials = numberOfLines(trials_filename);
-	std::string *filenames_list = new std::string[n_trials];
-	file2StringList(trials_filename, filenames_list);
-	if (n_trials == 0)
-		n_trials = 1;
-	if (argc == 3)
-	{
-		// std::string *instructions_list = new std::string[3];
-		// file2StringList(ifile, instructions_list);
-		// model_filename = instructions_list[0];
-		// printf("Using Model %s\n", model_filename.c_str());
-		// std::string trials_filename = instructions_list[1];
-		// int n_trials = numberOfLines(trials_filename);
-		printf("Using Model %s\n", model_filename.c_str());
-		printf("Trials to be processed:  %i\n", n_trials);
-		printf("first trial loaded: %s\n", filenames_list[0].c_str());
 
 
-		loadmodel(window,model_filename.c_str(), 0);
-
-		inputFile = fopen(filenames_list[0].c_str(), "r");
-	}
-	else
-	{
-		loadmodel(window,mfile, 0);
-	}
-
-	//open model file
-	
 
     printf("nbod %i\n", m->nbody);
     printf("nq = %i\n", m->nq);
     printf("nv = %i\n", m->nv);
     printf("nj = %i\n", m->njnt);
     printf("nu = %i\n", m->nu);
+    printf("ntend = %i\n", m->ntendon);
     printf("ngeom = %i\n", m->ngeom);
     printf("inertia matrix nM = %i\n", m->nM);
 
@@ -228,39 +223,7 @@ int main(int argc, const char** argv)
 	
 	const char *axes = "123xyz";
 	
-	if(tfile) {
-		
-	for(tID = 0; tID < m->ntendon; tID++) {
-		
-		fprintf(tendonFile,"%s_len,",mj_id2name(m, mjOBJ_TENDON, tID));
-		
-		for(tMmtID = tID*m->nv; tMmtID < (tID+1)*m->nv; tMmtID++) {
-			
-			dof = tMmtID%m->nv; jID = m->dof_jntid[dof];
-			jdof = dof - m->jnt_dofadr[jID];
-			
-			fprintf(tendonFile,"%s_mmt_%s",
-					mj_id2name(m, mjOBJ_TENDON, tID), //tendon name
-					mj_id2name(m, mjOBJ_JOINT, m->dof_jntid[dof])); //joint name
-			
-			//for ball and free joints, append an x/y/z
-			if (m->jnt_type[jID] == mjJNT_BALL)
-				 fprintf(tendonFile,"_%c",axes[jdof+3]);
-			else if (m->jnt_type[jID] == mjJNT_FREE)
-				fprintf(tendonFile,"_%c",axes[jdof]);
 
-			
-			if( (tID >= m->ntendon-1) && (tMmtID >= (tID+1)*m->nv - 1) )
-				fprintf(tendonFile,"\n");
-			else
-				fprintf(tendonFile,",");
-			
-		}
-	}
-		
-	}
-
-	
 	//get id of sites
 	int origin = mj_name2id(m, mjOBJ_BODY, "Spine");
 	int contact = mj_name2id(m, mjOBJ_SITE, "TarsalsLZ");
@@ -314,18 +277,108 @@ int main(int argc, const char** argv)
 	
 	for (int trial = 0; trial < n_trials; trial ++) 
 	{
+		// FOR EVERY TRIAL ....
+		// Create files for saving data
+		//create output file for tendons
+		std::string filename = filenames_list[trial];
+		inputFile = fopen(filename.c_str(), "r");
+		int filename_length = filename.size();
+		std::string filePrefix = filename.substr(0, filename_length - 4);
+		std::string tendon_filename = filePrefix + tendondataOutputdile_suffix;
+		std::string momentarm_filename = filePrefix + momentarmOutputfile_suffix;
+		std::string hopORrun = filePrefix.substr(14,3);
+		//replace input with output so it goes to appropriate output folder
+		if (hopORrun == "HOP")
+		{
+			findAndReplaceAll(tendon_filename, "input", "output/jumping/ten_length");
+			findAndReplaceAll(momentarm_filename, "input", "output/jumping/momentarm");
+		}
+		if (hopORrun == "RUN")
+		{
+			findAndReplaceAll(tendon_filename, "input", "output/walking/ten_length");
+			findAndReplaceAll(momentarm_filename, "input", "output/walking/momentarm");
+		}
+		//
+		//findAndReplaceAll(momentarm_filename, "input", "output/momentarm");
+		//printf("%s\n", momentarm_filename.c_str());
+		FILE* tendonFile_default = fopen(tfile, "w");
+		FILE* momentarmFile_default = fopen(rfile, "w");
+		tendonFile = fopen(tendon_filename.c_str(), "w");	
+		if (!tendonFile) 
+		{
+			if (!tfile)
+			{
+				printf("Could not create tendon file %s\n",tfile);
+				return 1;
+			}
+			else
+			{
+				tendonFile = fopen(tfile, "w");
+			}
+		}
+		momentarmFile = fopen(momentarm_filename.c_str(), "w");	
+		if (!momentarmFile) 
+		{
+			if (!rfile)
+			{
+				printf("Could not create moment arm file %s\n", rfile);
+				return 1;
+			}
+			else
+			{
+				momentarmFile = fopen(rfile, "w");
+			}
+		}
+		/// -----------------------------------------------------
+		/// -------------CREATE HEADER ROW FOR TENDON FILE-------
+		/// -----------------------------------------------------	
+		for(tID = 0; tID < m->ntendon; tID++) 
+		{
+			
+			fprintf(tendonFile,"%s_len,",mj_id2name(m, mjOBJ_TENDON, tID));
+			
+			for(tMmtID = tID*m->nv; tMmtID < (tID+1)*m->nv; tMmtID++) 
+			{
+				
+				dof = tMmtID%m->nv; jID = m->dof_jntid[dof];
+				jdof = dof - m->jnt_dofadr[jID];
+				
+				fprintf(tendonFile,"%s_mmt_%s",
+						mj_id2name(m, mjOBJ_TENDON, tID), //tendon name
+						mj_id2name(m, mjOBJ_JOINT, m->dof_jntid[dof])); //joint name
+				
+				//for ball and free joints, append an x/y/z
+				if (m->jnt_type[jID] == mjJNT_BALL)
+					 fprintf(tendonFile,"_%c",axes[jdof+3]);
+				else if (m->jnt_type[jID] == mjJNT_FREE)
+					fprintf(tendonFile,"_%c",axes[jdof]);
+
+				
+				if( (tID >= m->ntendon-1) && (tMmtID >= (tID+1)*m->nv - 1) )
+					fprintf(tendonFile,"\n");
+				else
+					fprintf(tendonFile,",");
+			}
+		}	
+		/// -----------------------------------------------------
+		/// -----------------------------------------------------
+		/// -----------------------------------------------------
+
+
+		// Open trial kinematics file and initialize model
 		//printf("%i\n", trial);
-		inputFile = fopen(filenames_list[trial].c_str(), "r");
 		int rows, cols;
 		sizeofCSV(&rows, &cols, inputFile);
 		//rows = numberOfLines(filenames_list[trial]);
-		printf("%i %i\n", rows, cols);
+		//printf("%i %i\n", rows, cols);
 		CSV2qpos_mapped(m,q,rows,cols,inputFile, "../input/mapdata_k.txt", "../input/mapdata_m.txt");//flag_1
 		mju_copy(d->qpos,&q[0*m->nq],m->nq);
+		mj_forward(m, d);
 		printf("loading trial %s\n", filenames_list[trial].c_str());
 		r = 0;
 
 		mjtNum tendon_len_data[rows];
+		mjtNum momentarm_data[rows];
 
 		// main loop
 		while( !glfwWindowShouldClose(window) && r < rows - 1) 
@@ -417,8 +470,7 @@ int main(int argc, const char** argv)
 				//-------------------------------
 				//-------------------------------
 				//-------------------------------
-				//-------------------------------
-
+				
 
 				//------- experimental - try a knee slide joint
 				int slideX_joint = mj_name2id(m, mjOBJ_JOINT, "j_kneeL_rollingX");
@@ -521,11 +573,41 @@ int main(int argc, const char** argv)
 				//-----------------
 				///---------------			
 				///----------------
+				/////////////// another test section to see if I can trace the border of a wrapping surface
+				mjtNum feAxis[3];
+				mjtNum xmat_tib[9];
+				int tib_id = mj_name2id(m, mjOBJ_BODY, "TibFibL");
+				for (int i = 0; i < 9; i ++)
+				{
+					xmat_tib[i] = d->xmat[9 * tib_id + i];
+				}
+				xmat2basis(feAxis, xmat_tib, 1);
+				
 
+				int knee_id = mj_name2id(m, mjOBJ_JOINT, "j_kneeL");
+				mjtNum knee_ctr[3];
+				for (int i = 0; i < 3; i ++)
+				{
+					knee_ctr[i] = d->xanchor[knee_id * 3 + i];
+				}
+				//mju_printMat(knee_ctr, 1, 3);
+				// mjtNum wrap_radius = 0*0.001200;
+				// mjtNum wrap_borderXYZ_raw[3];
+
+				int othersite_id = mj_name2id(m, mjOBJ_SITE, "w_left_knee_otherside");
+				int knee_wrap_id = mj_name2id(m, mjOBJ_GEOM, "w_left_knee");
+				mjtNum wrap_borderXYZ[3];
+				mju_scl3(wrap_borderXYZ, feAxis, 0.001250);
+			
 
 
 				if (fwdYes)
 					mj_forward(m,d);
+
+				for (int i = 0; i < 3; i ++)
+				{
+					d->site_xpos[othersite_id * 3 + i] = d->geom_xpos[3 * knee_wrap_id + i] + wrap_borderXYZ[i];//testXYZ[i];
+				}	
 
 				//-------------------------
 				//-------------------------
@@ -538,20 +620,43 @@ int main(int argc, const char** argv)
 				int knee_ext_id = m->jnt_dofadr[ mj_name2id(m, mjOBJ_JOINT, "j_kneeL") ];
 				int hip_ext_id = m->jnt_dofadr[ mj_name2id(m, mjOBJ_JOINT, "j_hipL") ];
 				//printf("%i \n", tendon_id * m->nv + knee_ext_id);
-				mjtNum r_CR = d->ten_moment[tendon_id * m->nv + knee_ext_id + 1];//y component is flex-extend
-				mjtNum rh_CR = d->ten_moment[tendon_id * m->nv + hip_ext_id + 1];//y component is flex-extend
+				// mjtNum r_CR = d->ten_moment[tendon_id * m->nv + knee_ext_id + 1];//y component is flex-extend
+				// mjtNum rh_CR = d->ten_moment[tendon_id * m->nv + hip_ext_id + 1];//y component is flex-extend
+				mjtNum r_CR = d->ten_moment[tendon_id * m->nv + knee_ext_id + 1];//x component is lar
+				mjtNum rh_CR = d->ten_moment[tendon_id * m->nv + hip_ext_id + 1];//x component is lar
 				std::string shortorlength;
+				std::string momentarm_glitch;
 				mjtNum tendon_len_curr = d->ten_length[tendon_id];
 				tendon_len_data[r] = tendon_len_curr;
+				momentarm_data[r] = r_CR;
+
 				mjtNum tendon_len_prev = tendon_len_data[r - 1];
-				if (tendon_len_curr < tendon_len_prev)
-				{
-					shortorlength = "shortening";
-				}
-				else
-				{
-					shortorlength = "lengthening";
-				}
+				mjtNum momentarm_prev = momentarm_data[r - 1];
+
+				/////////////// another test section to see if I can trace the border of a wrapping surface
+				// mjtNum wrap_borderXYZ[3];
+				// mju_add3(wrap_borderXYZ, wrap_borderXYZ_raw, kneXYZ);
+
+				// for (int i = 0; i < 3; i ++)
+				// {
+				// 	d->site_xpos[othersite_id * 3 + i] = wrap_borderXYZ[i];
+				// }
+				// if (tendon_len_curr < tendon_len_prev)
+				// {
+				// 	shortorlength = "shortening";
+				// }
+				// else
+				// {
+				// 	shortorlength = "lengthening";
+				// }
+				// if ( abs(r_CR - momentarm_prev) / r_CR > 0.1 )
+				// {
+				// 	momentarm_glitch = "WARNING!!  moment arm slip";
+				// } 
+				// else
+				// {
+				// 	momentarm_glitch = "";
+				// }
 				// if (r == 0 ){
 				// 	printf("test");
 				// }
@@ -561,9 +666,11 @@ int main(int argc, const char** argv)
 
 
 				//on the first loop through, print all tendon information to file
+
 				if(firstTime) 
 				{
 					//printf("knee moment arm %f mm hip %f mm %s timestep %i \n", 1000*r_CR, 1000*rh_CR, shortorlength.c_str(), r );
+					
 					if(tfile) {
 						//first line is header with labels, now just print numbers
 						// for(tID = 0; tID < m->ntendon; tID++)
@@ -579,6 +686,9 @@ int main(int argc, const char** argv)
 						// 			fprintf(tendonFile,",");
 						// 	}
 						// }
+
+						///  save specific filename
+						
 						for (int i = 0; i < (m->ntendon);i++) {
 							fprintf(tendonFile, "%2.6f", d->ten_length[i]);
 							if (i < (m->ntendon-1))
@@ -586,8 +696,21 @@ int main(int argc, const char** argv)
 							else
 								fprintf(tendonFile, "\n");
 						}
+						///  save default filename
+						for (int i = 0; i < (m->ntendon);i++) {
+							fprintf(tendonFile_default, "%2.6f", d->ten_length[i]);
+							if (i < (m->ntendon-1))
+								fprintf(tendonFile_default, ",");
+							else
+								fprintf(tendonFile_default, "\n");
+						}
+						
+
 					}
+					
+					
 					if (rfile) {
+						// save specific filename
 						for(int ntendof = 0; ntendof < (m->nv)*(m->ntendon); ntendof++) {
 							fprintf(momentarmFile,"%2.6f", d->ten_moment[ntendof]);
 							if (ntendof < ((m->nv)*(m->ntendon) -1))
@@ -595,7 +718,17 @@ int main(int argc, const char** argv)
 							else
 								fprintf(momentarmFile,"\n");
 						}
+						// save default filename
+						for(int ntendof = 0; ntendof < (m->nv)*(m->ntendon); ntendof++) {
+							fprintf(momentarmFile_default,"%2.6f", d->ten_moment[ntendof]);
+							if (ntendof < ((m->nv)*(m->ntendon) -1))
+								fprintf(momentarmFile_default,",");
+							else
+								fprintf(momentarmFile_default,"\n");
+						}
 					}
+
+
 
 					
 					
@@ -611,7 +744,9 @@ int main(int argc, const char** argv)
 						
 					}
 				}
-				printf("%i\n", r);
+				
+				printf("trial %i / %i, row %i / %i\n", trial, n_trials, r, rows);
+				//printf("knee moment arm %f mm hip %f mm %s, timestep %i \n", 1000*r_CR, 1000*rh_CR, shortorlength.c_str(), r);
 				r++;
 
 				// //loop around
@@ -672,9 +807,13 @@ int main(int argc, const char** argv)
 			}
 			
 			
-			waitSeconds(0.05);
+			waitSeconds(0.1);
 			
 		}//end While
+		fclose(tendonFile_default);
+		fclose(tendonFile);
+		fclose(momentarmFile_default);
+		fclose(momentarmFile);
     }//end trial loop
 	
      

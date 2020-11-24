@@ -18,9 +18,19 @@ cd your\directory\goes\here\_WIN
 
 ./changeAngles -m ../models/Kassina/Kassina.xml -i ../input/KM08_RUN_09.txt -t ../output/tendondata.txt  
 
+OR
+
+./changeAngles -i ../input/instructionsFile.txt
+
+Where the instructions file is a list of filenames pointing to the trials to use, etc.  See README_workflow.txt
+
 - for WIN, type
 
 changeAngles -m ..\models\Kassina\Kassina.xml -i ..\input\KM08_RUN_09.txt -t ..\output\tendondata.txt 
+
+OR
+
+changeAngles -i ..\input\instructionsFile.txt
 
 NOTE: the simulation will take a couple seconds to render then show the kinematics which will loop indefinitely until you close the window.  Press space to pause.
 

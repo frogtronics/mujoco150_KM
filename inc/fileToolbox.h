@@ -71,8 +71,8 @@ void CSVstring2values(mjtNum* value_list, std::string s)
 
 //copied code for finding replacing all occurrences
 // std::string teststr = "this is my string";
-// std::string repstr;
 // findAndReplaceAll(teststr, "my", "your");
+// >> this is your string
 void findAndReplaceAll(std::string & data, std::string toSearch, std::string replaceStr)
 {
     // Get the first occurrence
