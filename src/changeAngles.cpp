@@ -292,11 +292,21 @@ int main(int argc, const char** argv)
 		{
 			findAndReplaceAll(tendon_filename, "input", "output/jumping/ten_length");
 			findAndReplaceAll(momentarm_filename, "input", "output/jumping/momentarm");
+
 		}
 		if (hopORrun == "RUN")
 		{
-			findAndReplaceAll(tendon_filename, "input", "output/walking/ten_length");
-			findAndReplaceAll(momentarm_filename, "input", "output/walking/momentarm");
+			if ( filePrefix.size() > 24 ) // filenames with "fixed" are separated into a folder
+			{
+				findAndReplaceAll(tendon_filename, "input", "output/walking/Fixed pelvis/ten_length");
+				findAndReplaceAll(momentarm_filename, "input", "output/walking/Fixed pelvis/momentarm");	
+			}
+			else
+			{
+				findAndReplaceAll(tendon_filename, "input", "output/walking/Mobile pelvis/ten_length");
+				findAndReplaceAll(momentarm_filename, "input", "output/walking/Mobile pelvis/momentarm");				
+			}
+
 		}
 		//
 		//findAndReplaceAll(momentarm_filename, "input", "output/momentarm");
@@ -807,7 +817,7 @@ int main(int argc, const char** argv)
 			}
 			
 			
-			waitSeconds(0.1);
+			//waitSeconds(0.1);
 			
 		}//end While
 		fclose(tendonFile_default);

@@ -26,6 +26,8 @@ Where the instructions file is a list of filenames pointing to the trials to use
 
 - for WIN, type
 
+changeAngles -i ..\input\instructionsFile.txt
+
 changeAngles -m ..\models\Kassina\Kassina.xml -i ..\input\KM08_RUN_09.txt -t ..\output\tendondata.txt 
 
 OR

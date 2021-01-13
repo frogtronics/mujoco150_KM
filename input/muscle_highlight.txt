@@ -1,5 +1,8 @@
-t_left_GL
-t_left_CR_vent
+/t_left_AL
+/t_left_CR_vent
+/t_left_IE_dist
+/t_left_IE_prox
+
 
 /note the slash which is a way of commenting out lines
 /allsites <-- place this word first in list (without slash) if all sites are desired

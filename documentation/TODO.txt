@@ -13,5 +13,8 @@ usage is currently broken...
 
 --- Need to fix changeAngles so that it works on windows (i.e. "/" should be changed, what else...?)
 
+
+-- Need to modify kassinainputs so that pelvic lateral rotation angles are centred about 0.  For the current version I have corrected the input qpos files directly, so currently the workflow doesn't produce the correct lateral rotation.
+
 --- Need to make a wrapper kassinainputs function that calls the appropriate thing and only does one file at a time and is more intuitively named. Maybe Call this XYZ2quats.m  This will open the metadata file and convert a single XYZ file to quats and select inputs 12 or 8 depending.  Write in the % green text documentation where all files need to be 
 4. Update the README_FIRST file to describe how to run a simulation on a windows machine

@@ -1,3 +1,4 @@
-../input/KM03_HOP_08.txt
-../input/KM03_HOP_08.txt
-../input/KM03_HOP_08.txt
+../input/KM01_RUN_02.txt
+../input/KM01_RUN_02_fixed.txt
+../input/KM02_RUN_02.txt
+../input/KM02_RUN_02_fixed.txt

@@ -1,0 +1,12 @@
+../input/KM00_TST_01.txt
+../input/KM00_TST_02.txt
+../input/KM00_TST_03.txt
+../input/KM00_TST_04.txt
+../input/KM00_TST_05.txt
+../input/KM00_TST_06.txt
+../input/KM00_TST_07.txt
+../input/KM00_TST_08.txt
+../input/KM00_TST_09.txt
+../input/KM00_TST_10.txt
+../input/KM00_TST_11.txt
+../input/KM00_TST_12.txt
