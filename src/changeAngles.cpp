@@ -10,7 +10,7 @@
 
 
 #include "mujocoToolbox.h"
-#include "unistd.h"
+#include <unistd.h>
 #include "getopt.h"
 #include "stdio.h"
 #include "string.h"
@@ -239,7 +239,7 @@ int main(int argc, const char** argv)
 
 	//find muscle highlights from highlights file
 	int muscle_highlight_id;
-	int highlight_id_list[n_highlights];
+	int *highlight_id_list=new int[n_highlights];
 	for (int i = 0; i < n_highlights; i++) 
 	{
 		int muscle_highlight_id = mj_name2id(m, mjOBJ_TENDON, highlight_list[i].c_str());
@@ -248,7 +248,7 @@ int main(int argc, const char** argv)
 	}
 	//find site highlights from highlights file
 	int site_highlight_id;
-	int site_id_list[n_highlights];
+	int *site_id_list=new int[n_highlights];
 	for (int i = 0; i < n_highlights; i++) 
 	{
 		int site_highlight_id = mj_name2id(m, mjOBJ_SITE, highlight_list[i].c_str());
@@ -257,7 +257,7 @@ int main(int argc, const char** argv)
 	}
 	//find geom highlights from highlights file
 	int geom_highlight_id;
-	int geom_id_list[n_highlights];
+	int *geom_id_list=new int[n_highlights];
 	for (int i = 0; i < n_highlights; i++) 
 	{
 		int geom_highlight_id = mj_name2id(m, mjOBJ_GEOM, highlight_list[i].c_str());
@@ -387,8 +387,8 @@ int main(int argc, const char** argv)
 		printf("loading trial %s\n", filenames_list[trial].c_str());
 		r = 0;
 
-		mjtNum tendon_len_data[rows];
-		mjtNum momentarm_data[rows];
+		mjtNum *tendon_len_data=new mjtNum[rows];
+		mjtNum *momentarm_data =new mjtNum[rows];
 
 		// main loop
 		while( !glfwWindowShouldClose(window) && r < rows - 1) 

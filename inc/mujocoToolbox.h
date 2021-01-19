@@ -895,7 +895,7 @@ void CSV2qpos(const mjModel* m, mjtNum* q, int rows, int cols, FILE* file) {
 
 //build q based on a model map which directly assigns qpos indices based on a "map" file
 // NOTE!!  number of columns must correspond to number of columns in the map file
-void CSV2qpos_mapped(const mjModel* m, mjtNum* q, int rows, int cols, FILE* file, std::string map_filename_k, std::string map_filename_m) {
+void CSV2qpos_mapped(const mjModel* m, mjtNum* q, const int rows, int cols, FILE* file, std::string map_filename_k, std::string map_filename_m) {
 
 	int r,c,ret; //ret value can be used for error checking
 	int c_map_m, c_map_k;// rows and columns of the map - r_map not used. c_map is for the model, c_map_k is for the kinematics file
@@ -920,8 +920,8 @@ void CSV2qpos_mapped(const mjModel* m, mjtNum* q, int rows, int cols, FILE* file
     std::string *joints_list_m = new std::string[c_map_m];
    	file2StringList(map_filename_k, joints_list_k);
    	file2StringList(map_filename_m, joints_list_m);
-   	int dof_indices_k[c_map_k];//map each dof to the order in which it appears in the map file (thereofre qpos kinematics file)
-   	int dof_indices_m[c_map_m];
+   	int *dof_indices_k = new int[c_map_k];//map each dof to the order in which it appears in the map file (thereofre qpos kinematics file)
+   	int *dof_indices_m = new int[c_map_m];
 
    	/// Note - this code may seem unecessary, but should allow model to move correctly
     /// even if dof's for qpos input file are in wrong order compared to the xml file - as long as the mapdata file
@@ -936,7 +936,7 @@ void CSV2qpos_mapped(const mjModel* m, mjtNum* q, int rows, int cols, FILE* file
 	  // each i-th pointer is now pointing to dynamic array (size 10) of actual int values
 	}
 
-	mjtNum q_raw[rows*m->nq];
+	mjtNum *q_raw = new mjtNum[rows*m->nq];
 	CSV2qpos(m,q_raw,rows,c_map_k,file); // this is inefficient, but do not want to reinvent the wheel.
 	// now overwrite q
 	for (r = 0; r < rows; r ++)
