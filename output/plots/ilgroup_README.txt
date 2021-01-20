@@ -1,0 +1,3 @@
+Black:fem0deg_ISXextended
+Red:fem0deg_ISXhalfFlexed
+Blue:fem0deg_ISXfullFlexed
