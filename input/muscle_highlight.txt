@@ -1,8 +1,6 @@
-t_left_PY
-/t_left_AL
-/t_left_CR_vent
-/t_left_IE_dist
-/t_left_IE_prox
+t_left_AM_crv
+t_left_SM
+t_left_GR
 
 
 /note the slash which is a way of commenting out lines

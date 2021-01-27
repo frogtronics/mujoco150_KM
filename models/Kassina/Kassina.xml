@@ -311,7 +311,8 @@
                 
                 
                 <!-- GR origin -->
-                <site name="left_GR_org" pos="-0.000285 -0.001566 0.001104" class="m_GR"/>
+                <!-- <site name="left_GR_org" pos="-0.000285 -0.001566 0.001104" class="m_GR"/> --><!-- original -->
+                <site name="left_GR_org" pos="-0.000285 -0.001566 0.000404" class="m_GR"/><!-- CTR 26.1.21 -->
                 
                 
                 <!-- GL origin -->
@@ -381,14 +382,17 @@
                     <!-- <geom name="w_left_CR" type="sphere" pos="0.000269 -0.000456 0.009247" size="0.003752" class="wrap"/> -->
                     <site name="w_left_CR_side" pos="-0.002858 0.001453 0.010054" class="wrap"/> 
                     <geom name="w_left_SM" type="sphere" pos="0.000198 -0.000989 0.006451" size="0.003915" class="wrap"/>
-					<site name="w_left_SM_side" pos="0.004552 -0.000544 0.003777" class="wrap"/>
+					<!-- <site name="w_left_SM_side" pos="0.004552 -0.000544 0.003777" class="wrap"/> --><!--original -->
+                    <site name="w_left_SM_side" pos="0.000552 0.00344 0.005777" class="wrap"/><!-- CTR 26.1.21 -->
 					<geom name="w_left_ST" type="sphere" pos="0.000170 0.002333 0.008769" size="0.005106" class="wrap"/>
 					<site name="w_left_ST_side" pos="0.003973 -0.003092 0.008172" class="wrap"/>
                     <site name="w_left_AM_dors" pos="0.001096 0.000171 0.008689" class="wrap"/>
                     <site name="w_left_AM_vent" pos="0.000238 -0.002752 0.009743" class="wrap"/>
                     <geom name="w_left_AM" type="sphere" pos="-0.000252 -0.000053 0.008780" size="0.001962" class="wrap"/>
-                    <geom name="w_left_AM_fem" type="cylinder" fromto="0.000247 -0.000355 -0.001611 -0.000676 -0.000068 0.019123" size="0.000727" class="wrap"/>
-                    <site name="w_left_AM_fem_side" pos="0.000157 0.000421 0.008193" class="wrap"/>
+                    <geom name="w_left_AM_fem" type="cylinder" fromto="0.000247 -0.000355 -0.001611 -0.000676 -0.000068 0.019123" size="0.000827" class="wrap"/><!-- CTR 26.1.21 -->
+                    <!-- <geom name="w_left_AM_fem" type="cylinder" fromto="0.000247 -0.000355 -0.001611 -0.000676 -0.000068 0.019123" size="0.000727" class="wrap"/> --><!-- original -->
+                    <site name="w_left_AM_fem_side" pos="-0.001057 0.000421 0.008193" class="wrap"/><!-- CTR 26.1.21 -->
+                    <!-- <site name="w_left_AM_fem_side" pos="0.000157 0.000421 0.008193" class="wrap"/> --><!-- original -->
                     <geom name="w_left_SA" type="sphere" pos="0.002735 0.000745 0.006616" size="0.006252" class="wrap"/>
                     <site name="w_left_SA_side" pos="-0.001916 -0.001764 0.005731" class="wrap"/>
 <!--                     <geom name="w_left_knee" type="cylinder" fromto="0.000481 0.001387 0.017172 0.000481 -0.001388 0.017113" size="0.000749" class="wrap" rgba="1 0 .2 1"/> -->
@@ -410,11 +414,13 @@
                     <site name="w_left_knee_side_1" pos="-0.001582 0.000025 0.0173" class="wrap" rgba="1 1 1 1"/>
 
                     <geom name="w_left_II" type="sphere" pos="0.002307 0.002657 0.007361" size="0.005360" class="wrap"/>
-                    <site name="w_left_II_side" pos="-0.003863 -0.005437 0.006547" class="wrap"/>
+                    <!-- <site name="w_left_II_side" pos="-0.003863 -0.005437 0.006547" class="wrap"/> --><!-- original -->
+                    <site name="w_left_II_side" pos="-0.003863 0.00437 0.006547" class="wrap"/><!-- CTR 26.1.21 -->
                     
                 
                     <!-- II insertions -->
                     <site name="left_II_ins_prox" pos="0.000096 0.000342 0.003166" class="m_II"/>
+                    <site name="left_II_via_prox1" pos="-0.001039 0.000256 0.00350" rgba="1 0 0 1"/>
                     <site name="left_II_ins_dist" pos="-0.001039 0.000256 0.011847" class="m_II"/>
                     <site name="left_II_ins_dist_vent" pos="0.000280 -0.000173 0.009365" class="m_II"/>
                     
@@ -441,6 +447,7 @@
                     
                     <!-- AM insertions -->
                     <site name="left_AM_ins_crv" pos="-0.000979 -0.000203 0.015950" class="m_AM"/>
+                    <!-- <site name="left_AM_via_crv" pos="-0.001039 0.000256 0.011847" class="m_AM"/> --><!-- original -->
                     <site name="left_AM_via_crv" pos="-0.001039 0.000256 0.011847" class="m_AM"/>
                     <site name="left_AM_ins_str" pos="-0.000218 -0.001019 0.015679" class="m_AM"/>
 					
@@ -875,6 +882,7 @@
             <site site="left_II_org_prox"/>
             <geom geom="w_left_ilium_prox" sidesite="right_CI_ins_dist"/>
             <site site="left_II_via_prox"/>
+            <site site="left_II_via_prox1"/>
             <geom geom="w_left_II" sidesite="w_left_II_side"/>
             <site site="left_II_ins_dist"/>
         </spatial>

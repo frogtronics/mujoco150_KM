@@ -1,0 +1,14 @@
+Fixed (?) Issues:
+SM muscle
+w_left_SM_side in wrong place.  Moved it. (Line 385)
+
+AM_crv muscle:
+w_left_AM_fem wrapping cylinder was too thin. Made thicker (Line 391)
+
+IImed:
+muscle not constrained enough proximally, added a via point in femur body
+left_II_via_prox1 (Line 422)
+
+GR
+origin was too close to wrapping surface (if any tendon routing points enter a wrapping
+surface the wrapping breaks).  Moved the origin further into the bone (L315)
