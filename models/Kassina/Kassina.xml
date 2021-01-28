@@ -266,7 +266,9 @@
                 <geom name="w_left_ilium_prox" type="cylinder" fromto="-0.002392 0.000282 -0.006592 -0.001129 -0.000666 -0.003602" size="0.000360" class="wrap"/>
                 <geom name="w_left_AL_cyl" type="cylinder" fromto="-0.002667 0.003436 -0.004834 -0.000079 -0.008234 -0.000168" size="0.001506" class="wrap"/>
                 <site name="w_left_AL_side" pos="-0.002028 -0.003550 -0.003882" class="wrap"/>
-                <geom name="w_left_PY" type="cylinder" fromto="-0.001950 0.000576 -0.004081 -0.000686 -0.000373 -0.001091" size="0.000360" class="wrap"/>
+                <geom name="w_left_PY" type="cylinder" fromto="-0.001950 0.000576 -0.004081 -0.000686 -0.000373 -0.001091" size="0.000360" class="wrap"/> --><!-- original
+<!--                 <geom name="w_left_PY" type="cylinder" fromto="-0.001950 0.000576 -0.004081 -0.000686 -0.000373 -0.001091" size="0.000860" class="wrap"/> --><!-- CTR 28.1.21 -->
+                <site name="t_left_PY_via" pos="-0.001686  0.000373 -0.002091" class="wrap"/>
                 <site name="w_left_PY_side" pos="-0.002267 0.001562 -0.001618" class="wrap"/>
                 <geom name="w_left_IE" type="sphere" pos="-0.002749 -0.000941 -0.004569" size="0.001123" class="wrap"/>
 
@@ -1059,6 +1061,7 @@
         <!-- PY MUSCLE left -->
         <spatial name="t_left_PY" class="m_PY" user="0.363">
             <site site="left_PY_org"/>
+             <site site="t_left_PY_via"/>
             <geom geom="w_left_PY" sidesite="w_left_PY_side"/>
 			<site site="left_PY_ins"/>
 		</spatial>

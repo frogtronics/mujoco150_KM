@@ -1,7 +1,6 @@
-t_left_AM_crv
-t_left_SM
-t_left_GR
-
+t_left_PY
+w_left_PY
+t_left_PY_via
 
 /note the slash which is a way of commenting out lines
 /allsites <-- place this word first in list (without slash) if all sites are desired

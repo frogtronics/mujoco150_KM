@@ -12,3 +12,7 @@ left_II_via_prox1 (Line 422)
 GR
 origin was too close to wrapping surface (if any tendon routing points enter a wrapping
 surface the wrapping breaks).  Moved the origin further into the bone (L315)
+
+PY
+Muscle collides with ilium and creates discontinuity in plots.  Although this is the correct behaviour for the model, it should not be so abrupt.  Tried to make this smoother by enlarging the wrapping surface (inside the ilium) -did'nt work (Line 270)
+Then tried to put a via point near the ilium - smooths out the curves, but is this correct? (L271)  To disable this via point comment out Line 1064
