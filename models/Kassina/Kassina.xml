@@ -259,7 +259,8 @@
                 
                 
                 <!-- wrapping surfaces -->
-                <geom name="w_right_sa" type="sphere" pos="0.003548 0.001191 -0.017541" size="0.000837" class="wrap"/>
+                <!-- <geom name="w_right_sa" type="sphere" pos="0.003548 0.001191 -0.017541" size="0.000837" class="wrap"/> --><!-- original -->
+                <geom name="w_right_sa" type="sphere" pos="0.003647 0.001020 -0.017549" size="0.000837" class="wrap"/><!-- changed by CTR 20.5.2021 -->
                 <geom name="w_left_sa" type="sphere" pos="-0.003647 0.001020 -0.017549" size="0.000857" class="wrap"/>
                 <geom name="w_left_IE_old" type="sphere" pos="-0.001802 -0.002262 -0.004446" size="0.002155" class="wrap"/>
                 <geom name="w_left_ilium_dist" type="cylinder" fromto="-0.002725 0.000715 -0.006538 0.000660 -0.002592 -0.001284" size="0.000360" class="wrap"/>
@@ -271,7 +272,8 @@
                 <site name="t_left_PY_via" pos="-0.001686  0.000373 -0.002091" class="wrap"/>
                 <site name="w_left_PY_side" pos="-0.002267 0.001562 -0.001618" class="wrap"/>
                 <geom name="w_left_IE" type="sphere" pos="-0.002749 -0.000941 -0.004569" size="0.001123" class="wrap"/>
-
+                <!-- <site name="w_left_IE_side" pos="-0.0040 -0.00130 -0.004569" class="wrap"/> -->
+                <site name="w_left_IE_via" pos="-0.0038 -0.00115 -0.007569" class="wrap"/><!-- added by CTR 19.5.2021 -->
                 
                 <!-- sites on pelvis -->
                 
@@ -384,7 +386,7 @@
                     <!-- <geom name="w_left_CR" type="sphere" pos="0.000269 -0.000456 0.009247" size="0.003752" class="wrap"/> -->
                     <site name="w_left_CR_side" pos="-0.002858 0.001453 0.010054" class="wrap"/> 
                     <geom name="w_left_SM" type="sphere" pos="0.000198 -0.000989 0.006451" size="0.003915" class="wrap"/>
-					<!-- <site name="w_left_SM_side" pos="0.004552 -0.000544 0.003777" class="wrap"/> --><!--original -->
+					<site name="w_left_SM_side_orig" pos="0.004552 -0.000544 0.003777" class="wrap"/> <!--original-->
                     <site name="w_left_SM_side" pos="0.000552 0.00344 0.005777" class="wrap"/><!-- CTR 26.1.21 -->
 					<geom name="w_left_ST" type="sphere" pos="0.000170 0.002333 0.008769" size="0.005106" class="wrap"/>
 					<site name="w_left_ST_side" pos="0.003973 -0.003092 0.008172" class="wrap"/>
@@ -894,6 +896,7 @@
         <!-- IE MUSCLE left -->
         <spatial name="t_left_IE_prox" class="m_IE" user="0.306">
             <site site="left_IE_org"/>
+            <site site="w_left_IE_via"/>
             <geom geom="w_left_IE"/>
             <site site="left_IE_ins_dist"/>
         </spatial>
@@ -988,7 +991,7 @@
         <!-- GR MUSCLE left -->
         <spatial name="t_left_GR" class="m_GR" user="1.025">
             <site site="left_GR_org"/>
-            <geom geom="w_left_SM" sidesite="w_left_SM_side"/>
+            <geom geom="w_left_SM" sidesite="w_left_SM_side_orig"/>
             <site site="left_GR_ins"/>
         </spatial>
         

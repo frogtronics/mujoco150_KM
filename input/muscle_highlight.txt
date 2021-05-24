@@ -1,6 +1,9 @@
-t_left_PY
-w_left_PY
-t_left_PY_via
+t_right_IL_2
+t_left_IL_2
+w_right_sa
+w_left_sa
+
+
 
 /note the slash which is a way of commenting out lines
 /allsites <-- place this word first in list (without slash) if all sites are desired
