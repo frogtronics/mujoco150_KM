@@ -1,4 +1,4 @@
+../input/KM00_TST_04.txt
+../input/KM00_TST_08.txt
+../input/KM00_TST_12.txt
 ../input/KM01_RUN_02.txt
-../input/KM01_RUN_02_fixed.txt
-../input/KM02_RUN_02.txt
-../input/KM02_RUN_02_fixed.txt

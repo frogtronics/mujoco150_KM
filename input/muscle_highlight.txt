@@ -1,8 +1,7 @@
-t_right_IL_2
-t_left_IL_2
-w_right_sa
-w_left_sa
-
+t_left_GR
+w_left_SM_side_orig
+w_left_SM_side_new
+w_left_SM_side
 
 
 /note the slash which is a way of commenting out lines

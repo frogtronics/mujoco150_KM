@@ -388,6 +388,7 @@
                     <geom name="w_left_SM" type="sphere" pos="0.000198 -0.000989 0.006451" size="0.003915" class="wrap"/>
 					<site name="w_left_SM_side_orig" pos="0.004552 -0.000544 0.003777" class="wrap"/> <!--original-->
                     <site name="w_left_SM_side" pos="0.000552 0.00344 0.005777" class="wrap"/><!-- CTR 26.1.21 -->
+                    <site name="w_left_SM_side_new" pos="0.002552 0.00444 0.004777" class="wrap"/><!-- CTR 8.7.21 -->
 					<geom name="w_left_ST" type="sphere" pos="0.000170 0.002333 0.008769" size="0.005106" class="wrap"/>
 					<site name="w_left_ST_side" pos="0.003973 -0.003092 0.008172" class="wrap"/>
                     <site name="w_left_AM_dors" pos="0.001096 0.000171 0.008689" class="wrap"/>
@@ -991,7 +992,7 @@
         <!-- GR MUSCLE left -->
         <spatial name="t_left_GR" class="m_GR" user="1.025">
             <site site="left_GR_org"/>
-            <geom geom="w_left_SM" sidesite="w_left_SM_side_orig"/>
+            <geom geom="w_left_SM" sidesite="w_left_SM_side_new"/>
             <site site="left_GR_ins"/>
         </spatial>
         
