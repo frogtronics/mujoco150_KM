@@ -1,7 +1,5 @@
 t_left_GR
-w_left_SM_side_orig
-w_left_SM_side_new
-w_left_SM_side
+t_left_CI_mid
 
 
 /note the slash which is a way of commenting out lines
