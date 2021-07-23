@@ -1,0 +1,4 @@
+../input/KM00_TST_01.txt
+../input/KM00_TST_02.txt
+../input/KM00_TST_03.txt
+../input/KM00_TST_04.txt

@@ -366,8 +366,8 @@
                     <!-- HIP JOINT -->
                     <joint name="j_hipL" pos="0.000000 0.000000 0.000000" type="ball"/>
                     <site name="s_ctr_hipL" pos="0.000000 0.00000 -0.00000" size="0.001" rgba="0 0 1 1"/>
-                    <geom name="g_hip_FE" type="cylinder" fromto="0.000 -0.01 0.000  0.000  0.01 0.000" size="0.0002"/>
-                    <geom name="g_hip_IE" type="cylinder" fromto="0.000 0.000 -0.01 0.000  0.000  0.01" size="0.0002"/>
+<!--                     <geom name="g_hip_FE" type="cylinder" fromto="0.000 -0.01 0.000  0.000  0.01 0.000" size="0.0002"/>
+                    <geom name="g_hip_IE" type="cylinder" fromto="0.000 0.000 -0.01 0.000  0.000  0.01" size="0.0002"/> -->
                      <!--
                     <joint name="j_hipLX" pos="0.000000 0.000000 0.000000" type="hinge" axis="1 0 0" range="-170 170"/>
                     <joint name="j_hipLY" pos="0.000000 0.000000 0.000000" type="hinge" axis="0 1 0" range="-160 5"/>

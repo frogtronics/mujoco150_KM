@@ -1,6 +1,7 @@
-t_left_GR
 t_left_CI_mid
+t_left_SM
+t_left_AL
 
-
-/note the slash which is a way of commenting out lines
+//note the slash which is a way of commenting out lines
+//alltendons <-- place this word first in list (without slash) if all tendons are desired
 /allsites <-- place this word first in list (without slash) if all sites are desired
