@@ -1,0 +1,1371 @@
+(* Content-type: application/vnd.wolfram.mathematica *)
+
+(*** Wolfram Notebook File ***)
+(* http://www.wolfram.com/nb *)
+
+(* CreatedBy='Mathematica 10.0' *)
+
+(*CacheID: 234*)
+(* Internal cache information:
+NotebookFileLineBreakTest
+NotebookFileLineBreakTest
+NotebookDataPosition[       158,          7]
+NotebookDataLength[     63359,       1362]
+NotebookOptionsPosition[     62131,       1316]
+NotebookOutlinePosition[     62488,       1332]
+CellTagsIndexPosition[     62445,       1329]
+WindowFrame->Normal*)
+
+(* Beginning of Notebook Content *)
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["\<\
+This is for sanity checking - Spot check to verify the lines in the graphs \
+correspond to the data\
+\>", "Chapter",
+ CellChangeTimes->{{3.8372264823669643`*^9, 3.837226517431407*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{
+   RowBox[{
+   "dataoutputfolder", "=", 
+    "\"\</Users/chrisrichards/Desktop/FrogWork/CODE/mujoco150_KM/output/data_\
+for_plots/momentarm/absoluteScaling\>\""}], ";"}], "\[IndentingNewLine]", 
+  RowBox[{"(*", 
+   RowBox[{
+   "\"\</Users/chrisrichards/Desktop/FrogWork/CODE/mujoco150_KM/output/data_\
+for_plots/momentarm/relativeScaling\>\"", ";"}], 
+   "*)"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{
+  "plotsfolder", "=", 
+   "\"\</Users/chrisrichards/Desktop/FrogWork/CODE/mujoco150_KM/output/plots/\
+\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "dataoutputfolder", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"datafiles", "=", 
+   RowBox[{"FileNames", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ResetDirectory", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "plotsfolder", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"plotfiles", "=", 
+   RowBox[{"FileNames", "[", "]"}]}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ResetDirectory", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<plot files...\>\"", 
+  "]"}], "\[IndentingNewLine]", 
+ RowBox[{"ColumnForm", "[", "plotfiles", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"Print", "[", "\"\<data files..\>\"", "]"}], "\[IndentingNewLine]", 
+ RowBox[{"MatrixForm", "[", 
+  RowBox[{"Thread", "[", 
+   RowBox[{"{", 
+    RowBox[{
+     RowBox[{"Range", "[", 
+      RowBox[{"Length", "[", "datafiles", "]"}], "]"}], ",", "datafiles"}], 
+    "}"}], "]"}], "]"}], "\[IndentingNewLine]"}], "Input",
+ CellChangeTimes->{{3.837221710301135*^9, 3.83722173079065*^9}, {
+   3.837222028266732*^9, 3.8372221128155937`*^9}, {3.8372223277559643`*^9, 
+   3.837222336158155*^9}, 3.8372223912257633`*^9, {3.8372253201990767`*^9, 
+   3.837225341267671*^9}, {3.837225372567717*^9, 3.837225447634424*^9}, {
+   3.8372384789797*^9, 3.8372384879054193`*^9}, {3.837241197675384*^9, 
+   3.837241223562578*^9}}],
+
+Cell[BoxData["\<\"plot files...\"\>"], "Print",
+ CellChangeTimes->{{3.837225437073805*^9, 3.837225448196968*^9}, 
+   3.837227401176672*^9, 3.837228020349546*^9, 3.8372384894615498`*^9, 
+   3.8372410145527363`*^9, 3.8372412246055737`*^9, 3.837246637805825*^9}],
+
+Cell[BoxData[
+ InterpretationBox[GridBox[{
+    {"\<\".DS_Store\"\>"},
+    {"\<\"Figure_HYP_axial_LatRotation_README.txt\"\>"},
+    {"\<\"Figure_HYP_axial_LatRotation_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_misc_AA_README.txt\"\>"},
+    {"\<\"Figure_HYP_misc_AA_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_misc_FE_README.txt\"\>"},
+    {"\<\"Figure_HYP_misc_FE_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_misc_LAR_README.txt\"\>"},
+    {"\<\"Figure_HYP_misc_LAR_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_pro_AA_README.txt\"\>"},
+    {"\<\"Figure_HYP_pro_AA_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_pro_FE_README.txt\"\>"},
+    {"\<\"Figure_HYP_pro_FE_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_pro_LAR_README.txt\"\>"},
+    {"\<\"Figure_HYP_pro_LAR_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_pro&ret_AA_README.txt\"\>"},
+    {"\<\"Figure_HYP_pro&ret_AA_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_pro&ret_FE_README.txt\"\>"},
+    {"\<\"Figure_HYP_pro&ret_FE_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_pro&ret_LAR_README.txt\"\>"},
+    {"\<\"Figure_HYP_pro&ret_LAR_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_ret_AA_README.txt\"\>"},
+    {"\<\"Figure_HYP_ret_AA_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_ret_FE_README.txt\"\>"},
+    {"\<\"Figure_HYP_ret_FE_relativeScaling.png\"\>"},
+    {"\<\"Figure_HYP_ret_LAR_README.txt\"\>"},
+    {"\<\"Figure_HYP_ret_LAR_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_axial_LatRotation_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_misc_AA_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_misc_FE_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_misc_LAR_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_pro_AA_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_pro_FE_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_pro_LAR_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_pro&ret_AA_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_pro&ret_FE_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_pro&ret_LAR_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_ret_AA_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_ret_FE_relativeScaling.png\"\>"},
+    {"\<\"Figure_RUN_ret_LAR_relativeScaling.png\"\>"},
+    {"\<\"individual_plots\"\>"},
+    {"\<\"README_FIRST_obselete.txt\"\>"},
+    {"\<\"z_old_17.2.2021\"\>"},
+    {"\<\"z_old_19.4.2021\"\>"},
+    {"\<\"z_old_23.7.2021\"\>"},
+    {"\<\"z_old_24.5.21\"\>"},
+    {"\<\"z_old_26.1.21\"\>"},
+    {"\<\"z_old_29.1.2021\"\>"}
+   },
+   BaselinePosition->{Baseline, {1, 1}},
+   GridBoxAlignment->{
+    "Columns" -> {{Left}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+     "RowsIndexed" -> {}}],
+  ColumnForm[{
+   ".DS_Store", "Figure_HYP_axial_LatRotation_README.txt", 
+    "Figure_HYP_axial_LatRotation_relativeScaling.png", 
+    "Figure_HYP_misc_AA_README.txt", "Figure_HYP_misc_AA_relativeScaling.png",
+     "Figure_HYP_misc_FE_README.txt", 
+    "Figure_HYP_misc_FE_relativeScaling.png", 
+    "Figure_HYP_misc_LAR_README.txt", 
+    "Figure_HYP_misc_LAR_relativeScaling.png", "Figure_HYP_pro_AA_README.txt",
+     "Figure_HYP_pro_AA_relativeScaling.png", "Figure_HYP_pro_FE_README.txt", 
+    "Figure_HYP_pro_FE_relativeScaling.png", "Figure_HYP_pro_LAR_README.txt", 
+    "Figure_HYP_pro_LAR_relativeScaling.png", 
+    "Figure_HYP_pro&ret_AA_README.txt", 
+    "Figure_HYP_pro&ret_AA_relativeScaling.png", 
+    "Figure_HYP_pro&ret_FE_README.txt", 
+    "Figure_HYP_pro&ret_FE_relativeScaling.png", 
+    "Figure_HYP_pro&ret_LAR_README.txt", 
+    "Figure_HYP_pro&ret_LAR_relativeScaling.png", 
+    "Figure_HYP_ret_AA_README.txt", "Figure_HYP_ret_AA_relativeScaling.png", 
+    "Figure_HYP_ret_FE_README.txt", "Figure_HYP_ret_FE_relativeScaling.png", 
+    "Figure_HYP_ret_LAR_README.txt", "Figure_HYP_ret_LAR_relativeScaling.png",
+     "Figure_RUN_axial_LatRotation_relativeScaling.png", 
+    "Figure_RUN_misc_AA_relativeScaling.png", 
+    "Figure_RUN_misc_FE_relativeScaling.png", 
+    "Figure_RUN_misc_LAR_relativeScaling.png", 
+    "Figure_RUN_pro_AA_relativeScaling.png", 
+    "Figure_RUN_pro_FE_relativeScaling.png", 
+    "Figure_RUN_pro_LAR_relativeScaling.png", 
+    "Figure_RUN_pro&ret_AA_relativeScaling.png", 
+    "Figure_RUN_pro&ret_FE_relativeScaling.png", 
+    "Figure_RUN_pro&ret_LAR_relativeScaling.png", 
+    "Figure_RUN_ret_AA_relativeScaling.png", 
+    "Figure_RUN_ret_FE_relativeScaling.png", 
+    "Figure_RUN_ret_LAR_relativeScaling.png", "individual_plots", 
+    "README_FIRST_obselete.txt", "z_old_17.2.2021", "z_old_19.4.2021", 
+    "z_old_23.7.2021", "z_old_24.5.21", "z_old_26.1.21", "z_old_29.1.2021"}],
+  Editable->False]], "Output",
+ CellChangeTimes->{{3.837222069943054*^9, 3.837222113126872*^9}, {
+   3.837222330920869*^9, 3.837222336846792*^9}, 3.837222391852025*^9, 
+   3.8372253432171926`*^9, {3.83722539718218*^9, 3.8372254482053423`*^9}, 
+   3.837227401185508*^9, 3.837228020357304*^9, 3.837238489469985*^9, 
+   3.8372410145604677`*^9, 3.837241224618709*^9, 3.837246637820036*^9}],
+
+Cell[BoxData["\<\"data files..\"\>"], "Print",
+ CellChangeTimes->{{3.837225437073805*^9, 3.837225448196968*^9}, 
+   3.837227401176672*^9, 3.837228020349546*^9, 3.8372384894615498`*^9, 
+   3.8372410145527363`*^9, 3.8372412246055737`*^9, 3.837246637829555*^9}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "\<\".DS_Store\"\>"},
+     {"2", \
+"\<\"Figure_HYP_axial_LCIdist_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"3", \
+"\<\"Figure_HYP_axial_LCIdist_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"4", \
+"\<\"Figure_HYP_axial_LCIdist_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"5", \
+"\<\"Figure_HYP_axial_LCImid_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"6", \
+"\<\"Figure_HYP_axial_LCImid_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},\
+
+     {"7", \
+"\<\"Figure_HYP_axial_LCImid_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},\
+
+     {"8", \
+"\<\"Figure_HYP_axial_LCIprox_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"9", \
+"\<\"Figure_HYP_axial_LCIprox_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"10", \
+"\<\"Figure_HYP_axial_LCIprox_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"11", \
+"\<\"Figure_HYP_axial_LIL0_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"12", \
+"\<\"Figure_HYP_axial_LIL0_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"13", \
+"\<\"Figure_HYP_axial_LIL0_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"14", \
+"\<\"Figure_HYP_axial_LIL1_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"15", \
+"\<\"Figure_HYP_axial_LIL1_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"16", \
+"\<\"Figure_HYP_axial_LIL1_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"17", \
+"\<\"Figure_HYP_axial_LIL2_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"18", \
+"\<\"Figure_HYP_axial_LIL2_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"19", \
+"\<\"Figure_HYP_axial_LIL2_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"20", \
+"\<\"Figure_HYP_axial_LIL3_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"21", \
+"\<\"Figure_HYP_axial_LIL3_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"22", \
+"\<\"Figure_HYP_axial_LIL3_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"23", \
+"\<\"Figure_HYP_axial_RCIdist_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"24", \
+"\<\"Figure_HYP_axial_RCIdist_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"25", \
+"\<\"Figure_HYP_axial_RCIdist_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"26", \
+"\<\"Figure_HYP_axial_RCImid_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"27", \
+"\<\"Figure_HYP_axial_RCImid_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},\
+
+     {"28", \
+"\<\"Figure_HYP_axial_RCImid_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},\
+
+     {"29", \
+"\<\"Figure_HYP_axial_RCIprox_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"30", \
+"\<\"Figure_HYP_axial_RCIprox_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"31", \
+"\<\"Figure_HYP_axial_RCIprox_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"32", \
+"\<\"Figure_HYP_axial_RIL0_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"33", \
+"\<\"Figure_HYP_axial_RIL0_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"34", \
+"\<\"Figure_HYP_axial_RIL0_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"35", \
+"\<\"Figure_HYP_axial_RIL1_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"36", \
+"\<\"Figure_HYP_axial_RIL1_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"37", \
+"\<\"Figure_HYP_axial_RIL1_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"38", \
+"\<\"Figure_HYP_axial_RIL2_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"39", \
+"\<\"Figure_HYP_axial_RIL2_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"40", \
+"\<\"Figure_HYP_axial_RIL2_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"41", \
+"\<\"Figure_HYP_axial_RIL3_ISY_fem10deg_ISXextended_LatRotation.csv\"\>"},
+     {"42", \
+"\<\"Figure_HYP_axial_RIL3_ISY_fem10deg_ISXfullFlexed_LatRotation.csv\"\>"},
+     {"43", \
+"\<\"Figure_HYP_axial_RIL3_ISY_fem10deg_ISXhalfFlexed_LatRotation.csv\"\>"},
+     {"44", "\<\"Figure_HYP_misc_LCR_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"45", "\<\"Figure_HYP_misc_LCR_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"46", "\<\"Figure_HYP_misc_LCR_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"47", "\<\"Figure_HYP_misc_LCR_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"48", "\<\"Figure_HYP_misc_LCR_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"49", \
+"\<\"Figure_HYP_misc_LCR_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"50", "\<\"Figure_HYP_misc_LCR_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"51", "\<\"Figure_HYP_misc_LCR_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"52", "\<\"Figure_HYP_misc_LCR_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"53", "\<\"Figure_HYP_misc_LCR_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"54", "\<\"Figure_HYP_misc_LCR_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"55", "\<\"Figure_HYP_misc_LCR_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"56", "\<\"Figure_HYP_misc_LGL_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"57", "\<\"Figure_HYP_misc_LGL_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"58", "\<\"Figure_HYP_misc_LGL_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"59", "\<\"Figure_HYP_misc_LGL_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"60", "\<\"Figure_HYP_misc_LGL_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"61", \
+"\<\"Figure_HYP_misc_LGL_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"62", "\<\"Figure_HYP_misc_LGL_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"63", "\<\"Figure_HYP_misc_LGL_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"64", "\<\"Figure_HYP_misc_LGL_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"65", "\<\"Figure_HYP_misc_LGL_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"66", "\<\"Figure_HYP_misc_LGL_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"67", "\<\"Figure_HYP_misc_LGL_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"68", "\<\"Figure_HYP_misc_LPY_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"69", "\<\"Figure_HYP_misc_LPY_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"70", "\<\"Figure_HYP_misc_LPY_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"71", "\<\"Figure_HYP_misc_LPY_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"72", "\<\"Figure_HYP_misc_LPY_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"73", \
+"\<\"Figure_HYP_misc_LPY_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"74", "\<\"Figure_HYP_misc_LPY_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"75", "\<\"Figure_HYP_misc_LPY_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"76", "\<\"Figure_HYP_misc_LPY_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"77", "\<\"Figure_HYP_misc_LPY_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"78", "\<\"Figure_HYP_misc_LPY_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"79", "\<\"Figure_HYP_misc_LPY_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"80", "\<\"Figure_HYP_pro&ret_LAL_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"81", "\<\"Figure_HYP_pro&ret_LAL_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"82", \
+"\<\"Figure_HYP_pro&ret_LAL_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"83", \
+"\<\"Figure_HYP_pro&ret_LAL_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"84", \
+"\<\"Figure_HYP_pro&ret_LAL_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"85", \
+"\<\"Figure_HYP_pro&ret_LAL_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"86", "\<\"Figure_HYP_pro&ret_LAL_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"87", "\<\"Figure_HYP_pro&ret_LAL_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"88", \
+"\<\"Figure_HYP_pro&ret_LAL_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"89", "\<\"Figure_HYP_pro&ret_LAL_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"90", "\<\"Figure_HYP_pro&ret_LAL_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"91", \
+"\<\"Figure_HYP_pro&ret_LAL_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"92", "\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem10deg_ISXextended_AA.csv\"\
+\>"},
+     {"93", "\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem10deg_ISXextended_FE.csv\"\
+\>"},
+     {"94", \
+"\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"95", \
+"\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"96", \
+"\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"97", "\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem135deg_ISXextended_LAR.csv\
+\"\>"},
+     {"98", "\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem45deg_ISXextended_AA.csv\"\
+\>"},
+     {"99", "\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem45deg_ISXextended_FE.csv\"\
+\>"},
+     {"100", "\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem45deg_ISXextended_LAR.csv\
+\"\>"},
+     {"101", \
+"\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"102", \
+"\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"103", "\<\"Figure_HYP_pro&ret_LAMcrv_hipL_fem90deg_ISXextended_LAR.csv\
+\"\>"},
+     {"104", \
+"\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"105", \
+"\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"106", "\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem10deg_ISXextended_LAR.csv\
+\"\>"},
+     {"107", "\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem135deg_ISXextended_AA.csv\
+\"\>"},
+     {"108", "\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem135deg_ISXextended_FE.csv\
+\"\>"},
+     {"109", \
+"\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"110", \
+"\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"111", \
+"\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"112", "\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem45deg_ISXextended_LAR.csv\
+\"\>"},
+     {"113", \
+"\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"114", \
+"\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"115", "\<\"Figure_HYP_pro&ret_LAMstr_hipL_fem90deg_ISXextended_LAR.csv\
+\"\>"},
+     {"116", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"117", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"118", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"119", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"120", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"121", "\<\"Figure_HYP_pro&ret_LGR_hipL_fem135deg_ISXextended_LAR.csv\"\
+\>"},
+     {"122", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"123", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"124", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"125", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"126", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"127", \
+"\<\"Figure_HYP_pro&ret_LGR_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"128", "\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem10deg_ISXextended_AA.csv\
+\"\>"},
+     {"129", "\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem10deg_ISXextended_FE.csv\
+\"\>"},
+     {"130", \
+"\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"131", \
+"\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"132", \
+"\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"133", \
+"\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"134", "\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem45deg_ISXextended_AA.csv\
+\"\>"},
+     {"135", "\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem45deg_ISXextended_FE.csv\
+\"\>"},
+     {"136", \
+"\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"137", "\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem90deg_ISXextended_AA.csv\
+\"\>"},
+     {"138", "\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem90deg_ISXextended_FE.csv\
+\"\>"},
+     {"139", \
+"\<\"Figure_HYP_pro&ret_LIEdist_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"140", "\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem10deg_ISXextended_AA.csv\
+\"\>"},
+     {"141", "\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem10deg_ISXextended_FE.csv\
+\"\>"},
+     {"142", \
+"\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"143", \
+"\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"144", \
+"\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"145", \
+"\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"146", "\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem45deg_ISXextended_AA.csv\
+\"\>"},
+     {"147", "\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem45deg_ISXextended_FE.csv\
+\"\>"},
+     {"148", \
+"\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"149", "\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem90deg_ISXextended_AA.csv\
+\"\>"},
+     {"150", "\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem90deg_ISXextended_FE.csv\
+\"\>"},
+     {"151", \
+"\<\"Figure_HYP_pro&ret_LIEprox_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"152", \
+"\<\"Figure_HYP_pro&ret_LIFB_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"153", \
+"\<\"Figure_HYP_pro&ret_LIFB_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"154", "\<\"Figure_HYP_pro&ret_LIFB_hipL_fem10deg_ISXextended_LAR.csv\"\
+\>"},
+     {"155", "\<\"Figure_HYP_pro&ret_LIFB_hipL_fem135deg_ISXextended_AA.csv\"\
+\>"},
+     {"156", "\<\"Figure_HYP_pro&ret_LIFB_hipL_fem135deg_ISXextended_FE.csv\"\
+\>"},
+     {"157", \
+"\<\"Figure_HYP_pro&ret_LIFB_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"158", \
+"\<\"Figure_HYP_pro&ret_LIFB_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"159", \
+"\<\"Figure_HYP_pro&ret_LIFB_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"160", "\<\"Figure_HYP_pro&ret_LIFB_hipL_fem45deg_ISXextended_LAR.csv\"\
+\>"},
+     {"161", \
+"\<\"Figure_HYP_pro&ret_LIFB_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"162", \
+"\<\"Figure_HYP_pro&ret_LIFB_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"163", "\<\"Figure_HYP_pro&ret_LIFB_hipL_fem90deg_ISXextended_LAR.csv\"\
+\>"},
+     {"164", \
+"\<\"Figure_HYP_pro&ret_LIFM_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"165", \
+"\<\"Figure_HYP_pro&ret_LIFM_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"166", "\<\"Figure_HYP_pro&ret_LIFM_hipL_fem10deg_ISXextended_LAR.csv\"\
+\>"},
+     {"167", "\<\"Figure_HYP_pro&ret_LIFM_hipL_fem135deg_ISXextended_AA.csv\"\
+\>"},
+     {"168", "\<\"Figure_HYP_pro&ret_LIFM_hipL_fem135deg_ISXextended_FE.csv\"\
+\>"},
+     {"169", \
+"\<\"Figure_HYP_pro&ret_LIFM_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"170", \
+"\<\"Figure_HYP_pro&ret_LIFM_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"171", \
+"\<\"Figure_HYP_pro&ret_LIFM_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"172", "\<\"Figure_HYP_pro&ret_LIFM_hipL_fem45deg_ISXextended_LAR.csv\"\
+\>"},
+     {"173", \
+"\<\"Figure_HYP_pro&ret_LIFM_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"174", \
+"\<\"Figure_HYP_pro&ret_LIFM_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"175", "\<\"Figure_HYP_pro&ret_LIFM_hipL_fem90deg_ISXextended_LAR.csv\"\
+\>"},
+     {"176", \
+"\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"177", \
+"\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"178", "\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem10deg_ISXextended_LAR.csv\
+\"\>"},
+     {"179", "\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem135deg_ISXextended_AA.csv\
+\"\>"},
+     {"180", "\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem135deg_ISXextended_FE.csv\
+\"\>"},
+     {"181", \
+"\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"182", \
+"\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"183", \
+"\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"184", "\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem45deg_ISXextended_LAR.csv\
+\"\>"},
+     {"185", \
+"\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"186", \
+"\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"187", "\<\"Figure_HYP_pro&ret_LIIlat_hipL_fem90deg_ISXextended_LAR.csv\
+\"\>"},
+     {"188", \
+"\<\"Figure_HYP_pro&ret_LIImed_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"189", \
+"\<\"Figure_HYP_pro&ret_LIImed_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"190", "\<\"Figure_HYP_pro&ret_LIImed_hipL_fem10deg_ISXextended_LAR.csv\
+\"\>"},
+     {"191", "\<\"Figure_HYP_pro&ret_LIImed_hipL_fem135deg_ISXextended_AA.csv\
+\"\>"},
+     {"192", "\<\"Figure_HYP_pro&ret_LIImed_hipL_fem135deg_ISXextended_FE.csv\
+\"\>"},
+     {"193", \
+"\<\"Figure_HYP_pro&ret_LIImed_hipL_fem135deg_ISXextended_LAR.csv\"\>"},
+     {"194", \
+"\<\"Figure_HYP_pro&ret_LIImed_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"195", \
+"\<\"Figure_HYP_pro&ret_LIImed_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"196", "\<\"Figure_HYP_pro&ret_LIImed_hipL_fem45deg_ISXextended_LAR.csv\
+\"\>"},
+     {"197", \
+"\<\"Figure_HYP_pro&ret_LIImed_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"198", \
+"\<\"Figure_HYP_pro&ret_LIImed_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"199", "\<\"Figure_HYP_pro&ret_LIImed_hipL_fem90deg_ISXextended_LAR.csv\
+\"\>"},
+     {"200", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"201", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"202", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"203", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"204", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"205", "\<\"Figure_HYP_pro&ret_LOE_hipL_fem135deg_ISXextended_LAR.csv\"\
+\>"},
+     {"206", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"207", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"208", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"209", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"210", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"211", \
+"\<\"Figure_HYP_pro&ret_LOE_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"212", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"213", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"214", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"215", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"216", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"217", "\<\"Figure_HYP_pro&ret_LSA_hipL_fem135deg_ISXextended_LAR.csv\"\
+\>"},
+     {"218", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"219", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"220", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"221", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"222", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"223", \
+"\<\"Figure_HYP_pro&ret_LSA_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"224", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem10deg_ISXextended_AA.csv\"\>"},
+     {"225", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem10deg_ISXextended_FE.csv\"\>"},
+     {"226", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem10deg_ISXextended_LAR.csv\"\>"},
+     {"227", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem135deg_ISXextended_AA.csv\"\>"},
+     {"228", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem135deg_ISXextended_FE.csv\"\>"},
+     {"229", "\<\"Figure_HYP_pro&ret_LSM_hipL_fem135deg_ISXextended_LAR.csv\"\
+\>"},
+     {"230", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem45deg_ISXextended_AA.csv\"\>"},
+     {"231", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem45deg_ISXextended_FE.csv\"\>"},
+     {"232", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem45deg_ISXextended_LAR.csv\"\>"},
+     {"233", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem90deg_ISXextended_AA.csv\"\>"},
+     {"234", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem90deg_ISXextended_FE.csv\"\>"},
+     {"235", \
+"\<\"Figure_HYP_pro&ret_LSM_hipL_fem90deg_ISXextended_LAR.csv\"\>"},
+     {"236", \
+"\<\"Figure_RUN_axial_LCIdist_ISY_KM02_RUN_02_fixed_LatRotation.csv\"\>"},
+     {"237", \
+"\<\"Figure_RUN_axial_LCIdist_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"238", \
+"\<\"Figure_RUN_axial_LCImid_ISY_KM02_RUN_02_fixed_LatRotation.csv\"\>"},
+     {"239", \
+"\<\"Figure_RUN_axial_LCImid_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"240", \
+"\<\"Figure_RUN_axial_LCIprox_ISY_KM02_RUN_02_fixed_LatRotation.csv\"\>"},
+     {"241", \
+"\<\"Figure_RUN_axial_LCIprox_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"242", "\<\"Figure_RUN_axial_LIL0_ISY_KM02_RUN_02_fixed_LatRotation.csv\
+\"\>"},
+     {"243", \
+"\<\"Figure_RUN_axial_LIL0_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"244", "\<\"Figure_RUN_axial_LIL1_ISY_KM02_RUN_02_fixed_LatRotation.csv\
+\"\>"},
+     {"245", \
+"\<\"Figure_RUN_axial_LIL1_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"246", "\<\"Figure_RUN_axial_LIL2_ISY_KM02_RUN_02_fixed_LatRotation.csv\
+\"\>"},
+     {"247", \
+"\<\"Figure_RUN_axial_LIL2_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"248", "\<\"Figure_RUN_axial_LIL3_ISY_KM02_RUN_02_fixed_LatRotation.csv\
+\"\>"},
+     {"249", \
+"\<\"Figure_RUN_axial_LIL3_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"250", \
+"\<\"Figure_RUN_axial_RCIdist_ISY_KM02_RUN_02_fixed_LatRotation.csv\"\>"},
+     {"251", \
+"\<\"Figure_RUN_axial_RCIdist_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"252", \
+"\<\"Figure_RUN_axial_RCImid_ISY_KM02_RUN_02_fixed_LatRotation.csv\"\>"},
+     {"253", \
+"\<\"Figure_RUN_axial_RCImid_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"254", \
+"\<\"Figure_RUN_axial_RCIprox_ISY_KM02_RUN_02_fixed_LatRotation.csv\"\>"},
+     {"255", \
+"\<\"Figure_RUN_axial_RCIprox_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"256", "\<\"Figure_RUN_axial_RIL0_ISY_KM02_RUN_02_fixed_LatRotation.csv\
+\"\>"},
+     {"257", \
+"\<\"Figure_RUN_axial_RIL0_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"258", "\<\"Figure_RUN_axial_RIL1_ISY_KM02_RUN_02_fixed_LatRotation.csv\
+\"\>"},
+     {"259", \
+"\<\"Figure_RUN_axial_RIL1_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"260", "\<\"Figure_RUN_axial_RIL2_ISY_KM02_RUN_02_fixed_LatRotation.csv\
+\"\>"},
+     {"261", \
+"\<\"Figure_RUN_axial_RIL2_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"262", "\<\"Figure_RUN_axial_RIL3_ISY_KM02_RUN_02_fixed_LatRotation.csv\
+\"\>"},
+     {"263", \
+"\<\"Figure_RUN_axial_RIL3_ISY_KM02_RUN_02_LatRotation.csv\"\>"},
+     {"264", "\<\"Figure_RUN_misc_LCR_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"265", "\<\"Figure_RUN_misc_LCR_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"266", "\<\"Figure_RUN_misc_LCR_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"267", "\<\"Figure_RUN_misc_LCR_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"268", "\<\"Figure_RUN_misc_LCR_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"269", "\<\"Figure_RUN_misc_LCR_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"270", "\<\"Figure_RUN_misc_LGL_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"271", "\<\"Figure_RUN_misc_LGL_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"272", "\<\"Figure_RUN_misc_LGL_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"273", "\<\"Figure_RUN_misc_LGL_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"274", "\<\"Figure_RUN_misc_LGL_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"275", "\<\"Figure_RUN_misc_LGL_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"276", "\<\"Figure_RUN_misc_LPY_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"277", "\<\"Figure_RUN_misc_LPY_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"278", "\<\"Figure_RUN_misc_LPY_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"279", "\<\"Figure_RUN_misc_LPY_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"280", "\<\"Figure_RUN_misc_LPY_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"281", "\<\"Figure_RUN_misc_LPY_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"282", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"283", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"284", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"285", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"286", \
+"\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"287", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"288", "\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"289", "\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"290", \
+"\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"291", \
+"\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"292", \
+"\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"293", "\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"294", "\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"295", "\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"296", \
+"\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"297", \
+"\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"298", \
+"\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"299", "\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"300", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"301", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"302", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"303", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"304", \
+"\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"305", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"306", "\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"307", "\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"308", \
+"\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"309", \
+"\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"310", "\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_fixed_LAR.csv\"\
+\>"},
+     {"311", "\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"312", "\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"313", "\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"314", \
+"\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"315", \
+"\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"316", "\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_fixed_LAR.csv\"\
+\>"},
+     {"317", "\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"318", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"319", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"320", \
+"\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"321", \
+"\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"322", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"323", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"324", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"325", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"326", \
+"\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"327", \
+"\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"328", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"329", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"330", "\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"331", "\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"332", \
+"\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"333", \
+"\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"334", \
+"\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"335", "\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"336", "\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"337", "\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"338", \
+"\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"339", \
+"\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"340", \
+"\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"341", "\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"342", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"343", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"344", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"345", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"346", \
+"\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"347", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"348", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"349", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"350", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"351", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"352", \
+"\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"353", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"354", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"355", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"356", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"357", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"358", \
+"\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"359", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_LAR.csv\"\>"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.837222069943054*^9, 3.837222113126872*^9}, {
+   3.837222330920869*^9, 3.837222336846792*^9}, 3.837222391852025*^9, 
+   3.8372253432171926`*^9, {3.83722539718218*^9, 3.8372254482053423`*^9}, 
+   3.837227401185508*^9, 3.837228020357304*^9, 3.837238489469985*^9, 
+   3.8372410145604677`*^9, 3.837241224618709*^9, 3.837246637837051*^9}]
+}, Open  ]],
+
+Cell[CellGroupData[{
+
+Cell["Check individual plots (simple)", "Section",
+ CellChangeTimes->{{3.837238566144025*^9, 3.8372385723760853`*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{
+  RowBox[{"fileIndex", "=", "236"}], ";", 
+  RowBox[{"(*", 
+   RowBox[{
+   "spot", " ", "check", " ", "one", " ", "of", " ", "the", " ", "data", " ", 
+    "files"}], "*)"}], "\[IndentingNewLine]", 
+  RowBox[{
+  "indivplotfolder", "=", 
+   "\"\</Users/chrisrichards/Desktop/FrogWork/CODE/mujoco150_KM/output/plots/\
+z_old_23.7.2021\>\""}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "dataoutputfolder", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{"file", "=", 
+  RowBox[{"datafiles", "[", 
+   RowBox[{"[", "fileIndex", "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"file", ",", "\"\<Data\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ResetDirectory", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"data", "[", 
+   RowBox[{"[", 
+    RowBox[{";;", ",", "1"}], "]"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.837238592456396*^9, 3.8372387082325077`*^9}, {
+   3.8372387497869167`*^9, 3.837238769105673*^9}, {3.83723888471136*^9, 
+   3.837238884842317*^9}, 3.837240652013793*^9, {3.8372407288857727`*^9, 
+   3.8372407393777103`*^9}, {3.837241274350889*^9, 3.8372412745971622`*^9}, {
+   3.837241366643421*^9, 3.8372413901071444`*^9}}],
+
+Cell[BoxData["\<\"Figure_HYP_pro&ret_LSM_hipL_fem135deg_ISXextended_AA.csv\"\>\
+"], "Output",
+ CellChangeTimes->{{3.837238672450313*^9, 3.8372386782138977`*^9}, 
+   3.83723870928911*^9, 3.8372388230844173`*^9, 3.83723888537715*^9, 
+   3.837240652201786*^9, {3.8372407291542377`*^9, 3.8372407395628157`*^9}, 
+   3.837241275146833*^9, {3.837241367570098*^9, 3.837241390738307*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.01388888888888889], 
+     AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJxd1X1ME3ccBvBThiUDEohMkbeBiFOGojiHgNKnpaUob31vfUOmBUmdM0ZE
+iCiHFPEFfI/ZVFYHKuh8IYpvk5diyz865ozVTdnQgeBbDIhGWzbiNN63iXfJ
+5fK5J88fv7vffS9s6SplzkiGYQzvzvfXD8eA8NWwvfDJxDYhdwMf24NnH+wt
+ODAu02U/SIo8ZEukZH8MHhS2p8jIQeg7tO/8UwM5FMZbykHHcvJ4GDwlthUm
+8gR4fFP94uwW8kQYVuYrMmrIk5B6bX12oZUciYYfzaa9PeQoDDtZr3L3q5yn
+YnLM46rfPMnTsP6XwD3mMPJ09HttLUpIIsdA+c/Jau0y8gxcOP972+oy8lcI
+3Paqt7KWPBMlWf6f1lvJX+NhzOyp1h5yLFIE2couNyvnWTjZWVbgDCfHwbeh
+7oCfhByPtabrLdEGcgLu6fu755nIs5E4ZbQg9wh5DmpHxH5ZaiMnggkqdCvu
+IwuR36mv+8xBBpaV3r3hHGH7YBao3+B7+G4EZ0YEn5CKw61xlIuwcoe6yiyi
+XIyQMDd9VA7lYrS13pZYiilPwsKxr5v2F1GehCei/HpHKeUStBlmrYg6RLkE
+u9K844w/US5F659O7zvNlEsR3uncaGyiPPljs8nwvHPZ9+YVymVofBa7c1Qr
+5TLIekbrHvxNeQrWtZgDosksz8xcXs4zM4+X88yk8nKemTSohwafz+iiPA0b
+7/3xndhCeTqymzdvPkjrYdN568/grT8D8T88Enq1UJ6JOREBkuYayjPR1ZRV
+OomeNyOHWCr3UJVxhhxjhnc9MLrelxxLrwRW/EXv0yJHZd6G0Lpc6iuw+613
+zX0x9RUISPc5d8K1XxRYG9eNmbSfLAoECk40dvhTX4lj9gV+bwTUV6LvZVZi
+fy+3P1klNn2eEGBv52xRIjh17OtLR2n/qnC54OXN6nLOUEFTc+PUphzqqzDQ
+8fPW5VLqq7DdWZGTFkF9Nb6IMIimu1NfDascwWN6ue+VVSOrOMg5ZONsUePf
+Oof9/hH6njXYf8veYDNxhgYxbxsqjxuor0FHZFXeDgn1NZh/0ccYHE59LRqj
+Q/PbaR5Bi0++9Zt2ZhT1tdjZVLum7yE3zyxaRD4uybxuo/mmw6/mPcH2Ws7Q
+oeWCo6qZ5iWrQzwbrzhTTn0dkkt6s73zqK/H94tOd4fnUl+PgYXqsDya16we
+t9uHHJXJ1NfDPUTw32LXvJ/v+h/8D5Sq4dA=
+      "]]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, 0.13252912265531894`},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0., 100.}, {0.13398159742512358`, 0.1630310928212163}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.837238672450313*^9, 3.8372386782138977`*^9}, 
+   3.83723870928911*^9, 3.8372388230844173`*^9, 3.83723888537715*^9, 
+   3.837240652201786*^9, {3.8372407291542377`*^9, 3.8372407395628157`*^9}, 
+   3.837241275146833*^9, {3.837241367570098*^9, 3.837241390787682*^9}}]
+}, Open  ]]
+}, Closed]],
+
+Cell[CellGroupData[{
+
+Cell["Check plot grids (complicated)", "Section",
+ CellChangeTimes->{{3.837238553149876*^9, 3.8372385764279613`*^9}}],
+
+Cell["\<\
+Select a prefix for the conditions and select the corresponding figures and \
+data\
+\>", "Text",
+ CellChangeTimes->{{3.8372257164033127`*^9, 3.837225737891061*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{
+    RowBox[{"prefix", "=", "\"\<Figure_RUN_pro&ret\>\""}], ";"}], 
+   RowBox[{"(*", 
+    RowBox[{
+    "\"\<Figure_HYP_axial\>\"", ",", " ", "\"\<Figure_HYP_pro&ret\>\"", ",", 
+     "\"\<Figure_RUN_axial\>\"", ",", " ", "etc"}], "*)"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"matchFilesData", "=", 
+     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"file", "=", 
+       RowBox[{"datafiles", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"matchprefix", "=", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"StringTake", "[", 
+         RowBox[{"file", ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", 
+            RowBox[{"StringLength", "[", "prefix", "]"}]}], "}"}]}], "]"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"matchsuffix", "=", 
+       RowBox[{"StringTake", "[", 
+        RowBox[{"file", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"StringLength", "[", "file", "]"}], "-", "3"}], ",", 
+           RowBox[{"StringLength", "[", "file", "]"}]}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{"(", 
+         RowBox[{"matchprefix", "\[Equal]", "prefix"}], ")"}], 
+        RowBox[{"(*", 
+         RowBox[{"&&", 
+          RowBox[{"(", 
+           RowBox[{"matchsuffix", "\[Equal]", "\"\<.png\>\""}], ")"}]}], 
+         "*)"}], ",", "\[IndentingNewLine]", 
+        RowBox[{"matchFilesData", "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{"matchFilesData", ",", 
+           RowBox[{"{", "file", "}"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+       "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "datafiles", "]"}]}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{"MatrixForm", "[", 
+    RowBox[{"Thread", "[", 
+     RowBox[{"{", 
+      RowBox[{
+       RowBox[{"Range", "[", 
+        RowBox[{"Length", "[", "matchFilesData", "]"}], "]"}], ",", 
+       "matchFilesData"}], "}"}], "]"}], "]"}], "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"matchFilesPlot", "=", 
+     RowBox[{"{", "}"}]}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Do", "[", "\[IndentingNewLine]", 
+    RowBox[{
+     RowBox[{
+      RowBox[{"file", "=", 
+       RowBox[{"plotfiles", "[", 
+        RowBox[{"[", "i", "]"}], "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"matchprefix", "=", 
+       RowBox[{"Quiet", "[", 
+        RowBox[{"StringTake", "[", 
+         RowBox[{"file", ",", 
+          RowBox[{"{", 
+           RowBox[{"1", ",", 
+            RowBox[{"StringLength", "[", "prefix", "]"}]}], "}"}]}], "]"}], 
+        "]"}]}], ";", "\[IndentingNewLine]", 
+      RowBox[{"matchsuffix", "=", 
+       RowBox[{"StringTake", "[", 
+        RowBox[{"file", ",", 
+         RowBox[{"{", 
+          RowBox[{
+           RowBox[{
+            RowBox[{"StringLength", "[", "file", "]"}], "-", "3"}], ",", 
+           RowBox[{"StringLength", "[", "file", "]"}]}], "}"}]}], "]"}]}], 
+      ";", "\[IndentingNewLine]", 
+      RowBox[{"If", "[", "\[IndentingNewLine]", 
+       RowBox[{
+        RowBox[{
+         RowBox[{"(", 
+          RowBox[{"matchprefix", "\[Equal]", "prefix"}], ")"}], "&&", 
+         RowBox[{"(", 
+          RowBox[{"matchsuffix", "\[Equal]", "\"\<.png\>\""}], ")"}]}], ",", 
+        "\[IndentingNewLine]", 
+        RowBox[{"matchFilesPlot", "=", 
+         RowBox[{"Join", "[", 
+          RowBox[{"matchFilesPlot", ",", 
+           RowBox[{"{", "file", "}"}]}], "]"}]}]}], "\[IndentingNewLine]", 
+       "]"}], ";"}], "\[IndentingNewLine]", "\[IndentingNewLine]", ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "plotfiles", "]"}]}], "}"}]}], "]"}], 
+   "\[IndentingNewLine]", "matchFilesPlot", "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"SetDirectory", "[", "plotsfolder", "]"}], ";"}], 
+   "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"figs", "=", 
+     RowBox[{"Table", "[", 
+      RowBox[{
+       RowBox[{"Import", "[", 
+        RowBox[{"matchFilesPlot", "[", 
+         RowBox[{"[", "i", "]"}], "]"}], "]"}], ",", 
+       RowBox[{"{", 
+        RowBox[{"i", ",", "1", ",", 
+         RowBox[{"Length", "[", "matchFilesPlot", "]"}]}], "}"}]}], "]"}]}], 
+    ";"}], "\[IndentingNewLine]", 
+   RowBox[{
+    RowBox[{"ResetDirectory", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+   RowBox[{"Manipulate", "[", 
+    RowBox[{
+     RowBox[{"figs", "[", 
+      RowBox[{"[", "i", "]"}], "]"}], ",", 
+     RowBox[{"{", 
+      RowBox[{"i", ",", "1", ",", 
+       RowBox[{"Length", "[", "figs", "]"}], ",", "1"}], "}"}]}], 
+    "]"}]}]}]], "Input",
+ CellChangeTimes->{{3.8372221292972918`*^9, 3.8372221382840567`*^9}, {
+   3.8372221777266293`*^9, 3.8372221841000547`*^9}, {3.837222413071065*^9, 
+   3.83722267030973*^9}, {3.8372227785222063`*^9, 3.837222798132785*^9}, {
+   3.837222835595477*^9, 3.837222898036455*^9}, {3.837222997222447*^9, 
+   3.837223112555379*^9}, {3.837225543717237*^9, 3.837225544090012*^9}, {
+   3.837225595571471*^9, 3.837225596318972*^9}, 3.837225628370099*^9, {
+   3.837225668021707*^9, 3.837225698747952*^9}, {3.837225754055233*^9, 
+   3.837225789964313*^9}, {3.8372258825653048`*^9, 3.837225929743494*^9}, {
+   3.837227411121072*^9, 3.837227411671501*^9}, {3.837227461687018*^9, 
+   3.8372275447557173`*^9}, {3.8372284796279173`*^9, 3.837228496033415*^9}, {
+   3.837246687435902*^9, 3.8372466877650347`*^9}, {3.837246775310004*^9, 
+   3.837246781662125*^9}}],
+
+Cell[BoxData[
+ TagBox[
+  RowBox[{"(", "\[NoBreak]", GridBox[{
+     {"1", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"2", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"3", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"4", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"5", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"6", "\<\"Figure_RUN_pro&ret_LAL_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"7", "\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"8", "\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"9", \
+"\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"10", "\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"11", \
+"\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"12", "\<\"Figure_RUN_pro&ret_LAMcrv_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"13", "\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"14", "\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"15", "\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"16", "\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"17", \
+"\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"18", "\<\"Figure_RUN_pro&ret_LAMstr_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"19", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"20", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"21", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"22", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"23", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"24", "\<\"Figure_RUN_pro&ret_LGR_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"25", "\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"26", "\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"27", \
+"\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"28", \
+"\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"29", \
+"\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"30", "\<\"Figure_RUN_pro&ret_LIEdist_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"31", "\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"32", "\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"33", \
+"\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"34", \
+"\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"35", \
+"\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"36", "\<\"Figure_RUN_pro&ret_LIEprox_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"37", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"38", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"39", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"40", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"41", \
+"\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"42", "\<\"Figure_RUN_pro&ret_LIFB_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"43", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"44", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"45", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"46", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"47", \
+"\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"48", "\<\"Figure_RUN_pro&ret_LIFM_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"49", "\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"50", "\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"51", "\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"52", "\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"53", \
+"\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"54", "\<\"Figure_RUN_pro&ret_LIIlat_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"55", "\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"56", "\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"57", "\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"58", "\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"59", \
+"\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"60", "\<\"Figure_RUN_pro&ret_LIImed_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"61", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"62", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"63", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"64", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"65", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"66", "\<\"Figure_RUN_pro&ret_LOE_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"67", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"68", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"69", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"70", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"71", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"72", "\<\"Figure_RUN_pro&ret_LSA_hipL_KM02_RUN_02_LAR.csv\"\>"},
+     {"73", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_AA.csv\"\>"},
+     {"74", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_FE.csv\"\>"},
+     {"75", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_fixed_AA.csv\"\>"},
+     {"76", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_fixed_FE.csv\"\>"},
+     {"77", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_fixed_LAR.csv\"\>"},
+     {"78", "\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_LAR.csv\"\>"}
+    },
+    GridBoxAlignment->{
+     "Columns" -> {{Center}}, "ColumnsIndexed" -> {}, "Rows" -> {{Baseline}}, 
+      "RowsIndexed" -> {}},
+    GridBoxSpacings->{"Columns" -> {
+        Offset[0.27999999999999997`], {
+         Offset[0.7]}, 
+        Offset[0.27999999999999997`]}, "ColumnsIndexed" -> {}, "Rows" -> {
+        Offset[0.2], {
+         Offset[0.4]}, 
+        Offset[0.2]}, "RowsIndexed" -> {}}], "\[NoBreak]", ")"}],
+  Function[BoxForm`e$, 
+   MatrixForm[BoxForm`e$]]]], "Output",
+ CellChangeTimes->{{3.837222845011547*^9, 3.837222899111438*^9}, 
+   3.8372229981440477`*^9, {3.8372230905908117`*^9, 3.8372231130184517`*^9}, 
+   3.837225544971108*^9, 3.837225596890272*^9, 3.8372256296764317`*^9, {
+   3.837225676675288*^9, 3.837225700351153*^9}, 3.8372257909911957`*^9, {
+   3.837225903449514*^9, 3.8372259302604227`*^9}, 3.837227412194716*^9, 
+   3.837227465806307*^9, {3.837227539439445*^9, 3.837227545188427*^9}, 
+   3.837228026641324*^9, {3.837228480681258*^9, 3.837228496306943*^9}, {
+   3.837246658967154*^9, 3.837246688565097*^9}, 3.8372467826535482`*^9}],
+
+Cell[BoxData[
+ RowBox[{"{", 
+  RowBox[{"\<\"Figure_RUN_pro&ret_AA_relativeScaling.png\"\>", 
+   ",", "\<\"Figure_RUN_pro&ret_FE_relativeScaling.png\"\>", 
+   ",", "\<\"Figure_RUN_pro&ret_LAR_relativeScaling.png\"\>"}], 
+  "}"}]], "Output",
+ CellChangeTimes->{{3.837222845011547*^9, 3.837222899111438*^9}, 
+   3.8372229981440477`*^9, {3.8372230905908117`*^9, 3.8372231130184517`*^9}, 
+   3.837225544971108*^9, 3.837225596890272*^9, 3.8372256296764317`*^9, {
+   3.837225676675288*^9, 3.837225700351153*^9}, 3.8372257909911957`*^9, {
+   3.837225903449514*^9, 3.8372259302604227`*^9}, 3.837227412194716*^9, 
+   3.837227465806307*^9, {3.837227539439445*^9, 3.837227545188427*^9}, 
+   3.837228026641324*^9, {3.837228480681258*^9, 3.837228496306943*^9}, {
+   3.837246658967154*^9, 3.837246688565097*^9}, 3.83724678266807*^9}]
+}, Open  ]],
+
+Cell["Select from matchFilesData which one you want to check.", "Text",
+ CellChangeTimes->{{3.8372257164033127`*^9, 3.837225737891061*^9}, {
+  3.837225944148592*^9, 3.837225981388927*^9}}],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[{
+ RowBox[{"file", "=", 
+  RowBox[{"matchFilesData", "[", 
+   RowBox[{"[", "74", "]"}], "]"}]}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"SetDirectory", "[", "dataoutputfolder", "]"}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"data", "=", 
+   RowBox[{"Import", "[", 
+    RowBox[{"file", ",", "\"\<Data\>\""}], "]"}]}], 
+  ";"}], "\[IndentingNewLine]", 
+ RowBox[{
+  RowBox[{"ResetDirectory", "[", "]"}], ";"}], "\[IndentingNewLine]", 
+ RowBox[{"ListPlot", "[", 
+  RowBox[{"data", "[", 
+   RowBox[{"[", 
+    RowBox[{";;", ",", "1"}], "]"}], "]"}], "]"}]}], "Input",
+ CellChangeTimes->{{3.837225997521378*^9, 3.837226087444851*^9}, {
+   3.837226127687264*^9, 3.8372261345481653`*^9}, {3.837226216680705*^9, 
+   3.83722624609587*^9}, 3.8372264434228897`*^9, {3.8372274290505857`*^9, 
+   3.837227429188526*^9}, 3.837228053955521*^9, {3.8372280852184896`*^9, 
+   3.837228085309534*^9}, {3.837228256430682*^9, 3.837228280891405*^9}, {
+   3.8372283497122717`*^9, 3.837228411335897*^9}, 3.837228451327705*^9, {
+   3.837228513381339*^9, 3.837228519812975*^9}, {3.837246830460183*^9, 
+   3.8372468525688477`*^9}, {3.8372468870840683`*^9, 3.837246920493126*^9}}],
+
+Cell[BoxData["\<\"Figure_RUN_pro&ret_LSM_hipL_KM02_RUN_02_FE.csv\"\>"], \
+"Output",
+ CellChangeTimes->{{3.837226045481041*^9, 3.837226087870789*^9}, {
+   3.837226128171906*^9, 3.8372261350602617`*^9}, {3.8372262173029747`*^9, 
+   3.837226246277359*^9}, 3.8372264441660357`*^9, 3.8372274295845547`*^9, {
+   3.837228048060817*^9, 3.8372280545430593`*^9}, 3.837228085565568*^9, {
+   3.83722825699054*^9, 3.837228281361554*^9}, {3.8372283499217653`*^9, 
+   3.8372284117328444`*^9}, 3.837228451537822*^9, {3.837228507400057*^9, 
+   3.83722852007607*^9}, {3.837246831422213*^9, 3.8372468530172853`*^9}, {
+   3.837246888696177*^9, 3.8372469209912853`*^9}}],
+
+Cell[BoxData[
+ GraphicsBox[{{}, {{}, 
+    {RGBColor[0.368417, 0.506779, 0.709798], PointSize[0.01388888888888889], 
+     AbsoluteThickness[1.6], PointBox[CompressedData["
+1:eJw11A1M1GUcB/AD6jwJEa8TaIDyJjFOQEUERODL68n7vXEcegmCcswAb/lS
+y4KLEsQEnNgQiJa8hBavESlO4oBkOVAn6MCFlVyBbRxghQTJWcbz+2+3/z73
+3bPn9/89vz1O6YelB005HM6B/34v3ivPXIjC0vPrmlmOjv0BefGYU6KfCTMP
+fEmiyruVbIXW8q+eHnUzZRYgbcPo224VZFvYlPVmXZsn22NQN9K8uN+M2RFr
+Wzpc4qfIzjhi4aV4qH6J2RW++65FW5i+zOwGzpnqMcNJsjt22lr1z9hwmT3A
++zNi2e4ieTNqg/XZxzeuYvZCGmL2Wn5I3oJU5XKcaJq8FV/qD/1iIucxb8OD
+e73Cxk6yD1YKWs28HcM+TfwDErIvZHxJblMheQeKfNUDy1fIfpiptO2ZGCP7
+Q+9d4F0yRw7AZLZTS/cSeSem7A2KPQvkQGzkCyotDORdePSuoEX0iBwE1fg3
+mvq75GA8nbl8ousqOQTBvYvn/M6RAecmXklpOrMWuHQq57HQnfJQWEtqlrIe
+s+/XhqIo9WHLrWrqRxj0k/uep0ooD8PPiSUVuXzKw/GRPses9FfWX204MjfV
+CV+/Qf2OgFzU+AOngfII+L9TYV1TSHkkTjR+nrmopDwS6761u6D1oDwKfZXO
+nfNzXJZH4YGqefVn15k5IryYHmER5SKkHQuMslFQvhur2jXnRwSU78Yxt1dc
+cqdpvqIx15d5qaKHWRuN9DPzhTb1lMfg8q3a9zsqKY+B5nTFxEgV5bFYvjtn
+iGmlPBZ/y/QN1d9THgefiGdDw/coj0O2UR13dYryeKTEDm25vUh5PMRRhwf3
+OFD9CdDoRw0TgVR/AjK5dwSeOZQnYnuPQLi+mfJEhDYouSn/UC6Gqqxv3l3F
++gkxTDp5/KV+6rcYHiZV0QfD2HnqxMjvf5Zf20XnK8Frs2bRPl5sXiCBcXPx
+8ftlNE8SBPxkc/bJJLNOAqtTt3+zF5qz9VL84VzQdWQvM6TgfvBJ+MfZzFop
+2uVqXsJ+Zp0UIe3daqM/rZdh+XTGjyIj7S/Dm6/2nV1oo/1lkM+4O4Qn0f4y
++GzNu9FuoPrlmL1wNP9QHjPkUM+vWRq2onmWo14TZD5ax/qhk+NmgutfWZ40
+f0kQF23jVn3H+okkYCF0MCiC+p0ElVP/jrIv2PnpkjDlcPH8G+N0vykw/Xuc
+ddQ4u/+gwNrh666pvey+1CpQmyFdI21g961Ogbr/66H7ORmRQyGOA/ef96ys
+T0ZXTlv5k/XM2mQE5wUOFlwxrliXDPOAeEdjAjNHifI7GwbKdjFDCcubbZoO
+F2atEnl2b733aQatV6K7tOVkeDGtT2HzbOz5F5knzqg=
+      "]]}, {}}, {}},
+  AspectRatio->NCache[GoldenRatio^(-1), 0.6180339887498948],
+  Axes->{True, True},
+  AxesLabel->{None, None},
+  AxesOrigin->{0, -1.812751851851852},
+  DisplayFunction->Identity,
+  Frame->{{False, False}, {False, False}},
+  FrameLabel->{{None, None}, {None, None}},
+  FrameTicks->{{Automatic, Automatic}, {Automatic, Automatic}},
+  GridLines->{None, None},
+  GridLinesStyle->Directive[
+    GrayLevel[0.5, 0.4]],
+  Method->{},
+  PlotRange->{{0., 100.}, {-3.303, -1.8837160493827159`}},
+  PlotRangeClipping->True,
+  PlotRangePadding->{{
+     Scaled[0.02], 
+     Scaled[0.02]}, {
+     Scaled[0.05], 
+     Scaled[0.05]}},
+  Ticks->{Automatic, Automatic}]], "Output",
+ CellChangeTimes->{{3.837226045481041*^9, 3.837226087870789*^9}, {
+   3.837226128171906*^9, 3.8372261350602617`*^9}, {3.8372262173029747`*^9, 
+   3.837226246277359*^9}, 3.8372264441660357`*^9, 3.8372274295845547`*^9, {
+   3.837228048060817*^9, 3.8372280545430593`*^9}, 3.837228085565568*^9, {
+   3.83722825699054*^9, 3.837228281361554*^9}, {3.8372283499217653`*^9, 
+   3.8372284117328444`*^9}, 3.837228451537822*^9, {3.837228507400057*^9, 
+   3.83722852007607*^9}, {3.837246831422213*^9, 3.8372468530172853`*^9}, {
+   3.837246888696177*^9, 3.8372469210199757`*^9}}]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+},
+WindowSize->{808, 755},
+WindowMargins->{{80, Automatic}, {43, Automatic}},
+FrontEndVersion->"10.0 for Mac OS X x86 (32-bit, 64-bit Kernel) (December 4, \
+2014)",
+StyleDefinitions->"Default.nb"
+]
+(* End of Notebook Content *)
+
+(* Internal cache information *)
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+(*NotebookFileOutline
+Notebook[{
+Cell[CellGroupData[{
+Cell[580, 22, 194, 4, 109, "Chapter"],
+Cell[CellGroupData[{
+Cell[799, 30, 2036, 49, 301, "Input"],
+Cell[2838, 81, 259, 3, 22, "Print"],
+Cell[3100, 86, 4946, 95, 828, "Output"],
+Cell[8049, 183, 258, 3, 21, "Print"],
+Cell[8310, 188, 30599, 633, 6126, "Output"]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[38946, 826, 118, 1, 64, "Section"],
+Cell[CellGroupData[{
+Cell[39089, 831, 1320, 32, 165, "Input"],
+Cell[40412, 865, 379, 5, 28, "Output"],
+Cell[40794, 872, 2413, 49, 239, "Output"]
+}, Open  ]]
+}, Closed]],
+Cell[CellGroupData[{
+Cell[43256, 927, 117, 1, 50, "Section"],
+Cell[43376, 930, 174, 4, 30, "Text"],
+Cell[CellGroupData[{
+Cell[43575, 938, 5740, 140, 556, "Input"],
+Cell[49318, 1080, 7080, 114, 1350, "Output"],
+Cell[56401, 1196, 818, 13, 46, "Output"]
+}, Open  ]],
+Cell[57234, 1212, 188, 2, 30, "Text"],
+Cell[CellGroupData[{
+Cell[57447, 1218, 1180, 25, 97, "Input"],
+Cell[58630, 1245, 649, 9, 28, "Output"],
+Cell[59282, 1256, 2809, 55, 228, "Output"]
+}, Open  ]]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+(* End of internal cache information *)

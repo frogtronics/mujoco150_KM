@@ -1,0 +1,19 @@
+changes:
+
+-As requested, I've changed the representative paths for multi-region muscles.  Plot grids have been updated, but the labels no longer reflect the muscle compartment.  I.e. label for LCI now reads "LCI" instead of "LCImid".  See \output\plots\README_FIRST.txt for more information.  
+
+-Note to Amber: every "small" change usually requires hours of work because careful edits to code are needed and graphs need to be spot-checked against data.  Due to the complexity of this task, there may be unknown "bugs" in my workflow.  Plots are correct to the best of my ability, but there are ~700 data traces in this paper, so it's impossible to check all.  Hopefully there are no bugs in the current version, but if you do see an error or something that doesn't make sense with recently produced plots, revert back to the earlier plot versions in the most recent z.old folder and you can base your writing on those.  Things can always be tweaked for the second submission.
+
+-I included raw data (directly from MuJoCo) as well as the data used in the plots. See \documentation\README_outputdata.txt
+
+-New plots (late July onwards) are plotted in mm.  See \documentation\README_outputdata.txt.  Amber - This is also noted in the emails I sent to you.
+
+-I added a new folder \output\plots\individual_plots containing the old (but correct) versions of the individual figure panels for reference.  These are older, so they are in m.
+
+-I've been including the code used to generate plots and plot grids. MJmodelling_Paper_FigsXX. It is very complex, but is well-commented.  Paths need adjusting so the code can run locally.
+
+-To Do for Chris: 1) Create plots for SI of remaining CI, IL, II, AM and IE muscle regions.
+Each muscle will have its own figure.  Must be done before submission 1.  2) Rework figure-generating mathematica code so that it can be run from the git repo folder.  Currently some dependencies are not local.  And file paths need to be synthesised automatically based on user's OS (a major job).  To do before publication.
+
+
+
