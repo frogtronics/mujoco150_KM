@@ -1,4 +1,4 @@
-This repository contains source code and image data to reproduce a frog musculoskeletal model and simulation created initially by Amber Collings and Enrico Eberhard and modified by Chris Basu and Chris Richards.  Like anything in science, it is a work in progress.  You may dowload it and work with it freely or you can fork it locally to stay up-to-date with changes.  
+This repository contains source code and image data to reproduce a frog musculoskeletal model and simulation created initially by Amber Collings and Enrico Eberhard and modified by Chris Basu and Chris Richards.  Moment arms are calculated using MuJoCo version 1.50 (www.mujoco.org). Like anything in science, it is a work in progress.  You may dowload it and work with it freely or you can fork it locally to stay up-to-date with changes.  
 
 If you use this model, please use the following citation:
 Amber J Collings, Enrico Eberhard, Chris Basu, Chris Richards
