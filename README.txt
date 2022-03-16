@@ -1,4 +1,8 @@
-This repository contains source code and image data to reproduce a frog musculoskeletal model and simulation created by Amber Collings and Enrico Eberhard and modified by Chris Basu and Chris Richards.  It is currently incomplete and under development and has not been validated or fully tested and therefore is not yet intended for public use.
+This repository contains source code and image data to reproduce a frog musculoskeletal model and simulation created initially by Amber Collings and Enrico Eberhard and modified by Chris Basu and Chris Richards.  Like anything in science, it is a work in progress.  You may dowload it and work with it freely or you can fork it locally to stay up-to-date with changes.  
+
+If you use this model, please use the following citation:
+Amber J Collings, Enrico Eberhard, Chris Basu, Chris Richards
+"Functional analysis of anuran pelvic and thigh anatomy using musculoskeletal modeling of Phlyctimantis maculatus", DOI: 10.3389/fbioe.2022.806174, Frontiers Bioengineering
 
 Take a moment to check the folder structure, below.  Then open \documentation\README_FIRST.txt
 
@@ -12,7 +16,3 @@ Take a moment to check the folder structure, below.  Then open \documentation\RE
 "scripts" contains any associated scripts in Matlab (.m), mathematica (.nb) or other.  Also contains metadata files as well as some other useful items
 "src" contains all c++ source code for MuJoCo simulations
 
-
-
-TO DO:
-Chris: test filesave outputs from changeAngles to make sure it is the same as ChrisB's.  Make new folder in data called TEST, put two test cases in there one is a file known to work another is a new saved one.
